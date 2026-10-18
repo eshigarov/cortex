@@ -111,6 +111,14 @@ export default function Home() {
           </div>
 
           <div className="reveal reveal-4 mt-20">
+            <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-paper)]/40">
+                измерения
+              </span>
+              <span className="text-[13px] text-[var(--color-paper)]/55">
+                Что мы измерили на собственном корпусе
+              </span>
+            </div>
             <div className="grid grid-cols-2 gap-px overflow-hidden border border-white/15 bg-white/15 md:grid-cols-4">
               {[
                 ["469", "сущностей в графе"],
@@ -353,6 +361,36 @@ export default function Home() {
           <p className="mt-6 text-[11.5px] text-[var(--color-mute)]">
             Механика описана на нашем рабочем корпусе. Завершённых внедрений и публичных кейсов нет.
           </p>
+        </div>
+      </section>
+
+      {/* PILOT */}
+      <section className="border-t border-[var(--color-line)] bg-white/40">
+        <div className="wrap py-24 md:py-36">
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div>
+              <span className="eyebrow">пилот · 2 недели</span>
+              <h2 className="h2 mt-4 max-w-[22ch]">Что вы получите за две недели</h2>
+            </div>
+            <p className="max-w-[38ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
+              Не отчёт о намерениях, а замеры на ваших данных. Что не сойдётся — скажем прямо.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["01", "Граф на ваших данных", "Сколько сущностей каких типов, сколько связей и какая доля ведёт в узлы. Считаем так же, как на своём корпусе."],
+              ["02", "Ответы на ваши вопросы", "До старта — список вопросов, которые сейчас закрываете вручную. В конце по каждому: ответ, документ-основание, верно / неверно / не найдено."],
+              ["03", "Замер времени", "Время ответа на ваших запросах: отдельно с генеративной моделью и без. Не на трёх запросах, а на вашем списке."],
+              ["04", "Журнал и итог", "Выбранные вами выводы повторяются по журналу. Письменный итог: что подтвердилось, что нет, что мешает внедрению."],
+            ].map(([n, t, d]) => (
+              <article key={n} className="bg-[var(--color-paper)] p-7">
+                <div className="font-mono text-[11px] text-[var(--color-mute)]">{n}</div>
+                <h3 className="mt-4 text-[16px] font-semibold leading-snug">{t}</h3>
+                <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
