@@ -7,8 +7,7 @@ const items = [
   { href: "/platform", label: "Платформа" },
   { href: "/ontology", label: "Онтология" },
   { href: "/solutions", label: "Решения" },
-  { href: "/industries", label: "Отрасли" },
-  { href: "/cases", label: "Кейсы" },
+  { href: "/scenarios", label: "Сценарии" },
   { href: "/security", label: "Безопасность" },
   { href: "/about", label: "Компания" },
 ];

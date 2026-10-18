@@ -92,21 +92,22 @@ export default function Home() {
             </div>
 
             <h1 className="display reveal mt-8 max-w-[17ch]">
-              Онтология решений:{" "}
-              <span className="text-[var(--color-acid)]">данные, связи и действия</span>{" "}
-              в одной модели
+              Ядро для ИИ-агентов: связанные данные, память,{" "}
+              <span className="text-[var(--color-acid)]">журнал решений</span>
             </h1>
 
             <p className="reveal reveal-2 mt-10 max-w-[54ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
-              Cortex собирает сущности и связи из ваших файлов и таблиц, хранит историю действий агента
-              и показывает, на чём основан каждый ответ. Работает в контуре заказчика: без внешних вызовов
-              и без выгрузки корпуса.
+              Cortex собирает документы и таблицы компании в граф связей и даёт агенту память и журнал.
+              Вывод агента можно проверить по источникам. Старт — пилот на 2 недели.
             </p>
 
-            <div className="reveal reveal-3 mt-10 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn btn-acid">Пилот на ваших данных <span aria-hidden>→</span></Link>
+            <div className="reveal reveal-3 mt-10 flex flex-wrap items-center gap-3">
+              <Link href="/contact" className="btn btn-acid">Запросить пилот <span aria-hidden>→</span></Link>
               <Link href="/platform" className="btn border-white/25 text-[var(--color-paper)] hover:bg-white/10">Как устроено</Link>
             </div>
+            <p className="mt-5 max-w-[52ch] text-[12px] leading-relaxed text-[var(--color-paper)]/45">
+              Не чат-бот и не фреймворк: слой, на котором работают агенты. Данные остаются в вашем контуре.
+            </p>
           </div>
 
           <div className="reveal reveal-4 mt-20">
@@ -136,18 +137,18 @@ export default function Home() {
           <div className="flex flex-wrap items-end justify-between gap-8">
             <div>
               <span className="eyebrow">три опоры</span>
-              <h2 className="h2 mt-4 max-w-[20ch]">На чём держится решение</h2>
+              <h2 className="h2 mt-4 max-w-[20ch]">На чём держится вывод</h2>
             </div>
             <p className="max-w-[40ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
-              Не «ответ модели», а цепочка: что известно, на каком основании и что с этим можно сделать.
+              Не «ответ модели», а цепочка: что связано, что помнит агент и на каком основании он говорит.
             </p>
           </div>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-3">
             {[
-              ["Картина", "что известно", "Сущности, связи и источники. Клиент, проект, оборудование — с типами и ключами, без дублей."],
-              ["Основание", "на чём держится вывод", "Документы, расчёты, регламенты. Каждое утверждение — со ссылкой и цепочкой."],
-              ["Действие", "что с этим сделать", "Заявка, решение, эскалация, откат. Агент действует в рамках прав и регламента."],
+              ["Связи", "что с чем связано", "Файлы и таблицы собраны в сущности с типами и ключами: люди, проекты, оборудование, контрагенты. Дубли склеены, связи типизированы."],
+              ["Память", "что агент помнит", "Рабочая память держит задачу, эпизодическая — что агент делал и как это повторить, семантическая — что известно компании."],
+              ["Основание", "на чём держится вывод", "Журнал решений хранит источники, цепочку вывода и версию. Любой вывод можно повторить и показать на проверке."],
             ].map(([t, tag, d], i) => (
               <article key={t} className="bg-[var(--color-paper)] p-8">
                 <div className="flex items-center justify-between">
@@ -157,6 +158,28 @@ export default function Home() {
                 <h3 className="h3 mt-10">{t}</h3>
                 <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="wrap py-24 md:py-36">
+        <div className="grid gap-16 md:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <span className="eyebrow">проблема</span>
+            <h2 className="h2 mt-4 max-w-[18ch]">Агент без ядра — скрипт с амнезией</h2>
+          </div>
+          <div className="grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-3">
+            {[
+              ["Не помнит", "Каждый запрос начинается с нуля: контекст потерян, решение не воспроизвести."],
+              ["Не связывает", "Отвечает похожими абзацами, но не знает, что клиент, проект и письмо — об одном."],
+              ["Не отчитывается", "Нет ответа на вопрос «на основании чего». Для аудита и ИБ это дисквалификация."],
+            ].map(([t, d]) => (
+              <div key={t} className="bg-[var(--color-paper)] p-6">
+                <div className="h3">{t}</div>
+                <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-mute)]">{d}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -212,28 +235,6 @@ export default function Home() {
               <span>контроль</span><span className="text-[var(--color-acid)]">●</span>
             </span>
           ))}
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <section className="wrap py-24 md:py-36">
-        <div className="grid gap-16 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <span className="eyebrow">проблема</span>
-            <h2 className="h2 mt-4 max-w-[18ch]">Агент без ядра — скрипт с амнезией</h2>
-          </div>
-          <div className="grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-3">
-            {[
-              ["Не помнит", "Каждый запрос начинается с нуля: контекст потерян, решение не воспроизвести."],
-              ["Не связывает", "Отвечает похожими абзацами, но не знает, что клиент, проект и письмо — об одном."],
-              ["Не отчитывается", "Нет ответа на вопрос «на основании чего». Для аудита и ИБ это дисквалификация."],
-            ].map(([t, d]) => (
-              <div key={t} className="bg-[var(--color-paper)] p-6">
-                <div className="h3">{t}</div>
-                <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-mute)]">{d}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -329,53 +330,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INDUSTRIES */}
-      <section className="wrap py-24 md:py-36">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <span className="eyebrow">отрасли</span>
-            <h2 className="h2 mt-4 max-w-[22ch]">Там, где знания дороже софта</h2>
-          </div>
-          <Link href="/industries" className="btn btn-ghost">Все отрасли →</Link>
-        </div>
-
-        <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
-          {industries.map((i) => (
-            <div key={i.name} className="group relative bg-[var(--color-paper)] p-6 transition-colors hover:bg-white">
-              <span className="absolute left-0 top-0 h-full w-[3px] bg-[var(--color-acid)] opacity-0 transition-opacity group-hover:opacity-100" />
-              <h3 className="text-[16px] font-semibold">{i.name}</h3>
-              <p className="mt-2 text-[13.5px] text-[var(--color-mute)]">{i.pain}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CASES */}
+      {/* SCENARIOS */}
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24 md:py-36">
-          <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="flex flex-wrap items-end justify-between gap-8">
             <div>
-              <span className="eyebrow">сценарии</span>
-              <h2 className="h2 mt-4">Что это даёт на практике</h2>
+              <span className="eyebrow">сценарии по отраслям</span>
+              <h2 className="h2 mt-4 max-w-[22ch]">Это сценарии, не внедрения</h2>
             </div>
-            <Link href="/cases" className="btn btn-ghost">Все кейсы →</Link>
+            <Link href="/scenarios" className="btn btn-ghost">Все сценарии →</Link>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {cases.map((c) => (
-              <article key={c.title} className="card flex flex-col p-7">
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-mute)]">{c.tag}</span>
-                <h3 className="h3 mt-5">{c.title}</h3>
-                <p className="mt-3 flex-1 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{c.text}</p>
-                <div className="mt-6 border-t border-[var(--color-line)] pt-4">
-                  <div className="font-mono text-[15px] tracking-[-0.01em]">{c.metric}</div>
-                  <div className="text-[11.5px] text-[var(--color-mute)]">что измерим в пилоте: {c.metricLabel}</div>
-                </div>
-              </article>
+          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((i) => (
+              <div key={i.name} className="group relative bg-[var(--color-paper)] p-7 transition-colors hover:bg-white">
+                <span className="absolute left-0 top-0 h-full w-[3px] bg-[var(--color-acid)] opacity-0 transition-opacity group-hover:opacity-100" />
+                <h3 className="text-[16px] font-semibold">{i.name}</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{i.pain}</p>
+              </div>
             ))}
           </div>
           <p className="mt-6 text-[11.5px] text-[var(--color-mute)]">
-            Сценарии описывают механику, а не завершённые проекты. Замеры сделаны на рабочем корпусе Cortex.
+            Механика описана на нашем рабочем корпусе. Завершённых внедрений и публичных кейсов нет.
           </p>
         </div>
       </section>

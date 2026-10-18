@@ -45,6 +45,21 @@ export default function SecurityPage() {
         </div>
       </section>
 
+      <section className="border-y border-[var(--color-line)] bg-white/40">
+        <div className="wrap py-24">
+          <span className="eyebrow">границы</span>
+          <h2 className="h2 mt-4 max-w-[24ch]">Чего мы не утверждаем</h2>
+          <div className="mt-16 grid gap-6 sm:grid-cols-2">
+            {limits.map(([t, d]) => (
+              <div key={t} className="border border-[var(--color-line)] p-6">
+                <h3 className="text-[15px] font-semibold">{t}</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="wrap py-24">
         <div className="grid gap-6 md:grid-cols-2">
           {facts.map((f) => (
@@ -96,21 +111,6 @@ export default function SecurityPage() {
               <div key={t} className="border-t border-[var(--color-line)] pt-5">
                 <h3 className="text-[16px] font-semibold">{t}</h3>
                 <p className="mt-2 max-w-[62ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-y border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24">
-          <span className="eyebrow">границы</span>
-          <h2 className="h2 mt-4 max-w-[24ch]">Чего мы не утверждаем</h2>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2">
-            {limits.map(([t, d]) => (
-              <div key={t} className="border border-[var(--color-line)] p-6">
-                <h3 className="text-[15px] font-semibold">{t}</h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
               </div>
             ))}
           </div>
