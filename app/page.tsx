@@ -92,9 +92,9 @@ export default function Home() {
             </div>
 
             <h1 className="display reveal mt-8 max-w-[17ch]">
-              Связанные данные, память и{" "}
-              <span className="text-[var(--color-acid)]">журнал решений</span>{" "}
-              для ИИ-агентов
+              Онтология решений:{" "}
+              <span className="text-[var(--color-acid)]">данные, связи и действия</span>{" "}
+              в одной модели
             </h1>
 
             <p className="reveal reveal-2 mt-10 max-w-[54ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
@@ -126,6 +126,38 @@ export default function Home() {
             <p className="mt-6 text-[11px] text-[var(--color-paper)]/40">
               замерено на рабочем корпусе: 1,63 млн символов · два источника
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ANCHORS */}
+      <section className="border-b border-[var(--color-line)]">
+        <div className="wrap py-24 md:py-28">
+          <div className="flex flex-wrap items-end justify-between gap-8">
+            <div>
+              <span className="eyebrow">три опоры</span>
+              <h2 className="h2 mt-4 max-w-[20ch]">На чём держится решение</h2>
+            </div>
+            <p className="max-w-[40ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
+              Не «ответ модели», а цепочка: что известно, на каком основании и что с этим можно сделать.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-3">
+            {[
+              ["Картина", "что известно", "Сущности, связи и источники. Клиент, проект, оборудование — с типами и ключами, без дублей."],
+              ["Основание", "на чём держится вывод", "Документы, расчёты, регламенты. Каждое утверждение — со ссылкой и цепочкой."],
+              ["Действие", "что с этим сделать", "Заявка, решение, эскалация, откат. Агент действует в рамках прав и регламента."],
+            ].map(([t, tag, d], i) => (
+              <article key={t} className="bg-[var(--color-paper)] p-8">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] text-[var(--color-mute)]">0{i + 1}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{tag}</span>
+                </div>
+                <h3 className="h3 mt-10">{t}</h3>
+                <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
