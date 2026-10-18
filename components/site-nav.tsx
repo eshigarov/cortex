@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const items = [
   { href: "/platform", label: "Платформа" },
-  { href: "/ontology", label: "Онтология" },
+  { href: "/products", label: "Продукты" },
   { href: "/solutions", label: "Решения" },
   { href: "/scenarios", label: "Сценарии" },
   { href: "/security", label: "Безопасность" },

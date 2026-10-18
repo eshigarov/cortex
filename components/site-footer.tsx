@@ -19,6 +19,7 @@ export function SiteFooter() {
             <div className="eyebrow mb-3">Платформа</div>
             <ul className="space-y-2 text-[14px]">
               <li><Link href="/ontology" className="hover:underline">Онтология</Link></li>
+              <li><Link href="/products" className="hover:underline">Продукты</Link></li>
               <li><Link href="/platform" className="hover:underline">Память</Link></li>
               <li><Link href="/platform" className="hover:underline">Граф знаний</Link></li>
               <li><Link href="/platform" className="hover:underline">Отчётность</Link></li>

@@ -98,6 +98,25 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      <section className="wrap pb-24">
+        <div className="border border-[var(--color-line)] p-7 md:p-9">
+          <div className="eyebrow">продукты на этом ядре</div>
+          <h2 className="h3 mt-4">Что можно купить отдельно</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {[
+              ["Cortex Core", "онтология, связи, поиск", "/products"],
+              ["Cortex Memory", "память и журнал решений", "/products"],
+              ["Cortex Agents", "агенты под роли", "/products"],
+            ].map(([t, d, href]) => (
+              <Link key={t} href={href} className="block border border-[var(--color-line)] p-5 transition-colors hover:bg-white">
+                <div className="text-[15px] font-semibold">{t}</div>
+                <div className="mt-1 text-[13px] text-[var(--color-mute)]">{d}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="wrap py-24">
         <div className="flex flex-wrap items-center justify-between gap-6 border border-[var(--color-ink)] p-8">
           <div>
