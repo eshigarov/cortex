@@ -340,10 +340,10 @@ export default function Home() {
         <div className="wrap py-24 md:py-36">
           <div className="flex flex-wrap items-end justify-between gap-8">
             <div>
-              <span className="eyebrow">сценарии по отраслям</span>
-              <h2 className="h2 mt-4 max-w-[22ch]">Это сценарии, не внедрения</h2>
+              <span className="eyebrow">опыт и сценарии</span>
+              <h2 className="h2 mt-4 max-w-[22ch]">Работали с этим руками</h2>
             </div>
-            <Link href="/scenarios" className="btn btn-ghost">Все сценарии →</Link>
+            <Link href="/experience" className="btn btn-ghost">Опыт и сценарии →</Link>
           </div>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
@@ -356,7 +356,8 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-6 text-[11.5px] text-[var(--color-mute)]">
-            Механика описана на нашем рабочем корпусе. Завершённых внедрений и публичных кейсов нет.
+            Примеры внедрений — без названий компаний, по условию работы с заказчиками.
+            Сценарии описывают механику, а не обещают результат.
           </p>
         </div>
       </section>

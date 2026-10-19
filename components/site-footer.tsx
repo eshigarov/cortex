@@ -32,7 +32,7 @@ export function SiteFooter() {
               <li><Link href="/solutions" className="hover:underline">Автоматизация</Link></li>
               <li><Link href="/solutions" className="hover:underline">Реимплементация ПО</Link></li>
               <li><Link href="/solutions" className="hover:underline">Оперэффективность</Link></li>
-              <li><Link href="/scenarios" className="hover:underline">Сценарии</Link></li>
+              <li><Link href="/experience" className="hover:underline">Опыт</Link></li>
             </ul>
           </div>
 
@@ -41,7 +41,7 @@ export function SiteFooter() {
             <ul className="space-y-2 text-[14px]">
               <li><Link href="/security" className="hover:underline">Безопасность</Link></li>
               <li><Link href="/about" className="hover:underline">О нас</Link></li>
-              <li><Link href="/scenarios" className="hover:underline">Отрасли и сценарии</Link></li>
+              <li><Link href="/experience" className="hover:underline">Отрасли и сценарии</Link></li>
               <li><Link href="/contact" className="hover:underline">Контакты</Link></li>
             </ul>
           </div>

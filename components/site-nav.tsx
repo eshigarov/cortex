@@ -7,7 +7,7 @@ const items = [
   { href: "/platform", label: "Платформа" },
   { href: "/core", label: "Cortex Core" },
   { href: "/solutions", label: "Решения" },
-  { href: "/scenarios", label: "Сценарии" },
+  { href: "/experience", label: "Опыт" },
   { href: "/security", label: "Безопасность" },
   { href: "/about", label: "Компания" },
 ];
