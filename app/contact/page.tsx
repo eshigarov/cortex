@@ -1,16 +1,17 @@
 export default function ContactPage() {
   return (
     <section className="border-b border-[var(--color-line)]">
-      <div className="wrap grid gap-16 py-24 md:grid-cols-[0.9fr_1.1fr] md:py-24">
+      <div className="wrap grid gap-16 py-24 md:grid-cols-[0.9fr_1.1fr] md:py-32">
         <div>
           <span className="eyebrow">контакт</span>
           <h1 className="display mt-5 max-w-[14ch]">Пилот на ваших данных</h1>
-          <p className="mt-7 max-w-[46ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
-            Две недели, десять реальных вопросов, ответы со ссылками и журнал решений.
-            Никаких внешних вызовов: корпус остаётся у вас.
+          <p className="mt-8 max-w-[46ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
+            Две недели. Загружаем корпус, собираем граф, отвечаем на десять ваших вопросов.
+            В конце — замеры и журнал. Пилот платный, фиксированная сумма; первым 2–3 компаниям бесплатно
+            в обмен на право описать сценарий.
           </p>
 
-          <div className="mt-10 space-y-5 border-t border-[var(--color-line)] pt-6 text-[14px]">
+          <div className="mt-12 space-y-6 border-t border-[var(--color-line)] pt-6 text-[14px]">
             <div>
               <div className="eyebrow mb-1">почта</div>
               <a className="underline decoration-[var(--color-acid)] decoration-2 underline-offset-4" href="mailto:hello@cortex.ai">
@@ -20,12 +21,14 @@ export default function ContactPage() {
             <div>
               <div className="eyebrow mb-1">что прислать</div>
               <p className="text-[var(--color-mute)]">
-                Отрасль, объём документов, где они лежат, и один вопрос, на который сейчас долго ищете ответ.
+                Отрасль, объём документов, где они лежат и один вопрос, на который сейчас долго ищете ответ.
               </p>
             </div>
             <div>
-              <div className="eyebrow mb-1">формат</div>
-              <p className="text-[var(--color-mute)]">Демо в вашем контуре или онлайн. 45 минут.</p>
+              <div className="eyebrow mb-1">что получите</div>
+              <p className="text-[var(--color-mute)]">
+                Ответы на ваш список вопросов, замеры времени и журнал решений. Без презентаций.
+              </p>
             </div>
           </div>
         </div>
@@ -58,7 +61,7 @@ export default function ContactPage() {
               <span className="eyebrow">отрасль</span>
               <input
                 className="mt-2 w-full border-b border-[var(--color-line)] bg-transparent py-2 text-[15px] outline-none focus:border-[var(--color-ink)]"
-                placeholder="ГМК, энергетика, финансы…"
+                placeholder="ГМК, энергетика, финансы"
               />
             </label>
           </div>

@@ -3,38 +3,38 @@ import Link from "next/link";
 const layers = [
   {
     n: "01",
-    title: "Онтология (система организации знаний)",
-    lead: "Схема мира, а не папка с файлами",
-    text: "Ядро читает таблицы и документы и выводит сущности: клиент, проект, человек, оборудование, контрагент. У каждой — тип, ключ и поля. Дубли склеиваются, повторы не плодятся.",
-    bullets: ["автоматическое определение ключей", "типы и справочники", "дедупликация сущностей", "описания из данных; ошибки разбора видны как сироты и разрывы"],
+    title: "Онтология",
+    lead: "Компания как система, а не папка с файлами",
+    text: "Документы и таблицы становятся сущностями: люди, проекты, оборудование, контрагенты. У каждой — тип, ключ и связи. Дубли склеиваются.",
+    gives: "единый язык подразделений",
   },
   {
     n: "02",
-    title: "Память (три горизонта)",
-    lead: "Три горизонта, а не один контекст",
-    text: "Рабочая память держит задачу. Эпизодическая хранит, что агент делал и чем закончилось. Семантическая — всё, что известно. Без второй агент не учится на своих действиях; без первой не тянет длинную задачу.",
-    bullets: ["контекст задачи", "журнал действий и повторов", "накопленные знания", "воспроизводимость ответа"],
+    title: "Память",
+    lead: "Опыт остаётся в компании",
+    text: "Агент помнит задачу, свои действия и то, что известно компании. Не начинает с нуля и может повторить ход мысли.",
+    gives: "знания не уходят с сотрудником",
   },
   {
     n: "03",
-    title: "Граф знаний (связи)",
-    lead: "Связи, которые можно объяснить",
-    text: "Рёбра типизированы: «ссылается», «отвечает за», «входит в». Вопрос «кто отвечает за пилот» решается обходом, а не сходством слов. Висячие связи выявляются и сшиваются.",
-    bullets: ["типизированные связи", "обход в один-два шага", "поиск сирот и разрывов", "два источника раздельно"],
+    title: "Связи",
+    lead: "Ответ находится обходом, а не совпадением слов",
+    text: "Связи типизированы: кто с кем, что с чем, на каком основании. Вопрос «кто отвечает за пилот» решается по рёбрам графа.",
+    gives: "ответ по делу, а не похожий абзац",
   },
   {
     n: "04",
-    title: "Контур исполнения (харнес)",
-    lead: "Действие под регламентом",
-    text: "Агент не просто отвечает — он выполняет шаги: инструменты, проверки, лимиты, остановка. Каждое действие проходит гейт, результат фиксируется.",
-    bullets: ["инструменты и вызовы", "лимиты и бюджеты", "откат действий внутри контура — не во внешних системах", "остановка по условию"],
+    title: "Контур исполнения",
+    lead: "Действие в рамках прав и регламента",
+    text: "Инструменты, лимиты, остановка, откат внутри контура. Агент не выходит за границы своей роли.",
+    gives: "агент делает, но не больше положенного",
   },
   {
     n: "05",
-    title: "Отчётность (журнал)",
-    lead: "То, что принимает служба безопасности",
-    text: "На каждый ответ — источник, цитата, цепочка ранжирования и запись в журнал. Тот же вопрос даёт тот же ответ и те же ссылки. Это журнал, по которому можно провести проверку; сертификата соответствия у нас нет.",
-    bullets: ["цитата и документ", "цепочка «почему сюда»", "журнал эпизодов", "повтор по команде"],
+    title: "Отчётность",
+    lead: "Каждое решение можно проверить",
+    text: "Журнал: вопрос, источники, цепочка вывода, версия. Тот же вопрос даёт тот же ответ и те же ссылки.",
+    gives: "основание для проверки",
   },
 ];
 
@@ -44,19 +44,18 @@ export default function PlatformPage() {
       <section className="border-b border-[var(--color-line)]">
         <div className="wrap pb-24 pt-24 md:pb-36 md:pt-36">
           <span className="eyebrow">платформа</span>
-          <h1 className="display mt-5 max-w-[18ch]">Пять слоёв, которые работают только вместе</h1>
-          <p className="mt-7 max-w-[58ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
-            Можно взять память без онтологии: получится свалка эмбеддингов. Можно онтологию без отчётности:
-            получится красивая схема, которую не пропустит ИБ. Cortex собирает слои так, чтобы вывод был
-            объясним на каждом шаге.
+          <h1 className="display mt-5 max-w-[18ch]">Пять слоёв, которые работают вместе</h1>
+          <p className="mt-8 max-w-[56ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
+            Память без онтологии превращается в свалку. Онтология без отчётности — в красивую схему,
+            которую не пропустит ИБ. Ядро собирает слои так, чтобы вывод был объясним на каждом шаге.
           </p>
         </div>
       </section>
 
       <section className="wrap py-24">
-        <div className="space-y-24">
+        <div className="space-y-14">
           {layers.map((l) => (
-            <article key={l.n} className="grid gap-8 border-t border-[var(--color-ink)] pt-8 md:grid-cols-[0.35fr_0.65fr]">
+            <article key={l.n} className="grid gap-8 border-t border-[var(--color-ink)] pt-8 md:grid-cols-[0.34fr_0.66fr]">
               <div>
                 <div className="font-mono text-[12px] text-[var(--color-mute)]">{l.n}</div>
                 <h2 className="h3 mt-3 text-[22px]">{l.title}</h2>
@@ -64,14 +63,9 @@ export default function PlatformPage() {
               </div>
               <div>
                 <p className="max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-ink)]/80">{l.text}</p>
-                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {l.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2 text-[13.5px] text-[var(--color-mute)]">
-                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-acid)]" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-4 border-t border-[var(--color-line)] pt-3 text-[12.5px] text-[var(--color-ink)]/70">
+                  → {l.gives}
+                </p>
               </div>
             </article>
           ))}
@@ -81,12 +75,12 @@ export default function PlatformPage() {
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
           <span className="eyebrow">под капотом</span>
-          <h2 className="h2 mt-4">Что уже построено и измерено</h2>
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
+          <h2 className="h2 mt-4">Что уже работает</h2>
+          <div className="mt-12 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
             {[
               ["Postgres + pgvector", "хранение сущностей и векторов"],
-              ["4 канала поиска", "вектор, полнотекст, триграммы, точные вхождения"],
-              ["RRF-слияние", "один ранк вместо спора каналов"],
+              ["Четыре канала поиска", "смысл, точные слова, окончания, названия"],
+              ["Слияние результатов", "один ранк вместо спора каналов"],
               ["Локальная модель", "данные не покидают контур"],
             ].map(([t, d]) => (
               <div key={t} className="bg-[var(--color-paper)] p-6">
@@ -95,29 +89,33 @@ export default function PlatformPage() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-[12px] text-[var(--color-mute)]">
+            Технические детали — для ИТ и ИБ. На пилоте показываем схему развёртывания и потоки данных.
+          </p>
         </div>
       </section>
 
-      <section className="wrap pb-24">
+      <section className="wrap py-24">
         <div className="border border-[var(--color-line)] p-7 md:p-9">
-          <div className="eyebrow">продукты на этом ядре</div>
-          <h2 className="h3 mt-4">Что можно купить отдельно</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="eyebrow">границы</div>
+          <h2 className="h3 mt-4">Чего ядро не делает</h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {[
-              ["Cortex Core", "онтология, связи, поиск", "/core"],
-              ["Cortex Memory", "память и журнал решений", "/core"],
-              ["Cortex Agents", "агенты под роли", "/core"],
-            ].map(([t, d, href]) => (
-              <Link key={t} href={href} className="block border border-[var(--color-line)] p-5 transition-colors hover:bg-white">
+              ["Не заменяет ERP и ECM", "Не пишет в ваши системы без интеграции и регламента."],
+              ["Не даёт юридической силы", "Ответ — основание для решения, а не сам документ."],
+              ["Не работает без доступа", "Если данных нет, ядро скажет, чего не хватает."],
+              ["Нет аттестации и сертификатов", "Журнал помогает пройти проверку, но не заменяет её."],
+            ].map(([t, d]) => (
+              <div key={t} className="border-t border-[var(--color-line)] pt-4">
                 <div className="text-[15px] font-semibold">{t}</div>
-                <div className="mt-1 text-[13px] text-[var(--color-mute)]">{d}</div>
-              </Link>
+                <div className="mt-1.5 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="wrap py-24">
+      <section className="wrap pb-28">
         <div className="flex flex-wrap items-center justify-between gap-6 border border-[var(--color-ink)] p-8">
           <div>
             <h2 className="h3">Показать на вашем корпусе</h2>
