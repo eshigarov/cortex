@@ -26,9 +26,9 @@ export default function OntologyPage() {
           <span className="eyebrow">онтология · продукт</span>
           <h1 className="display mt-5 max-w-[17ch]">Как компания описывает себя</h1>
           <p className="mt-8 max-w-[58ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
-            Онтология — это система организации знаний, а не схема в презентации. Рабочая модель:
+            Онтология — это система организации знаний. Не схема в презентации, а рабочая модель:
             какие сущности есть в компании, по какому ключу они склеиваются и как связаны между собой. Без неё ИИ отвечает похожими
-            абзацами, а с ней — знает, о ком и о чём идёт речь.
+            абзацами, а с ней знает, о ком и о чём идёт речь.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link href="/contact" className="btn btn-primary">Показать на ваших данных <span aria-hidden>→</span></Link>

@@ -46,8 +46,8 @@ export default function CorePage() {
           <span className="eyebrow">cortex core</span>
           <h1 className="display mt-5 max-w-[18ch]">Мозг компании в одном продукте</h1>
           <p className="mt-8 max-w-[58ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
-            Cortex Core — ядро, которое связывает знания компании, сохраняет опыт и объясняет решения.
-            Пять модулей работают на одной модели данных. Что нужно именно вам — определяем на проекте.
+            Cortex Core связывает знания компании, сохраняет опыт и объясняет решения.
+            Пять модулей работают на одной модели данных. Что нужно именно вам, определяем на проекте.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link href="/contact" className="btn btn-primary">Запросить пилот <span aria-hidden>→</span></Link>
@@ -112,8 +112,8 @@ export default function CorePage() {
           <h2 className="h3 mt-4">Пилот на ваших данных</h2>
           <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
             Две недели. Загружаем корпус, собираем граф, отвечаем на десять ваших вопросов.
-            В конце — замеры и журнал: что сработало, что нет. Пилот платный, фиксированная сумма;
-            первым 2–3 компаниям — бесплатно в обмен на право описать сценарий.
+            В конце: замеры и журнал, что сработало и что нет. Пилот платный, фиксированная сумма.
+            Первым 2–3 компаниям бесплатно в обмен на право описать сценарий.
           </p>
           <Link href="/contact" className="btn btn-primary mt-6">Запросить пилот →</Link>
         </div>

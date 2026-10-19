@@ -41,8 +41,8 @@ export default function IndustriesPage() {
           <span className="eyebrow">отрасли</span>
           <h1 className="display mt-5 max-w-[18ch]">Там, где знания дороже софта</h1>
           <p className="mt-7 max-w-[56ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
-            Cortex не привязан к отрасли — он привязан к типу задачи: много документов, сложные связи,
-            высокая цена ошибки. Ниже — где это проявляется сильнее всего.
+            Cortex не привязан к отрасли. Он привязан к типу задачи: много документов, сложные связи,
+            высокая цена ошибки. Ниже о том, где это проявляется сильнее всего.
           </p>
         </div>
       </section>
