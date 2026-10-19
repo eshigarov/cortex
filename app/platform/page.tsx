@@ -104,9 +104,9 @@ export default function PlatformPage() {
           <h2 className="h3 mt-4">Что можно купить отдельно</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {[
-              ["Cortex Core", "онтология, связи, поиск", "/products"],
-              ["Cortex Memory", "память и журнал решений", "/products"],
-              ["Cortex Agents", "агенты под роли", "/products"],
+              ["Cortex Core", "онтология, связи, поиск", "/core"],
+              ["Cortex Memory", "память и журнал решений", "/core"],
+              ["Cortex Agents", "агенты под роли", "/core"],
             ].map(([t, d, href]) => (
               <Link key={t} href={href} className="block border border-[var(--color-line)] p-5 transition-colors hover:bg-white">
                 <div className="text-[15px] font-semibold">{t}</div>
