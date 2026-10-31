@@ -144,7 +144,7 @@ export default function Home() {
         />
         <div className="wrap relative pb-20 pt-16 md:pb-28 md:pt-24">
           <h1 className="display max-w-[18ch]">
-            Агент, который показывает, на чём основан ответ
+            Ответ, который можно проверить
           </h1>
 
           <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
