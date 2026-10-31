@@ -4,11 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const items = [
-  { href: "/platform", label: "Платформа" },
   { href: "/core", label: "Cortex Core" },
   { href: "/solutions", label: "Решения" },
-  { href: "/experience", label: "Опыт" },
-  { href: "/security", label: "Безопасность" },
+  { href: "/scenarios", label: "Сценарии" },
   { href: "/about", label: "Компания" },
 ];
 
@@ -38,7 +36,7 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/contact" className="btn btn-primary hidden sm:inline-flex">
+          <Link href="/pilot" className="btn btn-primary hidden sm:inline-flex">
             Запросить пилот <span aria-hidden>→</span>
           </Link>
           <button
@@ -65,7 +63,7 @@ export function SiteNav() {
                 {i.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setOpen(false)} className="btn btn-primary mt-4 justify-center">
+            <Link href="/pilot" onClick={() => setOpen(false)} className="btn btn-primary mt-4 justify-center">
               Запросить пилот
             </Link>
           </div>

@@ -1,66 +1,66 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
-const industries = [
-  {
-    name: "Металлургия и ГМК",
-    pain: "Планы в Excel, регламенты в PDF, знания у ушедших инженеров. Замена системы планирования страшна простоем.",
-    value: "Онтология переделов и оборудования, граф «кто на что влияет», ответы по регламентам со ссылкой на пункт.",
-  },
-  {
-    name: "Энергетика",
-    pain: "Режимы, допуски и аварийные процедуры разбросаны по десяткам документов.",
-    value: "Связка «объект → режим → документ → ответственный». Проверка ответа по первоисточнику.",
-  },
-  {
-    name: "Логистика",
-    pain: "Тарифы и маршруты меняются быстрее, чем обновляются инструкции.",
-    value: "Единая картина маршрутов и контрагентов; ответ с датой и источником последнего изменения.",
-  },
-  {
-    name: "Финансы и страхование",
-    pain: "Комплаенс требует объяснить решение, а не «так сказала модель».",
-    value: "Журнал решений и цепочка источников; воспроизводимость ответа для аудита.",
-  },
-  {
-    name: "Промышленное ПО",
-    pain: "Legacy-системы держат процессы, их поведение нигде не описано.",
-    value: "Извлечение правил из данных и проверок; перенос по фактам, а не по презентациям.",
-  },
-  {
-    name: "Холдинги и группы компаний",
-    pain: "Десятки юрлиц, разные системы, нет единой картины.",
-    value: "Разделение источников и прав; сводные ответы по группе без смешивания данных.",
-  },
-];
+export const metadata: Metadata = {
+  title: "Сценарии применения Cortex",
+  description:
+    "Шесть типовых сценариев: логистика, лизинг, проектирование, металлургия, энергетика, нефтегаз. Задача, механика и что измерим в пилоте.",
+};
 
-const cases = [
+const scenarios = [
   {
-    tag: "сценарий · ГМК",
-    title: "Единая картина проекта планирования",
-    context: "Проектные документы, ТЗ, письма и встречи живут в разных местах. Новый участник неделю выясняет, кто за что отвечает.",
-    what: "Корпус собран в граф: проект, заказчик, РП, система, подрядчики, документы. Вопрос «кто отвечает за модуль» решается обходом связей за доли секунды.",
-    result: "0,4 с до ответа со ссылками; онбординг сокращается с недель до часов.",
+    sector: "Логистика",
+    segment: "Средний бизнес",
+    pain: "Ответ на претензию собирают из рейса, накладной, акта и фото вручную. Пакет бывает неполным, часть претензий закрывается без взыскания.",
+    entities: "рейс, транспорт, водитель, накладная, акт, фото, претензия",
+    mech: "Агент собирает доказательства по рейсу, сверяет вес и даты, находит расхождения и готовит проект ответа со ссылками на документы.",
+    effect: "40 минут вместо 4 часов",
+    measure: "время сборки пакета, доля полных пакетов, число найденных расхождений",
   },
   {
-    tag: "сценарий · промышленное ПО",
-    title: "Извлечение правил из legacy",
-    context: "Старая система планирования держит процесс, но её логика не описана: только данные и поведение.",
-    what: "Онтология переделов и ограничений, граф зависимостей, проверки на исторических данных. Перенос идёт по фактам, а не по презентации вендора.",
-    result: "Правила и расхождения видны до начала замены — дешевле, чем искать потери в производстве.",
+    sector: "Лизинг",
+    segment: "Средний бизнес",
+    pain: "Досье приходит неполным, комплект документов проверяют вручную, риск-факторы разбросаны по системам.",
+    entities: "заявка, контрагент, предмет лизинга, документ, риск-фактор",
+    mech: "Агент проверяет комплект по вашей политике, сверяет данные документов с карточкой контрагента, отмечает расхождения и готовит резюме для комитета.",
+    effect: "1 день вместо 3",
+    measure: "время проверки комплекта, сколько неполных досье найдено до комитета",
   },
   {
-    tag: "сценарий · финансы",
-    title: "Ответ, который принимает комплаенс",
-    context: "ИИ отвечает на вопросы по регламентам, но служба внутреннего контроля не принимает ответ без основания.",
-    what: "Каждый ответ: цитата из документа, цепочка ранжирования, запись в журнал. Тот же вопрос воспроизводит тот же ответ.",
-    result: "Доля ответов с цитатой — 100%; журнал пригоден для проверки.",
+    sector: "Проектирование",
+    segment: "Средний бизнес",
+    pain: "Проект возвращают 3–4 раза: замечания в разных форматах, часть повторяет прошлые, связь с листом чертежа теряется.",
+    entities: "проект, раздел, лист, версия, требование нормы, замечание",
+    mech: "Агент привязывает замечание к листу, версии и пункту нормы, помечает повторные, собирает чек-лист исправлений и ответ эксперту.",
+    effect: "7 дней вместо 12",
+    measure: "число повторных замечаний, время сборки ответа эксперту",
   },
   {
-    tag: "сценарий · холдинг",
-    title: "Сводная картина без смешивания данных",
-    context: "Десятки юрлиц, разные системы, разные права. Общий поиск либо не работает, либо показывает лишнее.",
-    what: "Источники разделены, права наследуются, ответы собираются по группе с указанием, откуда факт.",
-    result: "Один интерфейс, разные контуры; утечки между юрлицами исключены на уровне модели данных.",
+    sector: "Металлургия",
+    segment: "ДЗО / крупный",
+    pain: "Сводку по простоям собирают вручную из нескольких систем и журналов. Причины теряются, спор между переделами ничем не заканчивается.",
+    entities: "передел, агрегат, партия, наряд, заявка на ремонт",
+    mech: "Агент склеивает дубли, относит причину к типу и даёт сводку со ссылкой на первичную запись. Причину подтверждает человек.",
+    effect: "15 минут вместо 2 часов",
+    measure: "время подготовки сводки до и после, сколько причин найдено со ссылкой",
+  },
+  {
+    sector: "Энергетика",
+    segment: "ДЗО / крупный",
+    pain: "Техусловия готовят 10 дней, комплект проверяют вручную, часть заявок возвращается на доработку.",
+    entities: "объект, точка подключения, договор, техусловия, требование регламента",
+    mech: "Агент проверяет комплект по пунктам регламента, готовит проект ТУ и показывает заявителю конкретную нехватку.",
+    effect: "3 дня вместо 10",
+    measure: "срок подготовки, число возвратов на доработку",
+  },
+  {
+    sector: "Нефтегаз",
+    segment: "Крупный",
+    pain: "Наряд-допуск согласуют 3 дня: удостоверения, квалификацию и пересечения работ проверяют вручную.",
+    entities: "объект, работа, наряд, подрядчик, сотрудник, удостоверение",
+    mech: "Агент проверяет допуск, видит наложение работ в одной зоне, собирает пакет и следит за сроками действия.",
+    effect: "4 часа вместо 3 дней",
+    measure: "время согласования, число найденных наложений и просроченных допусков",
   },
 ];
 
@@ -68,42 +68,44 @@ export default function ScenariosPage() {
   return (
     <>
       <section className="border-b border-[var(--color-line)]">
-        <div className="wrap pb-24 pt-24 md:pb-36 md:pt-36">
-          <span className="eyebrow">сценарии по отраслям</span>
-          <h1 className="display mt-5 max-w-[20ch]">Механика, а не витрина</h1>
-          <p className="mt-8 max-w-[58ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
-            Ниже — отрасли и сценарии на реальном корпусе: 469 сущностей, 1 526 связей, 1,63 млн символов.
-            Мы не выдаём их за завершённые внедрения: это описание того, как ядро ведёт себя на данных,
-            и какие метрики при этом получаются.
+        <div className="wrap pb-20 pt-20 md:pb-28 md:pt-28">
+          <span className="eyebrow">сценарии</span>
+          <h1 className="display mt-5 max-w-[18ch]">Это сценарии, не внедрения</h1>
+          <p className="mt-8 max-w-[62ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
+            Задача и механика. Результатов не публикуем: завершённых внедрений у нас нет.
+            Показываем, что измерим в пилоте. Ориентиры эффекта — из похожих проектов, не наши результаты.
           </p>
         </div>
       </section>
 
-      <section className="wrap py-24">
-        <div className="flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <span className="eyebrow">отрасли</span>
-            <h2 className="h2 mt-4 max-w-[22ch]">Там, где знания дороже софта</h2>
-          </div>
-          <p className="max-w-[40ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
-            Формат один: боль отрасли → что даёт ядро.
-          </p>
-        </div>
+      <section className="wrap py-20 md:py-24">
+        <div className="grid gap-6 md:grid-cols-2">
+          {scenarios.map((s) => (
+            <article key={s.sector} className="border border-[var(--color-line)] p-7 md:p-8">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h2 className="text-[20px] font-semibold">{s.sector}</h2>
+                <span className="rounded-full border border-[var(--color-line)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
+                  {s.segment}
+                </span>
+              </div>
 
-        <div className="mt-16 space-y-4">
-          {industries.map((r) => (
-            <article key={r.name} className="group relative grid gap-6 border border-[var(--color-line)] p-7 transition-colors hover:bg-white md:grid-cols-[0.3fr_0.35fr_0.35fr]">
-              <span className="absolute left-0 top-0 h-full w-[3px] bg-[var(--color-acid)] opacity-0 transition-opacity group-hover:opacity-100" />
-              <div>
-                <h3 className="h3">{r.name}</h3>
+              <p className="mt-4 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{s.pain}</p>
+
+              <div className="mt-5 border-t border-[var(--color-line)] pt-4">
+                <div className="eyebrow">что связали</div>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.entities}</p>
               </div>
-              <div>
-                <div className="eyebrow mb-2">боль</div>
-                <p className="text-[13.5px] leading-relaxed text-[var(--color-mute)]">{r.pain}</p>
+
+              <div className="mt-4">
+                <div className="eyebrow">что делает агент</div>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.mech}</p>
               </div>
-              <div>
-                <div className="eyebrow mb-2">что даёт ядро</div>
-                <p className="text-[13.5px] leading-relaxed text-[var(--color-ink)]/80">{r.value}</p>
+
+              <div className="mt-5 border-t border-[var(--color-line)] pt-4">
+                <div className="text-[16px] font-semibold text-[var(--color-acid)]">{s.effect}</div>
+                <div className="mt-1 text-[12px] leading-relaxed text-[var(--color-mute)]">
+                  ориентир · в пилоте измерим: {s.measure}
+                </div>
               </div>
             </article>
           ))}
@@ -111,47 +113,18 @@ export default function ScenariosPage() {
       </section>
 
       <section className="border-y border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24">
-          <span className="eyebrow">сценарии · это не внедрения</span>
-          <h2 className="h2 mt-4 max-w-[22ch]">Четыре сценария с механикой</h2>
-          <div className="mt-16 space-y-6">
-            {cases.map((c, i) => (
-              <article key={c.title} className="grid gap-8 border border-[var(--color-line)] bg-[var(--color-paper)] p-7 md:grid-cols-[0.3fr_0.7fr]">
-                <div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-mute)]">{c.tag}</span>
-                  <h3 className="h3 mt-4">{c.title}</h3>
-                  <div className="mt-4 font-mono text-[11px] text-[var(--color-mute)]">0{i + 1} / 04</div>
-                </div>
-                <div className="grid gap-5 sm:grid-cols-3">
-                  <div>
-                    <div className="eyebrow mb-2">контекст</div>
-                    <p className="text-[13px] leading-relaxed text-[var(--color-mute)]">{c.context}</p>
-                  </div>
-                  <div>
-                    <div className="eyebrow mb-2">что делает ядро</div>
-                    <p className="text-[13px] leading-relaxed text-[var(--color-ink)]/80">{c.what}</p>
-                  </div>
-                  <div>
-                    <div className="eyebrow mb-2">что измерим в пилоте</div>
-                    <p className="text-[13px] leading-relaxed text-[var(--color-ink)]">{c.result}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
+        <div className="wrap py-20">
+          <div className="flex flex-wrap items-center justify-between gap-8 border border-[var(--color-ink)] p-8">
+            <div>
+              <h2 className="h3">Ваш случай не похож ни на один?</h2>
+              <p className="mt-2 max-w-[52ch] text-[14px] text-[var(--color-mute)]">
+                Пришлите десять своих вопросов. По ним видно, есть ли что связывать.
+              </p>
+            </div>
+            <Link href="/pilot" className="btn btn-primary">
+              Запросить пилот →
+            </Link>
           </div>
-          <p className="mt-8 text-[11.5px] text-[var(--color-mute)]">
-            Завершённых внедрений, логотипов и публичных кейсов нет. Всё измерено на нашем рабочем корпусе.
-          </p>
-        </div>
-      </section>
-
-      <section className="wrap py-24">
-        <div className="flex flex-wrap items-center justify-between gap-6 border border-[var(--color-ink)] p-8">
-          <div>
-            <h2 className="h3">Хотите увидеть на своих данных?</h2>
-            <p className="mt-2 text-[14px] text-[var(--color-mute)]">Пилот: две недели, десять вопросов, журнал решений.</p>
-          </div>
-          <Link href="/contact" className="btn btn-primary">Запросить пилот →</Link>
         </div>
       </section>
     </>

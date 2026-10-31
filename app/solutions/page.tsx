@@ -125,7 +125,7 @@ export default function SolutionsPage() {
               Если данных много, а порядка нет, с автоматизации.
             </p>
           </div>
-          <Link href="/contact" className="btn btn-primary">Обсудить →</Link>
+          <Link href="/pilot" className="btn btn-primary">Обсудить →</Link>
         </div>
       </section>
     </>

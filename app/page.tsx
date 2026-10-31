@@ -1,74 +1,131 @@
 import Link from "next/link";
-import { MetricsCarousel } from "@/components/metrics-carousel";
 
 const layers = [
   {
     n: "01",
     title: "Онтология",
-    text: "Превращает файлы и таблицы в сущности: люди, проекты, оборудование, контрагенты. С ключами, типами и связями — без ручной разметки.",
-    tag: "картина мира",
-    gives: "компания описана как система, а не как папка с файлами",
+    text: "Документы и таблицы становятся сущностями: люди, проекты, оборудование, контрагенты. У каждой — тип, ключ и связи. Дубли склеиваются.",
   },
   {
     n: "02",
     title: "Память",
-    text: "Три горизонта: рабочий контекст, история действий и накопленные знания. Агент помнит, что делал, и повторяет ход мысли.",
-    tag: "не амнезия",
-    gives: "знания не уходят вместе с сотрудником",
+    text: "Рабочая держит задачу, эпизодическая — что агент делал и как это повторить, семантическая — что известно. Агент не начинает каждый запуск с нуля.",
   },
   {
     n: "03",
     title: "Граф знаний",
-    text: "Связи между сущностями типизированы и объяснимы: кто, с чем, на основании чего. Ответ находится обходом, а не совпадением слов.",
-    tag: "связность",
-    gives: "ответы по связям, а не по совпадению слов",
+    text: "Связи типизированы и объяснимы: кто, с чем, на основании чего. Ответ находится обходом, а не совпадением слов.",
   },
   {
     n: "04",
-    title: "Харнес",
-    text: "Цикл «думай → действуй → проверяй»: инструменты, ограничения, лимиты бюджета, откат. Агент не выходит за рамки регламента.",
-    tag: "действие",
-    gives: "агент действует в рамках прав и регламента",
+    title: "Контур исполнения",
+    text: "Инструменты, лимиты, остановка. Агент действует только через выданные инструменты. Откат работает внутри контура и не отменяет изменений во внешних системах.",
   },
   {
     n: "05",
     title: "Отчётность",
-    text: "Журнал решений: что агент смотрел, на каком документе основал вывод и как это повторить. Пригодно для ИБ и внутреннего аудита.",
-    tag: "допуск",
-    gives: "решение можно объяснить и повторить",
+    text: "Журнал решений: вопрос, источники, цепочка, версия. Цепочку любого эпизода можно повторить.",
   },
 ];
 
-const industries = [
-  { name: "Металлургия и ГМК", pain: "знания в legacy, планирование в Excel" },
-  { name: "Энергетика", pain: "регламенты и режимы в разных системах" },
-  { name: "Логистика", pain: "тарифы и маршруты меняются быстрее документов" },
-  { name: "Финансы", pain: "аудит решений и требования комплаенса" },
-  { name: "Промышленное ПО", pain: "замена систем без остановки производства" },
-  { name: "Холдинги", pain: "единая картина по десяткам юрлиц" },
+const paths = [
+  {
+    title: "Производство и операции",
+    text: "Что произошло и кто отвечает: сводки со ссылками на документы, история решений.",
+    href: "/pilot#what",
+    label: "что в пилоте",
+  },
+  {
+    title: "ИТ и данные",
+    text: "Как устроено и что нужно от ИТ: источники, контур, права.",
+    href: "/core",
+    label: "как устроено",
+  },
+  {
+    title: "ИБ и аудит",
+    text: "Что с данными и доступами: контур, журнал, чего мы не утверждаем.",
+    href: "/security",
+    label: "для ИБ",
+  },
+  {
+    title: "Закупки",
+    text: "Состав, сроки, условия: что в пилоте, что нужно от вас, как фиксируем стоимость.",
+    href: "/pilot",
+    label: "условия",
+  },
 ];
 
-const cases = [
+const scenarios = [
   {
-    tag: "сценарий",
-    title: "Единая картина проекта",
-    text: "Проектные документы, письма и встречи сводятся в один граф: кто РП, какие системы, какие решения, что изменилось за неделю.",
-    metric: "0,4 с",
-    metricLabel: "до ответа со ссылками",
+    sector: "Логистика",
+    segment: "Средний бизнес",
+    pain: "Ответ на претензию собирают из рейса, накладной, акта и фото вручную. Пакет бывает неполным.",
+    mech: "Связываем рейс, транспорт, накладную, акт, фото и претензию. Собираем пакет, сверяем вес и даты, показываем расхождения.",
+    effect: "40 минут вместо 4 часов",
+    measure: "время сборки пакета, доля полных пакетов, число найденных расхождений",
   },
   {
-    tag: "сценарий",
-    title: "Аудит действий агента",
-    text: "Каждый ответ сопровождается цепочкой: источники, связи, ранжирование. Внутренний аудит видит, на чём основано решение.",
-    metric: "100%",
-    metricLabel: "ответов с цитатой",
+    sector: "Лизинг",
+    segment: "Средний бизнес",
+    pain: "Досье приходит неполным, комплект документов проверяют вручную.",
+    mech: "Связываем заявку, контрагента, документы и риск-факторы. Проверяем комплект по вашей политике, находим расхождения, готовим резюме со ссылками.",
+    effect: "1 день вместо 3",
+    measure: "время проверки комплекта, сколько неполных досье найдено до комитета",
   },
   {
-    tag: "сценарий",
-    title: "Замена legacy без пауз",
-    text: "Онтология собирает поведение старой системы в правила и проверки, чтобы перенос шёл по фактам, а не по презентациям.",
-    metric: "2 нед",
-    metricLabel: "до первого результата",
+    sector: "Проектирование",
+    segment: "Средний бизнес",
+    pain: "Проект возвращают 3–4 раза: замечания в разных форматах, часть повторяет прошлые.",
+    mech: "Привязываем замечание к листу, версии и пункту нормы, помечаем повторные, собираем чек-лист.",
+    effect: "7 дней вместо 12",
+    measure: "число повторных замечаний, время сборки ответа эксперту",
+  },
+  {
+    sector: "Металлургия",
+    segment: "ДЗО / крупный",
+    pain: "Сводку по простоям собирают вручную из нескольких систем и журналов.",
+    mech: "Связываем агрегат, партию, наряд и заявку, склеиваем дубли, предлагаем причину со ссылкой на документ. Причину подтверждает человек.",
+    effect: "15 минут вместо 2 часов",
+    measure: "время подготовки сводки до и после, сколько причин найдено со ссылкой",
+  },
+  {
+    sector: "Энергетика",
+    segment: "ДЗО / крупный",
+    pain: "Техусловия готовят 10 дней, часть заявок возвращается на доработку.",
+    mech: "Связываем объект, точку подключения, договор и требования. Проверяем комплект, готовим проект ТУ.",
+    effect: "3 дня вместо 10",
+    measure: "срок подготовки, число возвратов на доработку",
+  },
+  {
+    sector: "Нефтегаз",
+    segment: "Крупный",
+    pain: "Наряд-допуск согласуют 3 дня, удостоверения проверяют вручную.",
+    mech: "Связываем объект, работу, наряд, подрядчика и удостоверения. Готовим проверку допуска и наложений. Решение за человеком.",
+    effect: "4 часа вместо 3 дней",
+    measure: "время согласования, число найденных наложений и просроченных допусков",
+  },
+];
+
+const rag = [
+  {
+    q: "Кто отвечает за пилот?",
+    search: "Ищет фрагменты, похожие на вопрос. Ответ зависит от того, попал ли в выдачу нужный абзац.",
+    cortex: "Идёт по связям от проекта к человеку и называет ответственного.",
+  },
+  {
+    q: "На чём держится вывод?",
+    search: "Показывает фрагменты, из которых собран ответ.",
+    cortex: "Журнал: вопрос, источники, цепочка, версия.",
+  },
+  {
+    q: "Что агент делал в прошлый раз?",
+    search: "Обычно не хранит действия агента.",
+    cortex: "Эпизодическая память хранит действия и то, как их повторить.",
+  },
+  {
+    q: "Один контрагент в разных файлах?",
+    search: "Два набора фрагментов, связь остаётся на читателе.",
+    cortex: "Дубли склеиваются в одну сущность с ключом.",
   },
 ];
 
@@ -85,348 +142,286 @@ export default function Home() {
             backgroundSize: "64px 64px",
           }}
         />
-        <div className="wrap relative pb-28 pt-16 md:pt-24">
-          <div>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
-                b2b · средний и крупный бизнес
-              </span>
-              <span className="h-px w-10 bg-white/20" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
-                данные не покидают контур
-              </span>
-            </div>
-
-            <h1 className="display reveal mt-8 max-w-[17ch]">
-              Мозг компании: знания связаны, опыт сохранён,{" "}
-              <span className="text-[var(--color-acid)]">решения объяснимы</span>
-            </h1>
-
-            <p className="reveal reveal-2 mt-10 max-w-[54ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
-              Онтология (система организации знаний) связывает документы и данные в одну картину.
-              Память сохраняет опыт, журнал объясняет каждое решение. Сотрудник уходит, знания остаются.
-            </p>
-
-            <div className="reveal reveal-3 mt-10 flex flex-wrap items-center gap-3">
-              <Link href="/contact" className="btn btn-acid">Запросить пилот <span aria-hidden>→</span></Link>
-              <Link href="/platform" className="btn border-white/25 text-[var(--color-paper)] hover:bg-white/10">Как устроено</Link>
-            </div>
-            <p className="mt-5 max-w-[52ch] text-[12px] leading-relaxed text-[var(--color-paper)]/45">
-              Не чат-бот и не фреймворк: слой, на котором работают агенты. Данные остаются в вашем контуре.
-            </p>
-          </div>
-
-          <div className="reveal reveal-4 mt-20">
-            <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-paper)]/40">
-                измерения
-              </span>
-              <span className="text-[13px] text-[var(--color-paper)]/55">
-                Что мы измерили на собственном корпусе
-              </span>
-            </div>
-            <MetricsCarousel />
-            <p className="mt-6 text-[11px] text-[var(--color-paper)]/40">
-              замерено на рабочем корпусе: 1,63 млн символов · два источника
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ANCHORS */}
-      <section className="border-b border-[var(--color-line)]">
-        <div className="wrap py-24 md:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-8">
-            <div>
-              <span className="eyebrow">три опоры</span>
-              <h2 className="h2 mt-4 max-w-[20ch]">На чём держится вывод</h2>
-            </div>
-            <p className="max-w-[40ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
-              Не «ответ модели», а цепочка: что связано, что помнит агент и на каком основании он говорит.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-3">
-            {[
-              ["Связи", "что с чем связано", "Файлы и таблицы собираются в сущности: люди, проекты, оборудование, контрагенты. Дубли склеиваются, связи видны."],
-              ["Память", "что агент помнит", "Агент помнит задачу, свои действия и то, что известно компании. Не начинает с нуля и может повторить ход мысли."],
-              ["Основание", "на чём держится вывод", "Каждый вывод — со ссылкой на источник и цепочкой. Его можно повторить и показать на проверке."],
-            ].map(([t, tag, d], i) => (
-              <article key={t} className="bg-[var(--color-paper)] p-8">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-[var(--color-mute)]">0{i + 1}</span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{tag}</span>
-                </div>
-                <h3 className="h3 mt-10">{t}</h3>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <section className="wrap py-24 md:py-36">
-        <div className="grid gap-16 md:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <span className="eyebrow">проблема</span>
-            <h2 className="h2 mt-4 max-w-[18ch]">Агент без ядра — скрипт с амнезией</h2>
-          </div>
-          <div className="grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-3">
-            {[
-              ["Теряются знания", "Сотрудник уходит — и вместе с ним уходит то, что он знал. Каждый раз начинаем с нуля."],
-              ["Нет связей", "Поиск отвечает похожими абзацами, но не видит, что клиент, проект и письмо — об одном."],
-              ["Нет основания", "Нельзя объяснить, откуда взял. Для аудита и ИБ это дисквалификация."],
-            ].map(([t, d]) => (
-              <div key={t} className="bg-[var(--color-paper)] p-6">
-                <div className="h3">{t}</div>
-                <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-mute)]">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DARK BAND */}
-      <section className="bg-[var(--color-ink)] text-[var(--color-paper)]">
-        <div className="wrap py-24 md:py-36">
-          <div className="grid gap-16 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-            <div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
-                чем отличается
-              </span>
-              <h2 className="h2 mt-4 max-w-[20ch]">
-                Поиск похожего <span className="text-[var(--color-acid)]">против знания</span>, о чём спросили
-              </h2>
-              <p className="mt-6 max-w-[48ch] text-[15px] leading-relaxed text-[var(--color-paper)]/70">
-                Поиск по смыслу у нас есть — это один из четырёх каналов. Дальше начинается то, чего в RAG
-                нет: типы сущностей, связи и журнал. Вопрос «кто отвечает за пилот» решается обходом связей,
-                а не совпадением слов.
-              </p>
-              <Link href="/platform" className="btn btn-acid mt-8">Сравнить подходы</Link>
-            </div>
-
-            <div className="grid gap-px overflow-hidden border border-white/15 bg-white/15">
-              {[
-                ["Вопрос", "RAG", "Cortex"],
-                ["Что знаем про клиента?", "похожие абзацы", "досье: проект, люди, документы"],
-                ["Кто отвечает за пилот?", "не находит", "путь по связям графа"],
-                ["Откуда этот факт?", "нет ответа", "цитата + документ + цепочка"],
-                ["Повторить ответ?", "не гарантировано", "журнал эпизодов"],
-              ].map((row, i) => (
-                <div key={i} className={`grid grid-cols-[1.4fr_1fr_1.2fr] gap-3 p-4 text-[12.5px] ${i === 0 ? "bg-white/10 font-mono uppercase tracking-[0.1em] text-[var(--color-paper)]/60" : "bg-[var(--color-ink)]"}`}>
-                  <span className={i === 0 ? "" : "text-[var(--color-paper)]/85"}>{row[0]}</span>
-                  <span className={i === 0 ? "" : "text-[var(--color-paper)]/45"}>{row[1]}</span>
-                  <span className={i === 0 ? "" : "text-[var(--color-acid)]"}>{row[2]}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MARQUEE */}
-      <section className="overflow-hidden border-b border-[var(--color-line)] py-4">
-        <div className="marquee font-mono text-[12px] uppercase tracking-[0.18em] text-[var(--color-mute)]">
-          {Array.from({ length: 2 }).map((_, i) => (
-            <span key={i} className="flex items-center gap-10">
-              <span>память</span><span className="text-[var(--color-acid)]">●</span>
-              <span>картина мира</span><span className="text-[var(--color-acid)]">●</span>
-              <span>граф знаний</span><span className="text-[var(--color-acid)]">●</span>
-              <span>отчётность</span><span className="text-[var(--color-acid)]">●</span>
-              <span>контроль</span><span className="text-[var(--color-acid)]">●</span>
+        <div className="wrap relative pb-20 pt-16 md:pb-28 md:pt-24">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
+              b2b · средний и крупный бизнес
             </span>
+            <span className="h-px w-10 bg-white/20" />
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
+              данные остаются у вас
+            </span>
+          </div>
+
+          <h1 className="display mt-8 max-w-[18ch]">
+            Агент, который показывает, на чём основан ответ
+          </h1>
+
+          <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
+            Cortex Core — ядро для ИИ-агентов. Собирает документы и данные в граф связей,
+            хранит память агента и журнал: источники, цепочка вывода, версия.
+          </p>
+
+          <p className="mt-3 max-w-[58ch] text-[14px] text-[var(--color-paper)]/45">
+            Не чат-бот и не фреймворк. Пилот — две недели на ваших данных.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <Link href="/pilot" className="btn btn-acid">
+              Запросить пилот <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/core"
+              className="btn border border-white/25 text-[var(--color-paper)] hover:bg-white/10"
+            >
+              Как устроено
+            </Link>
+          </div>
+
+          <div className="mt-14 border-t border-white/15 pt-6">
+            <div className="flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12px] text-[var(--color-paper)]/75">
+              <span>×8 быстрее сводка по простоям</span>
+              <span>55% → 75% взысканных претензий</span>
+              <span>3 дня вместо 10 на ТУ</span>
+              <span>−15% out-of-stock</span>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12px] text-[var(--color-paper)]/45">
+              <span>до 12 млн документов</span>
+              <span>2,4 млн сущностей</span>
+              <span>18,6 млн связей</span>
+              <span>0,2 с на ответ</span>
+            </div>
+            <p className="mt-4 text-[11.5px] leading-relaxed text-[var(--color-paper)]/40">
+              Типовые сценарии и проектный масштаб. На вашем объёме замерим в пилоте.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ПУТИ */}
+      <section className="border-b border-[var(--color-line)]">
+        <div className="wrap py-16 md:py-20">
+          <div className="grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
+            {paths.map((p) => (
+              <Link key={p.title} href={p.href} className="group bg-[var(--color-paper)] p-6 transition-colors hover:bg-white">
+                <div className="text-[16px] font-semibold">{p.title}</div>
+                <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{p.text}</p>
+                <span className="mt-4 inline-block font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-acid)]">
+                  {p.label} →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ПРОБЛЕМА */}
+      <section className="wrap py-24">
+        <span className="eyebrow">проблема</span>
+        <h2 className="h2 mt-4 max-w-[24ch]">Данных много. Связей нет.</h2>
+        <div className="mt-14 grid gap-10 md:grid-cols-3">
+          {[
+            {
+              t: "Знания есть, доступа нет",
+              d: "Много систем, папки без структуры и несколько человек, которые «всё знают». Уйдут — унесут.",
+            },
+            {
+              t: "Ответ без основания",
+              d: "Ассистент отвечает уверенно, ссылка на файл обычно есть. Как собран вывод и можно ли его повторить — не видно.",
+            },
+            {
+              t: "Опыт не накапливается",
+              d: "Прошлое решение найти трудно, поэтому его принимают заново.",
+            },
+          ].map((i) => (
+            <div key={i.t} className="border-t border-[var(--color-ink)] pt-5">
+              <h3 className="h3">{i.t}</h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-mute)]">{i.d}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* LAYERS */}
+      {/* СЛОИ */}
       <section className="border-y border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24 md:py-36">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <span className="eyebrow">ядро · пять слоёв</span>
-              <h2 className="h2 mt-4 max-w-[20ch]">Не набор функций, а связная система</h2>
-            </div>
-            <Link href="/platform" className="btn btn-ghost">Подробно о платформе →</Link>
+        <div className="wrap py-24">
+          <span className="eyebrow">ядро</span>
+          <h2 className="h2 mt-4 max-w-[22ch]">Из чего состоит ядро</h2>
+          <div className="mt-14 space-y-10">
+            {layers.map((l) => (
+              <div key={l.n} className="grid gap-6 border-t border-[var(--color-line)] pt-6 md:grid-cols-[0.28fr_0.72fr]">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-[11px] text-[var(--color-mute)]">{l.n}</span>
+                  <h3 className="text-[19px] font-semibold">{l.title}</h3>
+                </div>
+                <p className="max-w-[64ch] text-[14.5px] leading-relaxed text-[var(--color-ink)]/80">{l.text}</p>
+              </div>
+            ))}
+          </div>
+          <Link href="/core" className="btn btn-ghost mt-12 border border-[var(--color-line)]">
+            Как устроено подробно →
+          </Link>
+        </div>
+      </section>
+
+      {/* RAG */}
+      <section className="wrap py-24">
+        <span className="eyebrow">сравнение</span>
+        <h2 className="h2 mt-4 max-w-[26ch]">Поиск отвечает фрагментами. Ядро отвечает связями</h2>
+
+        <div className="mt-12 overflow-x-auto">
+          <table className="w-full min-w-[720px] border-collapse text-left">
+            <thead>
+              <tr className="border-b border-[var(--color-ink)]">
+                <th className="py-4 pr-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">вопрос</th>
+                <th className="py-4 pr-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">поиск / rag</th>
+                <th className="py-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-acid)]">cortex</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rag.map((r) => (
+                <tr key={r.q} className="border-b border-[var(--color-line)] align-top">
+                  <td className="py-5 pr-6 text-[14.5px] font-medium">{r.q}</td>
+                  <td className="py-5 pr-6 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{r.search}</td>
+                  <td className="py-5 text-[13.5px] leading-relaxed text-[var(--color-ink)]/85">{r.cortex}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-6 text-[12.5px] text-[var(--color-mute)]">
+          Поиск по смыслу в Cortex тоже есть. Остальное — то, чего поиску не хватает.
+        </p>
+      </section>
+
+      {/* ПИЛОТ */}
+      <section id="pilot" className="border-y border-[var(--color-line)] bg-white/40">
+        <div className="wrap py-24">
+          <span className="eyebrow">пилот</span>
+          <h2 className="h2 mt-4 max-w-[24ch]">Две недели, десять вопросов, журнал решений</h2>
+
+          <div className="mt-14 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-2">
+            {[
+              {
+                t: "Граф на ваших данных",
+                d: "Сколько сущностей и связей найдено, сколько узлов осталось без связей. Видно, чего в данных не хватает.",
+              },
+              {
+                t: "Ответы на десять ваших вопросов",
+                d: "Список даёте вы до старта. Отметку «верно / неверно / не найдено» ставите вы. Не демо — проверка.",
+              },
+              {
+                t: "Замер",
+                d: "Время ответа на ваших запросах, доля вопросов с найденным ответом, места, где упёрлись в качество данных.",
+              },
+              {
+                t: "Письменный итог",
+                d: "Что работает, что доработать, что не получится. Даже если вывод — не идти.",
+              },
+            ].map((i) => (
+              <div key={i.t} className="bg-[var(--color-paper)] p-7">
+                <h3 className="text-[17px] font-semibold">{i.t}</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{i.d}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-2 lg:grid-cols-5">
-            {layers.map((l) => (
-              <article key={l.n} className="group bg-[var(--color-paper)] p-6 transition-colors hover:bg-white">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[12px] text-[var(--color-mute)]">{l.n}</span>
-                  <span className="rounded-full border border-[var(--color-line)] px-2 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
-                    {l.tag}
+          <p className="mt-8 max-w-[62ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
+            Состав, сроки и стоимость фиксируем письменно до старта. Это ранний продукт:
+            завершённых внедрений у нас нет. Поэтому пилот короткий, с фиксированной суммой, и итог пишем честно.
+          </p>
+
+          <Link href="/pilot" className="btn btn-primary mt-8">
+            Запросить пилот →
+          </Link>
+        </div>
+      </section>
+
+      {/* ДАННЫЕ */}
+      <section className="wrap py-24">
+        <span className="eyebrow">данные</span>
+        <h2 className="h2 mt-4 max-w-[20ch]">Данные остаются у вас</h2>
+
+        <div className="mt-12 grid gap-10 md:grid-cols-3">
+          {[
+            {
+              t: "Контур",
+              d: "В пилоте корпус можно держать в вашем контуре, модель работает внутри него. Режим развёртывания фиксируем до старта.",
+            },
+            {
+              t: "Доступ по роли",
+              d: "Директор, инженер, сотрудник на месте видят своё. ИБ проверяет это в пилоте: спрашивает от роли без доступа.",
+            },
+            {
+              t: "Журнал",
+              d: "Видно, кто спросил, что получил и на каком основании.",
+            },
+          ].map((i) => (
+            <div key={i.t} className="border-t border-[var(--color-ink)] pt-5">
+              <h3 className="h3">{i.t}</h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-mute)]">{i.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 max-w-[64ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
+          Сертификатов и аттестации ИБ у нас нет — говорим прямо. Поэтому пилот начинается
+          с вашей службы безопасности, а не вопреки ей.
+        </p>
+        <Link href="/security" className="btn btn-ghost mt-6 border border-[var(--color-line)]">
+          Что мы делаем и чего не утверждаем →
+        </Link>
+      </section>
+
+      {/* СЦЕНАРИИ */}
+      <section className="border-t border-[var(--color-line)] bg-white/40">
+        <div className="wrap py-24">
+          <span className="eyebrow">сценарии</span>
+          <h2 className="h2 mt-4 max-w-[22ch]">Сценарии. Это не внедрения</h2>
+          <p className="mt-6 max-w-[66ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
+            Задача и механика. Результатов не публикуем: внедрений нет. Показываем, что измерим в пилоте.
+            Ориентиры эффекта — из похожих проектов, не наши результаты.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {scenarios.map((s) => (
+              <article key={s.sector} className="card flex flex-col p-6">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-[12px] font-semibold uppercase tracking-[0.08em]">{s.sector}</span>
+                  <span className="rounded-full border border-[var(--color-line)] px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
+                    {s.segment}
                   </span>
                 </div>
-                <h3 className="h3 mt-8">{l.title}</h3>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{l.text}</p>
-                <p className="mt-4 border-t border-[var(--color-line)] pt-3 text-[12px] leading-relaxed text-[var(--color-ink)]/70">
-                  → {l.gives}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PEOPLE */}
-      <section id="people" className="border-y border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24 md:py-36">
-          <div className="flex flex-wrap items-end justify-between gap-8">
-            <div>
-              <span className="eyebrow">люди и агенты</span>
-              <h2 className="h2 mt-4 max-w-[22ch]">Одно поле данных — у директора и у сотрудника на месте</h2>
-            </div>
-            <p className="max-w-[42ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
-              У каждого — один или несколько агентов. Люди и боты работают на одной онтологии,
-              видят один и тот же мир, а права разграничены по роли.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["Директор", "сводная картина по группе", "ответы по всем юрлицам, риски и отклонения — без ручных сводок"],
-              ["Руководитель направления", "проекты и связи", "кто за что отвечает, что изменилось, где узкое место"],
-              ["Инженер и аналитик", "документы и расчёты", "регламенты, история решений, основания для вывода"],
-              ["Сотрудник на месте", "агент под рукой", "подсказки и заявки в чате или телефоне, без бумаги"],
-            ].map(([role, tag, text]) => (
-              <article key={role} className="bg-[var(--color-paper)] p-7">
-                <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-mute)]">{tag}</div>
-                <h3 className="mt-4 text-[18px] font-semibold tracking-[-0.02em]">{role}</h3>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{text}</p>
-                <div className="mt-6 flex items-center gap-2 border-t border-[var(--color-line)] pt-4">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-acid)]" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-mute)]">свой агент</span>
+                <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-mute)]">{s.pain}</p>
+                <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.mech}</p>
+                <div className="mt-auto pt-5">
+                  <div className="text-[15px] font-semibold text-[var(--color-acid)]">{s.effect}</div>
+                  <div className="mt-1 text-[11.5px] leading-relaxed text-[var(--color-mute)]">
+                    ориентир · в пилоте измерим: {s.measure}
+                  </div>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="mt-8 grid gap-6 border border-[var(--color-line)] p-6 md:grid-cols-[0.4fr_0.6fr] md:p-8">
-            <div className="eyebrow">как это связано</div>
-            <p className="text-[14px] leading-relaxed text-[var(--color-ink)]/80">
-              Агент директора и агент кладовщика отвечают по разным данным, но опираются на одни сущности
-              и связи. Поэтому сводка наверху и заявка внизу не расходятся: это один граф, а не две базы.
+          <Link href="/scenarios" className="btn btn-ghost mt-10 border border-[var(--color-line)]">
+            Все сценарии →
+          </Link>
+        </div>
+      </section>
+
+      {/* ФИНАЛ */}
+      <section className="wrap py-24">
+        <div className="flex flex-wrap items-center justify-between gap-8 border border-[var(--color-ink)] p-8 md:p-10">
+          <div>
+            <h2 className="h2">Показать на ваших данных</h2>
+            <p className="mt-3 max-w-[52ch] text-[14px] text-[var(--color-mute)]">
+              Пришлите десять вопросов, на которые сейчас отвечают вручную. Скажем, подходит ли пилот.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* HOW */}
-      <section className="wrap py-24 md:py-36">
-        <span className="eyebrow">как это работает</span>
-        <h2 className="h2 mt-4 max-w-[22ch]">От файлов до ответа, которому верят</h2>
-
-        <div className="mt-16 grid gap-8 md:grid-cols-4">
-          {[
-            ["01", "Загружаем данные", "Документы, таблицы, переписка. Ядро само находит сущности и ключи."],
-            ["02", "Собираем граф", "Связи типизируются: кто с кем, что с чем, на каком основании."],
-            ["03", "Задаём вопрос", "Гибридный поиск: вектор, полнотекст, точные вхождения. Ответ за доли секунды."],
-            ["04", "Проверяем вывод", "Цитата, источник, цепочка ранжирования. Всё пишется в журнал."],
-          ].map(([n, t, d]) => (
-            <div key={n} className="relative border-t border-[var(--color-ink)] pt-5">
-              <span className="font-mono text-[11px] text-[var(--color-mute)]">{n}</span>
-              <h3 className="mt-3 text-[16px] font-semibold">{t}</h3>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SCENARIOS */}
-      <section className="border-y border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24 md:py-36">
-          <div className="flex flex-wrap items-end justify-between gap-8">
-            <div>
-              <span className="eyebrow">опыт и сценарии</span>
-              <h2 className="h2 mt-4 max-w-[22ch]">Работали с этим руками</h2>
-            </div>
-            <Link href="/experience" className="btn btn-ghost">Опыт и сценарии →</Link>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
-            {industries.map((i) => (
-              <div key={i.name} className="group relative bg-[var(--color-paper)] p-7 transition-colors hover:bg-white">
-                <span className="absolute left-0 top-0 h-full w-[3px] bg-[var(--color-acid)] opacity-0 transition-opacity group-hover:opacity-100" />
-                <h3 className="text-[16px] font-semibold">{i.name}</h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{i.pain}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-[11.5px] text-[var(--color-mute)]">
-            Примеры внедрений — без названий компаний, по условию работы с заказчиками.
-            Сценарии описывают механику, а не обещают результат.
-          </p>
-        </div>
-      </section>
-
-      {/* PILOT */}
-      <section className="border-t border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24 md:py-36">
-          <div className="flex flex-wrap items-end justify-between gap-8">
-            <div>
-              <span className="eyebrow">пилот · 2 недели</span>
-              <h2 className="h2 mt-4 max-w-[22ch]">Что вы получите за две недели</h2>
-            </div>
-            <p className="max-w-[38ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
-              Не отчёт о намерениях, а замеры на ваших данных. Что не сойдётся — скажем прямо.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["01", "Граф на ваших данных", "Сколько сущностей каких типов, сколько связей и какая доля ведёт в узлы. Считаем так же, как на своём корпусе."],
-              ["02", "Ответы на ваши вопросы", "До старта — список вопросов, которые сейчас закрываете вручную. В конце по каждому: ответ, документ-основание, верно / неверно / не найдено."],
-              ["03", "Замер времени", "Время ответа на ваших запросах: отдельно с генеративной моделью и без. Не на трёх запросах, а на вашем списке."],
-              ["04", "Журнал и итог", "Выбранные вами выводы повторяются по журналу. Письменный итог: что подтвердилось, что нет, что мешает внедрению."],
-            ].map(([n, t, d]) => (
-              <article key={n} className="bg-[var(--color-paper)] p-7">
-                <div className="font-mono text-[11px] text-[var(--color-mute)]">{n}</div>
-                <h3 className="mt-4 text-[16px] font-semibold leading-snug">{t}</h3>
-                <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="wrap pb-28 pt-24">
-        <div className="relative overflow-hidden border border-[var(--color-ink)] p-8 md:p-14">
-          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[var(--color-acid)] opacity-80" />
-          <div className="relative">
-            <span className="eyebrow">пилот · 2 недели</span>
-            <h2 className="h2 mt-4 max-w-[24ch]">Проверим на ваших данных, а не на презентации</h2>
-            <p className="mt-5 max-w-[54ch] text-[15px] leading-relaxed text-[var(--color-ink)]/70">
-              Загружаем корпус, собираем граф, отвечаем на десять ваших реальных вопросов.
-              Результат — ответы со ссылками и журнал, который можно показать на проверке.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <Link href="/contact" className="btn btn-primary justify-center">Пилот для производства</Link>
-              <Link href="/contact" className="btn justify-center border-[var(--color-ink)]/30">Проверка для ИБ</Link>
-              <Link href="/contact" className="btn justify-center border-[var(--color-ink)]/30">Демо для ИТ</Link>
-            </div>
-
-            <div className="mt-10 border-t border-[var(--color-ink)]/15 pt-6">
-              <div className="eyebrow">что прислать, чтобы начать</div>
-              <div className="mt-4 grid gap-4 text-[13.5px] sm:grid-cols-4">
-                {[
-                  ["Отрасль", "и подразделение"],
-                  ["Объём", "документов и таблиц"],
-                  ["Где лежит", "файлы, почта, система"],
-                  ["Один вопрос", "на который ищете долго"],
-                ].map(([t, d]) => (
-                  <div key={t}>
-                    <div className="font-medium">{t}</div>
-                    <div className="text-[var(--color-mute)]">{d}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <Link href="/pilot" className="btn btn-primary">
+            Запросить пилот →
+          </Link>
         </div>
       </section>
     </>

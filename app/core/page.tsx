@@ -64,7 +64,7 @@ export default function CorePage() {
             Пять модулей работают на одной модели данных.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/about" className="btn btn-primary">Запросить пилот <span aria-hidden>→</span></Link>
+            <Link href="/pilot" className="btn btn-primary">Запросить пилот <span aria-hidden>→</span></Link>
             <a href="#platform" className="btn btn-ghost">Как устроено</a>
           </div>
           <div className="mt-8 flex flex-wrap gap-5 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
@@ -178,7 +178,7 @@ export default function CorePage() {
             <h2 className="h3">Показать на вашем корпусе</h2>
             <p className="mt-2 text-[14px] text-[var(--color-mute)]">Две недели, десять вопросов, журнал решений.</p>
           </div>
-          <Link href="/about" className="btn btn-primary">Запросить пилот →</Link>
+          <Link href="/pilot" className="btn btn-primary">Запросить пилот →</Link>
         </div>
       </section>
     </>

@@ -66,7 +66,7 @@ export default function AboutPage() {
             <h2 className="h3">Познакомиться ближе</h2>
             <p className="mt-2 text-[14px] text-[var(--color-mute)]">Покажем ядро на вашем примере, без слайдов.</p>
           </div>
-          <Link href="/contact" className="btn btn-primary">Связаться →</Link>
+          <Link href="/pilot" className="btn btn-primary">Связаться →</Link>
         </div>
       </section>
     </>

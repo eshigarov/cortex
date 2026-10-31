@@ -19,7 +19,7 @@ export default function SecurityPage() {
             где лежат данные, кто имеет доступ, что попадает в журнал и какие вопросы мы не закрываем.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn btn-primary">Запросить опросник ИБ <span aria-hidden>→</span></Link>
+            <Link href="/pilot" className="btn btn-primary">Запросить опросник ИБ <span aria-hidden>→</span></Link>
             <Link href="/platform" className="btn btn-ghost">Как устроено ядро</Link>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function SecurityPage() {
             <h2 className="h3">Нужен опросник или схема для ИБ?</h2>
             <p className="mt-2 text-[14px] text-[var(--color-mute)]">Пришлём до пилота: архитектуру, потоки данных, границы.</p>
           </div>
-          <Link href="/contact" className="btn btn-primary">Запросить →</Link>
+          <Link href="/pilot" className="btn btn-primary">Запросить →</Link>
         </div>
       </section>
     </>

@@ -8,7 +8,7 @@ export function Announcement() {
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-acid)]" />
           <span className="text-[var(--color-paper)]/85">Открыт пилот: 2 недели на ваших данных</span>
         </div>
-        <Link href="/contact" className="hidden items-center gap-1.5 font-medium text-[var(--color-acid)] hover:underline sm:flex">
+        <Link href="/pilot" className="hidden items-center gap-1.5 font-medium text-[var(--color-acid)] hover:underline sm:flex">
           Записаться <span aria-hidden>→</span>
         </Link>
       </div>
