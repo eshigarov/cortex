@@ -143,17 +143,7 @@ export default function Home() {
           }}
         />
         <div className="wrap relative pb-20 pt-16 md:pb-28 md:pt-24">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
-              b2b · средний и крупный бизнес
-            </span>
-            <span className="h-px w-10 bg-white/20" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-paper)]/50">
-              данные остаются у вас
-            </span>
-          </div>
-
-          <h1 className="display mt-8 max-w-[18ch]">
+          <h1 className="display max-w-[18ch]">
             Агент, который показывает, на чём основан ответ
           </h1>
 
