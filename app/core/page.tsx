@@ -150,6 +150,25 @@ export default function CorePage() {
         </div>
       </section>
 
+      <section className="wrap py-24">
+        <span className="eyebrow">сборка</span>
+        <h2 className="h2 mt-4 max-w-[22ch]">Как собирается онтология</h2>
+        <div className="mt-12 grid gap-8 md:grid-cols-4">
+          {[
+            ["01", "Источники", "Файлы, базы, выгрузки. Смотрим, что есть и в каком виде."],
+            ["02", "Сущности", "Выделяем людей, проекты, оборудование, контрагентов. Спорные типы подтверждает человек."],
+            ["03", "Ключи", "Определяем, по чему склеивать. Дубли сводятся в одну запись."],
+            ["04", "Связи", "Типизируем отношения. Видно, чего не хватает и где разрывы."],
+          ].map(([n, t, d]) => (
+            <div key={n} className="border-t border-[var(--color-ink)] pt-5">
+              <span className="font-mono text-[11px] text-[var(--color-mute)]">{n}</span>
+              <h3 className="mt-3 text-[16px] font-semibold">{t}</h3>
+              <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
           <div className="border border-[var(--color-line)] p-7 md:p-9">

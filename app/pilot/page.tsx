@@ -177,6 +177,25 @@ export default function PilotPage() {
         </div>
       </section>
 
+      <section className="border-y border-[var(--color-line)] bg-white/40">
+        <div className="wrap py-20">
+          <span className="eyebrow">границы</span>
+          <h2 className="h2 mt-4 max-w-[22ch]">Что в пилот не входит</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              ["Дообучение моделей", "Пилот работает на готовой модели. Дообучение на ваших данных — отдельный проект."],
+              ["Запись в ваши системы", "Ядро читает источники. Запись и изменения в ERP, MES или ECM — отдельная интеграция."],
+              ["Промышленная нагрузка", "Пилот не рассчитан на круглосуточную нагрузку и SLA. Это следующий этап."],
+            ].map(([t, d]) => (
+              <div key={t} className="border-t border-[var(--color-line)] pt-5">
+                <h3 className="text-[16px] font-semibold">{t}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="wrap py-20">
         <div className="border border-[var(--color-ink)] p-8 md:p-10">
           <h2 className="h2">Стоимость и условия</h2>

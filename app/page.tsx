@@ -127,7 +127,20 @@ const rag = [
     search: "Два набора фрагментов, связь остаётся на читателе.",
     cortex: "Дубли склеиваются в одну сущность с ключом.",
   },
+  {
+    q: "Как считается ответ?",
+    search: "Ранжирует фрагменты по похожести и склеивает их в абзац.",
+    cortex: "Идёт по связям и записывает путь в журнал: что смотрел, на чём остановился.",
+  },
 ];
+
+const layerGives: Record<string, string> = {
+  "01": "единый справочник объектов вместо папок и таблиц",
+  "02": "агент не спрашивает одно и то же дважды",
+  "03": "у каждого вывода есть путь по связям",
+  "04": "действие в рамках выданных прав",
+  "05": "решение можно объяснить и повторить",
+};
 
 export default function Home() {
   return (
@@ -238,7 +251,10 @@ export default function Home() {
                   <span className="font-mono text-[11px] text-[var(--color-mute)]">{l.n}</span>
                   <h3 className="text-[19px] font-semibold">{l.title}</h3>
                 </div>
-                <p className="max-w-[64ch] text-[14.5px] leading-relaxed text-[var(--color-ink)]/80">{l.text}</p>
+                <div>
+                  <p className="max-w-[64ch] text-[14.5px] leading-relaxed text-[var(--color-ink)]/80">{l.text}</p>
+                  <div className="mt-2 text-[12.5px] text-[var(--color-acid)]">{layerGives[l.n]}</div>
+                </div>
               </div>
             ))}
           </div>
