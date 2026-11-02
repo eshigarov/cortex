@@ -160,7 +160,6 @@ export default function CorePage() {
                 ["Не заменяет ERP и ECM", "Не пишет в ваши системы без интеграции и регламента."],
                 ["Не даёт юридической силы", "Ответ — основание для решения, а не сам документ."],
                 ["Не работает без доступа", "Если данных нет, ядро скажет, чего не хватает."],
-                ["Нет аттестации и сертификатов", "Журнал помогает пройти проверку, но не заменяет её."],
               ].map(([t, d]) => (
                 <div key={t} className="border-t border-[var(--color-line)] pt-4">
                   <div className="text-[15px] font-semibold">{t}</div>
@@ -173,10 +172,25 @@ export default function CorePage() {
       </section>
 
       <section className="wrap py-24">
+        <div className="grid gap-10 md:grid-cols-[0.34fr_0.66fr]">
+          <div>
+            <span className="eyebrow">интеграции</span>
+          </div>
+          <div>
+            <h2 className="h2 max-w-[24ch]">Работает с тем, что у вас уже есть</h2>
+            <p className="mt-6 max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-ink)]/80">
+              Практически с любым корпоративным ПО и базами данных: ERP, MES, ECM, 1С,
+              файловые хранилища, SQL. Подключение — через штатные интерфейсы или выгрузки.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="wrap py-24">
         <div className="flex flex-wrap items-center justify-between gap-6 border border-[var(--color-ink)] p-8">
           <div>
             <h2 className="h3">Показать на вашем корпусе</h2>
-            <p className="mt-2 text-[14px] text-[var(--color-mute)]">Две недели, десять вопросов, журнал решений.</p>
+            <p className="mt-2 text-[14px] text-[var(--color-mute)]">Десять вопросов, журнал решений.</p>
           </div>
           <Link href="/pilot" className="btn btn-primary">Запросить пилот →</Link>
         </div>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Пилот Cortex — две недели на ваших данных",
+  title: "Пилот Cortex на ваших данных",
   description:
-    "Две недели, десять ваших вопросов, журнал решений. Что входит, что нужно от вас и как фиксируем условия.",
+    "Десять ваших вопросов, журнал решений. Что входит, что нужно от вас и как фиксируем условия.",
 };
 
 const included = [
@@ -128,9 +128,8 @@ export default function PilotPage() {
               Отправить запрос <span aria-hidden>→</span>
             </button>
             <p className="mt-3 text-[11.5px] leading-relaxed text-[var(--color-mute)]">
-              Форма в разработке: пока пришлите то же самое письмом на{" "}
-              <a href="mailto:hello@cortex.ai" className="underline">hello@cortex.ai</a>. Нажимая кнопку,
-              вы соглашаетесь с обработкой персональных данных.
+              Или напишите на{" "}
+              <a href="mailto:hello@cortex.ai" className="underline">hello@cortex.ai</a>.
             </p>
           </form>
         </div>
@@ -138,7 +137,7 @@ export default function PilotPage() {
 
       <section id="what" className="wrap py-20 md:py-24">
         <span className="eyebrow">что входит</span>
-        <h2 className="h2 mt-4 max-w-[24ch]">Что вы получите за две недели</h2>
+        <h2 className="h2 mt-4 max-w-[24ch]">Что вы получите</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {included.map((i) => (
             <div key={i.t} className="border border-[var(--color-line)] p-7">
@@ -165,7 +164,7 @@ export default function PilotPage() {
           </div>
           <div>
             <span className="eyebrow">как идёт</span>
-            <h2 className="h2 mt-4">Две недели по шагам</h2>
+            <h2 className="h2 mt-4">Как идёт работа</h2>
             <div className="mt-8 space-y-4">
               {timeline.map((s) => (
                 <div key={s.d} className="grid gap-2 border-t border-[var(--color-line)] pt-4 md:grid-cols-[0.3fr_0.7fr]">

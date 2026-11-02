@@ -153,10 +153,6 @@ export default function Home() {
             цепочка вывода, версия.
           </p>
 
-          <p className="mt-3 max-w-[58ch] text-[14px] text-[var(--color-paper)]/45">
-            Не чат-бот и не фреймворк. Пилот — две недели на ваших данных.
-          </p>
-
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link href="/pilot" className="btn btn-acid">
               Запросить пилот <span aria-hidden>→</span>
@@ -182,9 +178,6 @@ export default function Home() {
               <span>18,6 млн связей</span>
               <span>0,2 с на ответ</span>
             </div>
-            <p className="mt-4 text-[11.5px] leading-relaxed text-[var(--color-paper)]/40">
-              Типовые сценарии и проектный масштаб. На вашем объёме замерим в пилоте.
-            </p>
           </div>
         </div>
       </section>
@@ -289,7 +282,7 @@ export default function Home() {
       <section id="pilot" className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
           <span className="eyebrow">пилот</span>
-          <h2 className="h2 mt-4 max-w-[24ch]">Две недели, десять вопросов, журнал решений</h2>
+          <h2 className="h2 mt-4 max-w-[24ch]">Десять вопросов, журнал решений</h2>
 
           <div className="mt-14 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-2">
             {[
@@ -355,10 +348,6 @@ export default function Home() {
           ))}
         </div>
 
-        <p className="mt-10 max-w-[64ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
-          Сертификатов и аттестации ИБ у нас нет — говорим прямо. Поэтому пилот начинается
-          с вашей службы безопасности, а не вопреки ей.
-        </p>
         <Link href="/security" className="btn btn-ghost mt-6 border border-[var(--color-line)]">
           Что мы делаем и чего не утверждаем →
         </Link>
@@ -387,9 +376,6 @@ export default function Home() {
                 <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.mech}</p>
                 <div className="mt-auto pt-5">
                   <div className="text-[15px] font-semibold text-[var(--color-acid)]">{s.effect}</div>
-                  <div className="mt-1 text-[11.5px] leading-relaxed text-[var(--color-mute)]">
-                    ориентир · в пилоте измерим: {s.measure}
-                  </div>
                 </div>
               </article>
             ))}
