@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CortexMark } from "./cortex-mark";
 
 export function SiteFooter() {
   return (
@@ -6,7 +7,10 @@ export function SiteFooter() {
       <div className="wrap py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="text-[19px] font-semibold tracking-[-0.04em]">Cortex</div>
+            <div className="flex items-center gap-2.5">
+              <CortexMark size={26} className="text-[var(--color-ink)]" />
+              <span className="text-[19px] font-semibold tracking-[-0.04em]">Cortex</span>
+            </div>
             <p className="mt-3 max-w-[34ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
               Ядро для ИИ-агентов: онтология, память, граф знаний, журнал решений.
             </p>

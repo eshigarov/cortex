@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { CortexMark } from "./cortex-mark";
 
 const items = [
   { href: "/core", label: "Cortex Core" },
@@ -16,7 +17,8 @@ export function SiteNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-line)] bg-[var(--color-paper)]/85 backdrop-blur-md">
       <div className="wrap flex h-16 items-center justify-between gap-6">
-        <Link href="/" className="flex items-baseline gap-2">
+        <Link href="/" className="flex items-center gap-2.5">
+          <CortexMark size={26} className="text-[var(--color-ink)]" />
           <span className="text-[19px] font-semibold tracking-[-0.04em]">Cortex</span>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-mute)] sm:inline">
             cognitive core
