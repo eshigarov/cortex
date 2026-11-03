@@ -1,0 +1,143 @@
+@prefix core: <https://cortex.example/ns/core#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+core: a owl:Ontology ;
+    rdfs:label "Cortex Core Ontology"@en , "Ядро онтологии Cortex"@ru ;
+    rdfs:comment "Минимальный канонический слой: сущности, связи, правила."@ru ;
+    owl:versionInfo "0.1.0" .
+
+############################################################
+# КЛАССЫ
+############################################################
+
+core:Entity a owl:Class ; rdfs:label "Сущность"@ru , "Entity"@en ;
+    rdfs:comment "Всё, что имеет идентичность и может быть участником связей."@ru .
+
+core:Agent a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Агент"@ru , "Agent"@en .
+
+core:Person a owl:Class ; rdfs:subClassOf core:Agent ;
+    rdfs:label "Человек"@ru , "Person"@en ;
+    rdfs:comment "Сотрудник, контрагент, кандидат."@ru .
+
+core:Organization a owl:Class ; rdfs:subClassOf core:Agent ;
+    rdfs:label "Организация"@ru , "Organization"@en .
+
+core:Unit a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Подразделение"@ru , "Unit"@en ;
+    rdfs:comment "Цех, департамент, площадка."@ru .
+
+core:Role a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Роль"@ru , "Role"@en ;
+    rdfs:comment "Должность или функция, отделимая от человека."@ru .
+
+core:Project a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Проект"@ru , "Project"@en .
+
+core:Asset a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Объект"@ru , "Asset"@en ;
+    rdfs:comment "Оборудование, установка, месторождение, ИТ-система."@ru .
+
+core:Document a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Документ"@ru , "Document"@en ;
+    rdfs:comment "Регламент, договор, отчёт, инструкция."@ru .
+
+core:Event a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Событие"@ru , "Event"@en ;
+    rdfs:comment "Простой, авария, совещание, поставка."@ru .
+
+core:Metric a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Показатель"@ru , "Metric"@en ;
+    rdfs:comment "Величина с единицей измерения и периодом."@ru .
+
+core:Decision a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Решение"@ru , "Decision"@en ;
+    rdfs:comment "Зафиксированный выбор с основанием и автором."@ru .
+
+core:Contract a owl:Class ; rdfs:subClassOf core:Document ;
+    rdfs:label "Договор"@ru , "Contract"@en .
+
+############################################################
+# СВЯЗИ
+############################################################
+
+core:worksFor a owl:ObjectProperty ;
+    rdfs:label "работает в"@ru , "works for"@en ;
+    rdfs:domain core:Person ; rdfs:range core:Organization .
+
+core:memberOf a owl:ObjectProperty ;
+    rdfs:label "входит в"@ru , "member of"@en ;
+    rdfs:domain core:Person ; rdfs:range core:Unit .
+
+core:holdsRole a owl:ObjectProperty ;
+    rdfs:label "занимает роль"@ru , "holds role"@en ;
+    rdfs:domain core:Person ; rdfs:range core:Role .
+
+core:roleIn a owl:ObjectProperty ;
+    rdfs:label "роль в"@ru , "role in"@en ;
+    rdfs:domain core:Role ; rdfs:range core:Unit .
+
+core:partOf a owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:label "часть"@ru , "part of"@en ;
+    rdfs:domain core:Entity ; rdfs:range core:Entity .
+
+core:participatesIn a owl:ObjectProperty ;
+    rdfs:label "участвует в"@ru , "participates in"@en ;
+    rdfs:domain core:Agent ; rdfs:range core:Project .
+
+core:owns a owl:ObjectProperty ;
+    rdfs:label "владеет"@ru , "owns"@en ;
+    rdfs:domain core:Agent ; rdfs:range core:Asset .
+
+core:locatedAt a owl:ObjectProperty ;
+    rdfs:label "расположен в"@ru , "located at"@en ;
+    rdfs:domain core:Asset ; rdfs:range core:Unit .
+
+core:affects a owl:ObjectProperty ;
+    rdfs:label "влияет на"@ru , "affects"@en ;
+    rdfs:domain core:Event ; rdfs:range core:Asset .
+
+core:measures a owl:ObjectProperty ;
+    rdfs:label "измеряет"@ru , "measures"@en ;
+    rdfs:domain core:Metric ; rdfs:range core:Entity .
+
+core:decidesOn a owl:ObjectProperty ;
+    rdfs:label "решает вопрос"@ru , "decides on"@en ;
+    rdfs:domain core:Decision ; rdfs:range core:Entity .
+
+core:decidedBy a owl:ObjectProperty ;
+    rdfs:label "принято"@ru , "decided by"@en ;
+    rdfs:domain core:Decision ; rdfs:range core:Person .
+
+core:references a owl:ObjectProperty ;
+    rdfs:label "ссылается на"@ru , "references"@en ;
+    rdfs:domain core:Document ; rdfs:range core:Entity .
+
+core:governs a owl:ObjectProperty ;
+    rdfs:label "регламентирует"@ru , "governs"@en ;
+    rdfs:domain core:Document ; rdfs:range core:Entity .
+
+############################################################
+# АТРИБУТЫ
+############################################################
+
+core:name a owl:DatatypeProperty ; rdfs:label "название"@ru ;
+    rdfs:domain core:Entity ; rdfs:range xsd:string .
+
+core:identifier a owl:DatatypeProperty ; rdfs:label "идентификатор"@ru ;
+    rdfs:domain core:Entity ; rdfs:range xsd:string .
+
+core:validFrom a owl:DatatypeProperty ; rdfs:label "действует с"@ru ;
+    rdfs:range xsd:date .
+
+core:validTo a owl:DatatypeProperty ; rdfs:label "действует по"@ru ;
+    rdfs:range xsd:date .
+
+core:unit a owl:DatatypeProperty ; rdfs:label "единица измерения"@ru ;
+    rdfs:domain core:Metric ; rdfs:range xsd:string .
+
+core:value a owl:DatatypeProperty ; rdfs:label "значение"@ru ;
+    rdfs:domain core:Metric ; rdfs:range xsd:decimal .

@@ -1,0 +1,32 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix core: <https://cortex.example/ns/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+core:PersonShape a sh:NodeShape ;
+    sh:targetClass core:Person ;
+    sh:property [ sh:path core:name ; sh:minCount 1 ; sh:datatype xsd:string ;
+                  sh:message "У человека должно быть имя."@ru ] ;
+    sh:property [ sh:path core:worksFor ; sh:maxCount 1 ;
+                  sh:message "Человек работает не более чем в одной организации."@ru ] .
+
+core:MetricShape a sh:NodeShape ;
+    sh:targetClass core:Metric ;
+    sh:property [ sh:path core:name ; sh:minCount 1 ] ;
+    sh:property [ sh:path core:unit ; sh:minCount 1 ;
+                  sh:message "У показателя должна быть единица измерения."@ru ] ;
+    sh:property [ sh:path core:value ; sh:datatype xsd:decimal ] .
+
+core:DocumentShape a sh:NodeShape ;
+    sh:targetClass core:Document ;
+    sh:property [ sh:path core:name ; sh:minCount 1 ] ;
+    sh:property [ sh:path core:validFrom ; sh:datatype xsd:date ] .
+
+core:DecisionShape a sh:NodeShape ;
+    sh:targetClass core:Decision ;
+    sh:property [ sh:path core:decidedBy ; sh:minCount 1 ; sh:class core:Person ;
+                  sh:message "У решения должен быть автор."@ru ] .
+
+core:EventShape a sh:NodeShape ;
+    sh:targetClass core:Event ;
+    sh:property [ sh:path core:affects ; sh:minCount 1 ; sh:class core:Asset ;
+                  sh:message "Событие должно быть привязано к объекту."@ru ] .

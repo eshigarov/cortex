@@ -1,0 +1,22 @@
+@prefix core: <https://cortex.example/ns/core#> .
+@prefix tax:  <https://cortex.example/ns/tax#> .
+@prefix ex:   <https://cortex.example/demo/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+ex:org-gok a core:Organization ; core:name "ГОК «Северный»" .
+ex:unit-crusher a core:Unit ; core:name "Дробильный цех" ; core:partOf ex:org-gok .
+ex:person-ivanov a core:Person ; core:name "Иванов И. И." ;
+    core:worksFor ex:org-gok ; core:memberOf ex:unit-crusher ;
+    core:holdsRole ex:role-mech .
+ex:role-mech a core:Role ; core:name "Главный механик" ; core:roleIn ex:unit-crusher .
+ex:asset-crusher a core:Asset ; core:name "Дробилка КМД-2200" ;
+    core:locatedAt ex:unit-crusher ; core:partOf ex:org-gok .
+ex:event-stop a core:Event ; core:name "Простой 6 ч" ;
+    core:affects ex:asset-crusher .
+ex:metric-downtime a core:Metric ; core:name "Простои, ч/мес" ;
+    core:unit "час" ; core:value "42.5"^^xsd:decimal ;
+    core:measures ex:asset-crusher .
+ex:doc-reg a core:Document ; core:name "Регламент ТО дробилок" ;
+    core:validFrom "2026-01-01"^^xsd:date ; core:governs ex:asset-crusher .
+ex:decision-repair a core:Decision ; core:name "Заменить броню конуса" ;
+    core:decidedBy ex:person-ivanov ; core:decidesOn ex:asset-crusher .

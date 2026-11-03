@@ -1,0 +1,43 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core: <https://cortex.example/ns/core#> .
+@prefix tax:  <https://cortex.example/ns/tax#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+tax:Industries a skos:ConceptScheme ;
+    skos:prefLabel "Отрасли"@ru , "Industries"@en ;
+    dct:modified "2026-11-03" .
+
+tax:mining a skos:Concept ; skos:inScheme tax:Industries ;
+    skos:prefLabel "Горно-металлургический комплекс"@ru , "Mining and metals"@en ;
+    skos:altLabel "ГМК"@ru ; skos:notation "MIN" .
+
+tax:energy a skos:Concept ; skos:inScheme tax:Industries ;
+    skos:prefLabel "Энергетика"@ru , "Energy"@en ;
+    skos:altLabel "генерация"@ru ; skos:notation "ENR" .
+
+tax:logistics a skos:Concept ; skos:inScheme tax:Industries ;
+    skos:prefLabel "Логистика"@ru , "Logistics"@en ; skos:notation "LOG" .
+
+tax:manufacturing a skos:Concept ; skos:inScheme tax:Industries ;
+    skos:prefLabel "Машиностроение"@ru , "Manufacturing"@en ; skos:notation "MFG" .
+
+tax:ScenarioTypes a skos:ConceptScheme ;
+    skos:prefLabel "Типы сценариев"@ru .
+
+tax:knowledge-answer a skos:Concept ; skos:inScheme tax:ScenarioTypes ;
+    skos:prefLabel "Ответ по знаниям"@ru ;
+    skos:definition "Вопрос к базе знаний компании с опорой на документы."@ru .
+
+tax:process-support a skos:Concept ; skos:inScheme tax:ScenarioTypes ;
+    skos:prefLabel "Поддержка процесса"@ru ;
+    skos:definition "Помощь в регламентной операции с проверкой условий."@ru .
+
+tax:downtime-analysis a skos:Concept ; skos:inScheme tax:ScenarioTypes ;
+    skos:prefLabel "Анализ простоев"@ru ;
+    skos:definition "Связка оборудование — событие — показатель — решение."@ru .
+
+# связь таксономии с ядром: тип объекта из классификатора
+tax:equipment a skos:Concept ; skos:inScheme tax:AssetTypes ;
+    skos:prefLabel "Оборудование"@ru .
+
+tax:AssetTypes a skos:ConceptScheme ; skos:prefLabel "Типы объектов"@ru .
