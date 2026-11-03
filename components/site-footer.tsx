@@ -14,7 +14,7 @@ export function SiteFooter() {
             <p className="mt-3 max-w-[34ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
               Ядро для ИИ-агентов: онтология, память, граф знаний, журнал решений.
             </p>
-            <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--color-mute)]">
+            <div className="mt-6 font-mono text-[12px] uppercase tracking-[0.16em] text-[var(--color-mute)]">
               Москва · демо в вашем контуре
             </div>
           </div>

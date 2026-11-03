@@ -60,7 +60,7 @@ export function CasesCarousel() {
   return (
     <div className="border border-[var(--color-line)]">
       <div className="flex items-center justify-between border-b border-[var(--color-line)] px-6 py-4">
-        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-mute)]">
+        <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-mute)]">
           пример {i + 1} из {cases.length}
         </span>
         <div className="flex gap-1.5">

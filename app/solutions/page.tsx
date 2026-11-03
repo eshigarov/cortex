@@ -54,7 +54,7 @@ export default function SolutionsPage() {
                 </div>
                 <h2 className="h3 mt-5 text-[28px]">{d.title}</h2>
                 <p className="mt-2 text-[14.5px] font-medium text-[var(--color-ink)]/75">{d.lead}</p>
-                <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{d.term}</div>
+                <div className="mt-6 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{d.term}</div>
               </div>
               <div className="grid gap-6 border-t border-[var(--color-line)] pt-6 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                 <div>

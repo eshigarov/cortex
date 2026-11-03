@@ -195,7 +195,7 @@ export default function Home() {
               <Link key={p.title} href={p.href} className="group bg-[var(--color-paper)] p-6 transition-colors hover:bg-white">
                 <div className="text-[16px] font-semibold">{p.title}</div>
                 <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{p.text}</p>
-                <span className="mt-4 inline-block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">
+                <span className="mt-4 inline-block font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">
                   {p.label} →
                 </span>
               </Link>
@@ -265,9 +265,9 @@ export default function Home() {
           <table className="w-full min-w-[720px] border-collapse text-left">
             <thead>
               <tr className="border-b border-[var(--color-ink)]">
-                <th className="py-4 pr-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">вопрос</th>
-                <th className="py-4 pr-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">поиск / rag</th>
-                <th className="py-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">cortex</th>
+                <th className="py-4 pr-6 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">вопрос</th>
+                <th className="py-4 pr-6 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">поиск / rag</th>
+                <th className="py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">cortex</th>
               </tr>
             </thead>
             <tbody>
@@ -376,7 +376,7 @@ export default function Home() {
               <article key={s.sector} className="card flex flex-col p-6">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[12px] font-semibold uppercase tracking-[0.08em]">{s.sector}</span>
-                  <span className="rounded-full border border-[var(--color-line)] px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
+                  <span className="rounded-full border border-[var(--color-line)] px-2.5 py-1 font-mono text-[12px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
                     {s.segment}
                   </span>
                 </div>

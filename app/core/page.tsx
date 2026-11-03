@@ -67,7 +67,7 @@ export default function CorePage() {
             <Link href="/pilot" className="btn btn-primary">Запросить пилот <span aria-hidden>→</span></Link>
             <a href="#platform" className="btn btn-ghost">Как устроено</a>
           </div>
-          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
+          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
             <a href="#modules" className="hover:text-[var(--color-ink)]">модули</a>
             <a href="#platform" className="hover:text-[var(--color-ink)]">платформа</a>
             <a href="#ontology" className="hover:text-[var(--color-ink)]">онтология</a>
@@ -132,7 +132,7 @@ export default function CorePage() {
           {entities.map((e) => (
             <article key={e.type} className="bg-[var(--color-paper)] p-5">
               <h3 className="text-[16px] font-semibold">{e.type}</h3>
-              <div className="mt-1 font-mono text-[11px] text-[var(--color-acid-ink)]">{e.key}</div>
+              <div className="mt-1 font-mono text-[12px] text-[var(--color-acid-ink)]">{e.key}</div>
               <p className="mt-2 text-[12px] leading-relaxed text-[var(--color-mute)]">{e.ex}</p>
             </article>
           ))}

@@ -84,7 +84,7 @@ export default function ScenariosPage() {
             <article key={s.sector} className="border border-[var(--color-line)] p-7 md:p-8">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h2 className="text-[20px] font-semibold">{s.sector}</h2>
-                <span className="rounded-full border border-[var(--color-line)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
+                <span className="rounded-full border border-[var(--color-line)] px-3 py-1 font-mono text-[12px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
                   {s.segment}
                 </span>
               </div>
