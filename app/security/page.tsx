@@ -101,7 +101,6 @@ export default function SecurityPage() {
                 "По итогам решаем, расширять или остановить.",
               ].map((s, i) => (
                 <li key={s} className="flex gap-4 border-t border-[var(--color-line)] pt-4">
-                  <span className="font-mono text-[12px] text-[var(--color-mute)]">0{i + 1}</span>
                   <span className="text-[14px] leading-relaxed text-[var(--color-ink)]/85">{s}</span>
                 </li>
               ))}

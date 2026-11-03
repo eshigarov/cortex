@@ -87,7 +87,6 @@ export default function SolutionsPage() {
               ["04", "Остаёмся рядом", "Обновляем онтологию, разбираем ошибки, расширяем сценарии."],
             ].map(([n, t, d]) => (
               <div key={n} className="border-t border-[var(--color-ink)] pt-5">
-                <span className="font-mono text-[11px] text-[var(--color-mute)]">{n}</span>
                 <h3 className="mt-3 text-[16px] font-semibold">{t}</h3>
                 <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</p>
               </div>

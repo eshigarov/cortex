@@ -24,7 +24,7 @@ export function MetricsCarousel() {
   return (
     <div className="border border-white/15">
       <div className="flex items-center justify-between border-b border-white/15 px-5 py-3">
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-paper)]/40">
+        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-paper)]/65">
           оценка масштаба
         </span>
         <div className="flex gap-1.5">
@@ -43,20 +43,20 @@ export function MetricsCarousel() {
 
       <div className="grid grid-cols-2 gap-px bg-white/15 md:grid-cols-3">
         <div className="bg-[var(--color-ink)] p-5">
-          <div className="text-[13px] text-[var(--color-paper)]/55">{p.name}</div>
-          <div className="mt-1 text-[11px] leading-relaxed text-[var(--color-paper)]/35">{p.scale}</div>
+          <div className="text-[13px] text-[var(--color-paper)]/70">{p.name}</div>
+          <div className="mt-1 text-[12.5px] leading-relaxed text-[var(--color-paper)]/60">{p.scale}</div>
         </div>
         <div className="bg-[var(--color-ink)] p-5">
           <div className="font-mono text-[26px] tracking-[-0.03em]">{p.entities}</div>
-          <div className="mt-1 text-[11px] text-[var(--color-paper)]/45">сущностей</div>
+          <div className="mt-1 text-[11px] text-[var(--color-paper)]/70">сущностей</div>
         </div>
         <div className="col-span-2 bg-[var(--color-ink)] p-5 md:col-span-1">
           <div className="font-mono text-[26px] tracking-[-0.03em]">{p.links}</div>
-          <div className="mt-1 text-[11px] text-[var(--color-paper)]/45">связей</div>
+          <div className="mt-1 text-[11px] text-[var(--color-paper)]/70">связей</div>
         </div>
       </div>
 
-      <div className="border-t border-white/15 px-5 py-3 text-[10.5px] leading-relaxed text-[var(--color-paper)]/35">
+      <div className="border-t border-white/15 px-5 py-3 text-[11px] leading-relaxed text-[var(--color-paper)]/60">
         модельная оценка по нашим коэффициентам (1 сущность на ~3 500 символов, 3,25 связи на сущность).
         На пилоте считаем по вашему корпусу.
       </div>

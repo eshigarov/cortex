@@ -60,7 +60,7 @@ export function CasesCarousel() {
   return (
     <div className="border border-[var(--color-line)]">
       <div className="flex items-center justify-between border-b border-[var(--color-line)] px-6 py-4">
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-mute)]">
+        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-mute)]">
           пример {i + 1} из {cases.length}
         </span>
         <div className="flex gap-1.5">
@@ -93,7 +93,7 @@ export function CasesCarousel() {
         </div>
       </div>
 
-      <div className="border-t border-[var(--color-line)] px-6 py-4 text-[11px] leading-relaxed text-[var(--color-mute)]">
+      <div className="border-t border-[var(--color-line)] px-6 py-4 text-[12.5px] leading-relaxed text-[var(--color-mute)]">
         Часть примеров — реализованные работы и типовые проекты. Названия компаний и систем
         не раскрываем: это условие работы с заказчиками.
       </div>

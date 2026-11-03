@@ -2,10 +2,11 @@
 
 @theme {
   --color-ink: #0b0b0c;
-  --color-paper: #f2f0ea;
+  --color-paper: #f5f5f4;
   --color-mute: #6f6c66;
   --color-line: #d8d4cb;
   --color-acid: #ff5a1f;
+  --color-acid-ink: #b8410c;
   --color-flare: #ff4d1c;
   --color-cobalt: #2b4bff;
   --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -33,8 +34,8 @@ body {
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--color-mute);
 }
 
@@ -78,8 +79,8 @@ body {
 .btn-primary:hover { background: #232325; }
 .btn-ghost { background: transparent; color: var(--color-ink); }
 .btn-ghost:hover { background: rgba(11,11,12,.05); }
-.btn-acid { background: var(--color-acid); color: #fff; border-color: var(--color-acid); }
-.btn-acid:hover { background: #e64a12; }
+.btn-acid { background: var(--color-acid); color: var(--color-ink); border-color: var(--color-acid); }
+.btn-acid:hover { background: #e8541a; }
 
 .card {
   border: 1px solid var(--color-line);
@@ -90,10 +91,7 @@ body {
 .card:hover { background: #fff; border-color: #bdb8ad; transform: translateY(-2px); }
 
 .grid-lines {
-  background-image:
-    linear-gradient(to right, rgba(11,11,12,.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11,11,12,.055) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background-image: none;
 }
 
 .grain::after {
@@ -109,8 +107,7 @@ body {
 
 @keyframes rise { to { opacity: 1; transform: none; } }
 
-.marquee { display: flex; gap: 40px; white-space: nowrap; animation: slide 28s linear infinite; }
-@keyframes slide { to { transform: translateX(-50%); } }
+.marquee { display: flex; flex-wrap: wrap; gap: 28px 40px; justify-content: center; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .marquee { animation: none; opacity: 1; transform: none; }

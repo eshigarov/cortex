@@ -147,14 +147,6 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
         <div className="wrap relative pb-20 pt-16 md:pb-28 md:pt-24">
           <h1 className="display max-w-[18ch]">
             Ответ, который можно проверить
@@ -185,7 +177,7 @@ export default function Home() {
               <span>3 дня вместо 10 на ТУ</span>
               <span>−15% out-of-stock</span>
             </div>
-            <div className="mt-2 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12px] text-[var(--color-paper)]/45">
+            <div className="mt-2 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12px] text-[var(--color-paper)]/70">
               <span>до 12 млн документов</span>
               <span>2,4 млн сущностей</span>
               <span>18,6 млн связей</span>
@@ -203,7 +195,7 @@ export default function Home() {
               <Link key={p.title} href={p.href} className="group bg-[var(--color-paper)] p-6 transition-colors hover:bg-white">
                 <div className="text-[16px] font-semibold">{p.title}</div>
                 <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{p.text}</p>
-                <span className="mt-4 inline-block font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-acid)]">
+                <span className="mt-4 inline-block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">
                   {p.label} →
                 </span>
               </Link>
@@ -248,12 +240,12 @@ export default function Home() {
             {layers.map((l) => (
               <div key={l.n} className="grid gap-6 border-t border-[var(--color-line)] pt-6 md:grid-cols-[0.28fr_0.72fr]">
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] text-[var(--color-mute)]">{l.n}</span>
+
                   <h3 className="text-[19px] font-semibold">{l.title}</h3>
                 </div>
                 <div>
                   <p className="max-w-[64ch] text-[14.5px] leading-relaxed text-[var(--color-ink)]/80">{l.text}</p>
-                  <div className="mt-2 text-[12.5px] text-[var(--color-acid)]">{layerGives[l.n]}</div>
+                  <div className="mt-2 text-[12.5px] text-[var(--color-acid-ink)]">{layerGives[l.n]}</div>
                 </div>
               </div>
             ))}
@@ -273,9 +265,9 @@ export default function Home() {
           <table className="w-full min-w-[720px] border-collapse text-left">
             <thead>
               <tr className="border-b border-[var(--color-ink)]">
-                <th className="py-4 pr-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">вопрос</th>
-                <th className="py-4 pr-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">поиск / rag</th>
-                <th className="py-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-acid)]">cortex</th>
+                <th className="py-4 pr-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">вопрос</th>
+                <th className="py-4 pr-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">поиск / rag</th>
+                <th className="py-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">cortex</th>
               </tr>
             </thead>
             <tbody>
@@ -384,14 +376,14 @@ export default function Home() {
               <article key={s.sector} className="card flex flex-col p-6">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[12px] font-semibold uppercase tracking-[0.08em]">{s.sector}</span>
-                  <span className="rounded-full border border-[var(--color-line)] px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
+                  <span className="rounded-full border border-[var(--color-line)] px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
                     {s.segment}
                   </span>
                 </div>
                 <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-mute)]">{s.pain}</p>
                 <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.mech}</p>
                 <div className="mt-auto pt-5">
-                  <div className="text-[15px] font-semibold text-[var(--color-acid)]">{s.effect}</div>
+                  <div className="text-[15px] font-semibold text-[var(--color-acid-ink)]">{s.effect}</div>
                 </div>
               </article>
             ))}

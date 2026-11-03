@@ -127,7 +127,7 @@ export default function PilotPage() {
             <button type="button" className="btn btn-primary mt-7 w-full justify-center">
               Отправить запрос <span aria-hidden>→</span>
             </button>
-            <p className="mt-3 text-[11.5px] leading-relaxed text-[var(--color-mute)]">
+            <p className="mt-3 text-[12.5px] leading-relaxed text-[var(--color-mute)]">
               Или напишите на{" "}
               <a href="mailto:hello@cortex.ai" className="underline">hello@cortex.ai</a>.
             </p>
@@ -168,7 +168,7 @@ export default function PilotPage() {
             <div className="mt-8 space-y-4">
               {timeline.map((s) => (
                 <div key={s.d} className="grid gap-2 border-t border-[var(--color-line)] pt-4 md:grid-cols-[0.3fr_0.7fr]">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{s.d}</div>
+                  <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{s.d}</div>
                   <div className="text-[14px] leading-relaxed text-[var(--color-ink)]/85">{s.t}</div>
                 </div>
               ))}

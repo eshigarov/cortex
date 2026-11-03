@@ -84,7 +84,7 @@ export default function ScenariosPage() {
             <article key={s.sector} className="border border-[var(--color-line)] p-7 md:p-8">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <h2 className="text-[20px] font-semibold">{s.sector}</h2>
-                <span className="rounded-full border border-[var(--color-line)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
+                <span className="rounded-full border border-[var(--color-line)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
                   {s.segment}
                 </span>
               </div>
@@ -102,7 +102,7 @@ export default function ScenariosPage() {
               </div>
 
               <div className="mt-5 border-t border-[var(--color-line)] pt-4">
-                <div className="text-[16px] font-semibold text-[var(--color-acid)]">{s.effect}</div>
+                <div className="text-[16px] font-semibold text-[var(--color-acid-ink)]">{s.effect}</div>
                 <div className="mt-1 text-[12px] leading-relaxed text-[var(--color-mute)]">
                   ориентир · в пилоте измерим: {s.measure}
                 </div>

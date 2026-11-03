@@ -67,7 +67,7 @@ export default function CorePage() {
             <Link href="/pilot" className="btn btn-primary">Запросить пилот <span aria-hidden>→</span></Link>
             <a href="#platform" className="btn btn-ghost">Как устроено</a>
           </div>
-          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
+          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
             <a href="#modules" className="hover:text-[var(--color-ink)]">модули</a>
             <a href="#platform" className="hover:text-[var(--color-ink)]">платформа</a>
             <a href="#ontology" className="hover:text-[var(--color-ink)]">онтология</a>
@@ -81,9 +81,6 @@ export default function CorePage() {
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {modules.map((m) => (
             <article key={m.n} className="card p-7">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] text-[var(--color-mute)]">{m.n}</span>
-              </div>
               <h3 className="h3 mt-5 text-[21px]">{m.name}</h3>
               <p className="mt-2 text-[13.5px] font-medium text-[var(--color-ink)]/75">{m.value}</p>
               <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-mute)]">{m.text}</p>
@@ -100,7 +97,7 @@ export default function CorePage() {
             {layers.map((l) => (
               <div key={l.n} className="grid gap-6 border-t border-[var(--color-ink)] pt-6 md:grid-cols-[0.3fr_0.7fr]">
                 <div>
-                  <div className="font-mono text-[11px] text-[var(--color-mute)]">{l.n}</div>
+
                   <h3 className="mt-2 text-[19px] font-semibold">{l.title}</h3>
                 </div>
                 <p className="max-w-[62ch] text-[14.5px] leading-relaxed text-[var(--color-ink)]/80">{l.text}</p>
@@ -135,7 +132,7 @@ export default function CorePage() {
           {entities.map((e) => (
             <article key={e.type} className="bg-[var(--color-paper)] p-5">
               <h3 className="text-[16px] font-semibold">{e.type}</h3>
-              <div className="mt-1 font-mono text-[10.5px] text-[var(--color-acid)]">{e.key}</div>
+              <div className="mt-1 font-mono text-[11px] text-[var(--color-acid-ink)]">{e.key}</div>
               <p className="mt-2 text-[12px] leading-relaxed text-[var(--color-mute)]">{e.ex}</p>
             </article>
           ))}
@@ -161,7 +158,6 @@ export default function CorePage() {
             ["04", "Связи", "Типизируем отношения. Видно, чего не хватает и где разрывы."],
           ].map(([n, t, d]) => (
             <div key={n} className="border-t border-[var(--color-ink)] pt-5">
-              <span className="font-mono text-[11px] text-[var(--color-mute)]">{n}</span>
               <h3 className="mt-3 text-[16px] font-semibold">{t}</h3>
               <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{d}</p>
             </div>
