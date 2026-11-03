@@ -23,7 +23,7 @@ for _ in $(seq 1 40); do
   sleep 0.5
 done
 
-ROUTES="index about cases contact core experience industries ontology pilot platform products scenarios security solutions"
+ROUTES="${ROUTES:-index about cases contact core experience industries ontology pilot platform products scenarios security solutions}"
 total=0
 for r in $ROUTES; do
   if [ "$r" = "index" ]; then path=""; else path="$r/"; fi
@@ -35,4 +35,8 @@ done
 
 echo "---"
 echo "всего находок: $total"
-[ "$total" -eq 0 ]
+if [ "$total" -eq 0 ]; then
+  exit 0
+else
+  exit 1
+fi
