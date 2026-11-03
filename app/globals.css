@@ -19,6 +19,7 @@
 html { scroll-behavior: smooth; }
 
 body {
+  text-wrap: pretty;
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
