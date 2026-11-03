@@ -1,0 +1,155 @@
+{
+  "question": "Почему выросли простои на дробилке?",
+  "nodes": [
+    {
+      "id": "asset-crusher",
+      "label": "Дробилка КМД-2200",
+      "type": "Asset"
+    },
+    {
+      "id": "decision-repair",
+      "label": "Заменить броню конуса",
+      "type": "Decision"
+    },
+    {
+      "id": "doc-reg",
+      "label": "Регламент ТО дробилок",
+      "type": "Document"
+    },
+    {
+      "id": "event-stop",
+      "label": "Простой 6 ч",
+      "type": "Event"
+    },
+    {
+      "id": "metric-downtime",
+      "label": "Простои, ч/мес",
+      "type": "Metric"
+    },
+    {
+      "id": "org-gok",
+      "label": "ГОК «Северный»",
+      "type": "Organization"
+    },
+    {
+      "id": "person-ivanov",
+      "label": "Иванов И. И.",
+      "type": "Person"
+    },
+    {
+      "id": "role-mech",
+      "label": "Главный механик",
+      "type": "Role"
+    },
+    {
+      "id": "unit-crusher",
+      "label": "Дробильный цех",
+      "type": "Unit"
+    }
+  ],
+  "edges": [
+    {
+      "source": "asset-crusher",
+      "target": "org-gok",
+      "predicate": "core:partOf",
+      "label": "часть"
+    },
+    {
+      "source": "asset-crusher",
+      "target": "unit-crusher",
+      "predicate": "core:locatedAt",
+      "label": "расположен в"
+    },
+    {
+      "source": "decision-repair",
+      "target": "asset-crusher",
+      "predicate": "core:decidesOn",
+      "label": "решает вопрос"
+    },
+    {
+      "source": "decision-repair",
+      "target": "person-ivanov",
+      "predicate": "core:decidedBy",
+      "label": "принято"
+    },
+    {
+      "source": "doc-reg",
+      "target": "asset-crusher",
+      "predicate": "core:governs",
+      "label": "регламентирует"
+    },
+    {
+      "source": "event-stop",
+      "target": "asset-crusher",
+      "predicate": "core:affects",
+      "label": "влияет на"
+    },
+    {
+      "source": "metric-downtime",
+      "target": "asset-crusher",
+      "predicate": "core:measures",
+      "label": "измеряет"
+    },
+    {
+      "source": "person-ivanov",
+      "target": "org-gok",
+      "predicate": "core:worksFor",
+      "label": "работает в"
+    },
+    {
+      "source": "person-ivanov",
+      "target": "role-mech",
+      "predicate": "core:holdsRole",
+      "label": "занимает роль"
+    },
+    {
+      "source": "person-ivanov",
+      "target": "unit-crusher",
+      "predicate": "core:memberOf",
+      "label": "входит в"
+    },
+    {
+      "source": "role-mech",
+      "target": "unit-crusher",
+      "predicate": "core:roleIn",
+      "label": "роль в"
+    },
+    {
+      "source": "unit-crusher",
+      "target": "org-gok",
+      "predicate": "core:partOf",
+      "label": "часть"
+    }
+  ],
+  "story": [
+    {
+      "node": "asset-crusher",
+      "caption": "Дробилка КМД-2200 в дробильном цехе"
+    },
+    {
+      "node": "event-stop",
+      "caption": "Зафиксирован простой 6 часов",
+      "relation": "влияет на"
+    },
+    {
+      "node": "metric-downtime",
+      "caption": "Простои за месяц — 42,5 часа",
+      "relation": "измеряет"
+    },
+    {
+      "node": "decision-repair",
+      "caption": "Решение: заменить броню конуса",
+      "relation": "касается"
+    },
+    {
+      "node": "person-ivanov",
+      "caption": "Автор — главный механик",
+      "relation": "принято"
+    },
+    {
+      "node": "doc-reg",
+      "caption": "Основание — регламент ТО",
+      "relation": "регламентирует"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnswerPath from "@/components/answer-path";
 
 const layers = [
   {
@@ -229,6 +230,17 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ПУТЬ ОТВЕТА */}
+      <section id="answer-path" className="wrap py-24">
+        <span className="eyebrow">как это работает</span>
+        <h2 className="h2 mt-4 max-w-[26ch]">Путь ответа: от вопроса до решения</h2>
+        <p className="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-[var(--color-mute)]">
+          Ответ собирается по связям, а не по похожести текста: объект, событие, показатель,
+          решение, автор и основание. Каждый шаг можно проверить.
+        </p>
+        <AnswerPath />
       </section>
 
       {/* СЛОИ */}
