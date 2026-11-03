@@ -113,3 +113,4 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .reveal, .marquee { animation: none; opacity: 1; transform: none; }
 }
+::placeholder { color: #6b6b6b; opacity: 1; }
