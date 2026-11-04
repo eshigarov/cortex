@@ -29,33 +29,6 @@ const layers = [
   },
 ];
 
-const paths = [
-  {
-    title: "Производство и операции",
-    text: "Что произошло и кто отвечает: сводки со ссылками на документы, история решений.",
-    href: "/pilot#what",
-    label: "что в пилоте",
-  },
-  {
-    title: "ИТ и данные",
-    text: "Как устроено и что нужно от ИТ: источники, контур, права.",
-    href: "/core",
-    label: "как устроено",
-  },
-  {
-    title: "ИБ и аудит",
-    text: "Что с данными и доступами: контур, журнал, чего мы не утверждаем.",
-    href: "/security",
-    label: "для ИБ",
-  },
-  {
-    title: "Закупки",
-    text: "Состав, сроки, условия: что в пилоте, что нужно от вас, как фиксируем стоимость.",
-    href: "/pilot",
-    label: "условия",
-  },
-];
-
 const scenarios = [
   {
     sector: "Логистика",
@@ -150,7 +123,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]">
         <div className="wrap relative pb-20 pt-16 md:pb-28 md:pt-24">
           <h1 className="display max-w-[18ch]">
-            Ответ, который можно проверить
+            Решения, которые можно проверить
           </h1>
 
           <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
@@ -161,7 +134,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link href="/pilot" className="btn btn-acid">
-              Запросить пилот <span aria-hidden>→</span>
+              Обсудить пилот <span aria-hidden>→</span>
             </Link>
             <Link
               href="/core"
@@ -171,57 +144,26 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-14 border-t border-white/15 pt-6">
-            <div className="flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12px] text-[var(--color-paper)]/75">
-              <span>×8 быстрее сводка по простоям</span>
-              <span>55% → 75% взысканных претензий</span>
-              <span>3 дня вместо 10 на ТУ</span>
-              <span>−15% out-of-stock</span>
-            </div>
-            <div className="mt-2 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[12px] text-[var(--color-paper)]/70">
-              <span>до 12 млн документов</span>
-              <span>2,4 млн сущностей</span>
-              <span>18,6 млн связей</span>
-              <span>0,2 с на ответ</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ПУТИ */}
-      <section className="border-b border-[var(--color-line)]">
-        <div className="wrap py-16 md:py-20">
-          <div className="grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
-            {paths.map((p) => (
-              <Link key={p.title} href={p.href} className="group bg-[var(--color-paper)] p-6 transition-colors hover:bg-white">
-                <div className="text-[16px] font-semibold">{p.title}</div>
-                <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{p.text}</p>
-                <span className="mt-4 inline-block font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">
-                  {p.label} →
-                </span>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* ПРОБЛЕМА */}
       <section className="wrap py-24">
         <span className="eyebrow">проблема</span>
-        <h2 className="h2 mt-4 max-w-[24ch]">Данных много. Связей нет.</h2>
+        <h2 className="h2 mt-4 max-w-[24ch]">Данные есть. Знаний нет.</h2>
         <div className="mt-14 grid gap-10 md:grid-cols-3">
           {[
             {
               t: "Знания есть, доступа нет",
-              d: "Много систем, папки без структуры и несколько человек, которые «всё знают». Уйдут — унесут.",
+              d: "Эксперт помнит, почему останавливали участок в марте, но не может это доказать, а новый сотрудник восстанавливает контекст неделями. Агент в такой компании каждый запуск начинает с нуля: у него нет ни связей между объектами, ни истории решений, и он переспрашивает то, что люди уже знают.",
             },
             {
               t: "Ответ без основания",
-              d: "Ассистент отвечает уверенно, ссылка на файл обычно есть. Как собран вывод и можно ли его повторить — не видно.",
+              d: "Человеку приходится верить выводу на слово: не видно, из каких документов он собран и нет ли в источниках противоречий. Агент опирается на близость формулировок и потому уверенно смешивает устаревшую версию с действующей.",
             },
             {
               t: "Опыт не накапливается",
-              d: "Прошлое решение найти трудно, поэтому его принимают заново.",
+              d: "Решение приняли, обсудили в почте и забыли: через полгода никто не скажет, на каком основании. Агент не видит прошлых решений и предлагает то, что уже отвергли, — люди тратят время на повторный разбор.",
             },
           ].map((i) => (
             <div key={i.t} className="border-t border-[var(--color-ink)] pt-5">
@@ -336,7 +278,7 @@ export default function Home() {
           </p>
 
           <Link href="/pilot" className="btn btn-primary mt-8">
-            Запросить пилот →
+            Обсудить пилот →
           </Link>
         </div>
       </section>
@@ -417,7 +359,7 @@ export default function Home() {
             </p>
           </div>
           <Link href="/pilot" className="btn btn-primary">
-            Запросить пилот →
+            Обсудить пилот →
           </Link>
         </div>
       </section>

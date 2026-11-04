@@ -29,3 +29,17 @@
 
 - `mappings/schema.org.jsonld` — контекст для JSON-LD на сайте.
 - `mappings/okpd2.ttl` — пилотный маппинг одной товарной группы на ECLASS по IRDI.
+
+## Neo4j (операционный слой)
+
+Импорт онтологии в Neo4j через n10s — одной командой:
+
+    bash ontology/neo4j-import.sh
+
+Скрипт идемпотентен: создаёт constraint `n10s_unique_uri`, инициализирует graph config, добавляет префикс `core`, затем грузит `core.ttl`, `taxonomy.skos.ttl` и `demo.ttl`.
+
+Пароль берётся из `NEO4J_PASS` или из файла `~/.cache/neo4j/.pw` (права 600). В репозиторий секреты не попадают.
+
+Проверка на стенде 04.11.2026: 158 + 45 + 33 триплета, статус OK, 57 узлов `:Resource`.
+
+Грабли, заложенные в скрипт: без constraint импорт падает; `DETACH DELETE` сносит graph config; префикс нужно задавать до первого импорта.

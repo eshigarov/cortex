@@ -39,7 +39,7 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <Link href="/pilot" className="btn btn-primary hidden sm:inline-flex">
-            Запросить пилот <span aria-hidden>→</span>
+            Обсудить пилот <span aria-hidden>→</span>
           </Link>
           <button
             aria-label="Меню"
@@ -66,7 +66,7 @@ export function SiteNav() {
               </Link>
             ))}
             <Link href="/pilot" onClick={() => setOpen(false)} className="btn btn-primary mt-4 justify-center">
-              Запросить пилот
+              Обсудить пилот
             </Link>
           </div>
         </div>

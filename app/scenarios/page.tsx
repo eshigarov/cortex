@@ -122,7 +122,7 @@ export default function ScenariosPage() {
               </p>
             </div>
             <Link href="/pilot" className="btn btn-primary">
-              Запросить пилот →
+              Обсудить пилот →
             </Link>
           </div>
         </div>
