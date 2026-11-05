@@ -141,3 +141,36 @@ core:unit a owl:DatatypeProperty ; rdfs:label "единица измерения
 
 core:value a owl:DatatypeProperty ; rdfs:label "значение"@ru ;
     rdfs:domain core:Metric ; rdfs:range xsd:decimal .
+
+############################################################
+# ЗАВЕРЕНИЕ И ПРОВЕНАНС (идеи из NVIDIA auto-ontology)
+############################################################
+
+core:status a owl:DatatypeProperty ;
+    rdfs:label "статус"@ru , "status"@en ;
+    rdfs:comment "draft | certified | deprecated. В ответы идут только certified."@ru ;
+    rdfs:domain core:Entity ; rdfs:range xsd:string .
+
+core:certifiedBy a owl:ObjectProperty ;
+    rdfs:label "заверено"@ru , "certified by"@en ;
+    rdfs:domain core:Entity ; rdfs:range core:Person .
+
+core:certifiedAt a owl:DatatypeProperty ;
+    rdfs:label "дата заверения"@ru ;
+    rdfs:domain core:Entity ; rdfs:range xsd:date .
+
+core:Answer a owl:Class ; rdfs:subClassOf core:Entity ;
+    rdfs:label "Ответ"@ru , "Answer"@en ;
+    rdfs:comment "Зафиксированный ответ агента: вопрос, использованные узлы, версия онтологии."@ru .
+
+core:queryText a owl:DatatypeProperty ;
+    rdfs:label "вопрос"@ru ; rdfs:domain core:Answer ; rdfs:range xsd:string .
+
+core:uses a owl:ObjectProperty ;
+    rdfs:label "использует"@ru ; rdfs:domain core:Answer ; rdfs:range core:Entity .
+
+core:answeredAt a owl:DatatypeProperty ;
+    rdfs:label "когда отвечено"@ru ; rdfs:domain core:Answer ; rdfs:range xsd:dateTime .
+
+core:ontologyVersion a owl:DatatypeProperty ;
+    rdfs:label "версия онтологии"@ru ; rdfs:domain core:Answer ; rdfs:range xsd:string .

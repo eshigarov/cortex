@@ -1,0 +1,27 @@
+@prefix core: <https://cortex.example/ns/core#> .
+@prefix ex: <https://cortex.example/demo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:asset-crusher a core:Asset ;
+    core:certifiedAt "2026-11-05"^^xsd:date ;
+    core:certifiedBy ex:person-ivanov ;
+    core:status "certified" .
+
+ex:decision-repair a core:Decision ;
+    core:certifiedAt "2026-11-05"^^xsd:date ;
+    core:certifiedBy ex:person-ivanov ;
+    core:status "certified" .
+
+ex:doc-reg a core:Document ;
+    core:status "draft" .
+
+ex:event-stop a core:Event ;
+    core:certifiedAt "2026-11-05"^^xsd:date ;
+    core:certifiedBy ex:person-ivanov ;
+    core:status "certified" .
+
+ex:metric-downtime a core:Metric ;
+    core:certifiedAt "2026-11-05"^^xsd:date ;
+    core:certifiedBy ex:person-ivanov ;
+    core:status "certified" .
+

@@ -20,3 +20,10 @@ ex:doc-reg a core:Document ; core:name "Регламент ТО дробилок
     core:validFrom "2026-01-01"^^xsd:date ; core:governs ex:asset-crusher .
 ex:decision-repair a core:Decision ; core:name "Заменить броню конуса" ;
     core:decidedBy ex:person-ivanov ; core:decidesOn ex:asset-crusher .
+
+# Ответ агента с провенансом (идея NVIDIA: что использовано и на какой версии)
+ex:answer-1 a core:Answer ;
+    core:queryText "Почему выросли простои на дробилке?" ;
+    core:ontologyVersion "0.2.0" ;
+    core:answeredAt "2026-11-05T22:30:00Z"^^xsd:dateTime ;
+    core:uses ex:asset-crusher , ex:event-stop , ex:metric-downtime , ex:decision-repair .
