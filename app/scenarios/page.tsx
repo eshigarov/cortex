@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SCENARIOS } from "@/components/scenarios-data";
-import ScenarioVisual from "@/components/scenario-visual";
-import ScenarioFlow from "@/components/scenario-flow";
+import ScenarioTree from "@/components/scenario-tree";
+import { ANIM } from "@/components/scenario-anim-data";
 
 export const metadata: Metadata = {
   title: "Сценарии применения Cortex",
@@ -39,7 +39,7 @@ export default function Scenarios() {
 
             <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.mech}</p>
 
-            {i === 0 ? <ScenarioFlow entities={s.entities} process={s.process} /> : <ScenarioVisual entities={s.entities} steps={s.steps} />}
+            <ScenarioTree anim={ANIM[i]} theme={i % 2 === 0 ? "dark" : "light"} index={i} />
 
             <p className="mt-4 text-[12.5px] leading-relaxed text-[var(--color-mute)]">
               <span className="font-mono text-[10.5px] uppercase tracking-[0.1em]">человек</span> · {s.human}

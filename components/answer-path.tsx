@@ -59,7 +59,7 @@ const EXAMPLES: Example[] = [
           ],
         },
         { id: "conv", label: "Конвейер КЛ-800", type: "Asset" },
-        { id: "rep", label: "Отчёт за октябрь", type: "Document", children: [{ id: "mtbf", label: "MTBF 380 ч", type: "Metric" }] },
+        { id: "rep", label: "Отчёт за октябрь", type: "Document", children: [{ id: "mtbf", label: "Наработка 380 ч", type: "Metric" }] },
       ],
     },
   },
@@ -247,11 +247,11 @@ const EXAMPLES: Example[] = [
   {
     id: "retail",
     domain: "Ритейл",
-    question: "Почему вырос out-of-stock по SKU?",
+    question: "Почему вырос нулевой остаток по товару?",
     path: ["root", "zero", "late", "po", "supplier", "contract"],
     rel: { zero: "остаток", late: "причина", po: "заказ", supplier: "поставщик", contract: "условия" },
     steps: [
-      { node: "root", caption: "SKU 4471 «Кофе 1 кг», продажи 320/нед" },
+      { node: "root", caption: "Товар 4471 «Кофе 1 кг», продажи 320/нед" },
       { node: "zero", caption: "Остаток на складе «Юг» — 0", relation: "остаток" },
       { node: "late", caption: "Поставка просрочена на 9 дней", relation: "причина" },
       { node: "po", caption: "Заказ PO-778 оформлен 21.10", relation: "заказ" },
@@ -259,7 +259,7 @@ const EXAMPLES: Example[] = [
       { node: "contract", caption: "Условия — договор поставки, п. 3.1", relation: "условия" },
     ],
     tree: {
-      id: "root", label: "SKU 4471 «Кофе 1 кг»", type: "Asset",
+      id: "root", label: "Товар 4471 «Кофе 1 кг»", type: "Asset",
       children: [
         { id: "sales", label: "Продажи 320/нед", type: "Metric" },
         { id: "plan", label: "План 400/нед", type: "Metric" },

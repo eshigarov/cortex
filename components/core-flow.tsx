@@ -45,14 +45,14 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
             timer = setTimeout(() => {
               i = 0;
               setStep(0);
-              timer = setTimeout(tick, 900);
-            }, 3200);
+              timer = setTimeout(tick, 400);
+            }, 3000);
             return;
           }
           setStep(i);
-          timer = setTimeout(tick, 1500);
+          timer = setTimeout(tick, 2000);
         };
-        timer = setTimeout(tick, 900);
+        timer = setTimeout(tick, 400);
       },
       { threshold: 0.15 },
     );
@@ -125,10 +125,6 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
               );
             })}
 
-            <path d="M150 172 L1140 172" stroke="#ff7a45" strokeWidth="1.4" strokeDasharray="6 10" opacity={0.35 + 0.1 * Math.min(step, 5)} />
-            <circle r="4" fill="#ffd9c9">
-              <animateMotion dur="3.4s" repeatCount="indefinite" path="M150 172 L1120 172" />
-            </circle>
 
             {CHAIN.map((c, i) => {
               const y = 62 + i * 62;
@@ -154,9 +150,9 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
           </svg>
         </div>
 
-        <div className="mt-4 flex min-h-[44px] items-baseline gap-3">
+        <div className="mt-4 flex min-h-[60px] items-baseline gap-3">
           <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#ff9a6d]">шаг {step + 1} / {STEPS.length}</span>
-          <span className="text-[13.5px] text-white/60">{cur.caption}</span>
+          <span className="max-w-[92ch] text-[17px] leading-relaxed text-white/75">{cur.caption}</span>
         </div>
 
         <div className="mt-2 flex gap-1.5">
