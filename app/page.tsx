@@ -1,112 +1,36 @@
 import Link from "next/link";
 import AnswerPath from "@/components/answer-path";
+import { SCENARIOS } from "@/components/scenarios-data";
 
 const layers = [
   {
     n: "01",
-    title: "Онтология",
-    text: "Документы и таблицы становятся сущностями: люди, проекты, оборудование, контрагенты. У каждой — тип, ключ и связи. Дубли склеиваются.",
+    title: "Онтология и модель данных",
+    text: "Схема предметной области: какие типы сущностей существуют — оборудование, контрагенты, документы, проекты, решения — какие связи между ними допустимы и какие поля обязательны. Задаётся один раз на домен и переиспользуется всеми агентами; правила проверяются на входе, поэтому в модель не попадают записи без ключа, владельца и источника. Это не данные, а договор о том, как их читать.",
   },
   {
     n: "02",
-    title: "Память",
-    text: "Рабочая держит задачу, эпизодическая — что агент делал и как это повторить, семантическая — что известно. Агент не начинает каждый запуск с нуля.",
+    title: "Память агента",
+    text: "Три горизонта: рабочая память держит текущую задачу и ограничения, эпизодическая хранит, что агент делал и как это повторить, семантическая — устойчивые факты о предмете. Память привязана к сущностям онтологии, а не к диалогу, поэтому новый запуск продолжает работу, а не начинает её заново. Доступ к памяти разграничен по роли: агент помнит своё и не читает чужое.",
   },
   {
     n: "03",
     title: "Граф знаний",
-    text: "Связи типизированы и объяснимы: кто, с чем, на основании чего. Ответ находится обходом, а не совпадением слов.",
+    text: "Экземпляры онтологии на данных компании: конкретная дробилка, конкретный простой, конкретный регламент, связанные типизированными связями с источником и датой. Ответ строится обходом графа, поэтому у вывода есть путь — что смотрели, что исключили и на каком основании. В отличие от онтологии, граф меняется каждый день: это состояние, а не схема.",
   },
   {
     n: "04",
     title: "Контур исполнения",
-    text: "Инструменты, лимиты, остановка. Агент действует только через выданные инструменты. Откат работает внутри контура и не отменяет изменений во внешних системах.",
+    text: "Агент действует только через выданные инструменты и в пределах мандата: что можно читать, что менять, какие лимиты и когда остановиться. Права выдаются на задачу и не расширяются по ходу; откат возвращает состояние внутри контура, но не отменяет записей во внешних системах — 1С, ERP, почте. Действия фиксируются до выполнения, а не после.",
   },
   {
     n: "05",
-    title: "Отчётность",
-    text: "Журнал решений: вопрос, источники, цепочка, версия. Цепочку любого эпизода можно повторить.",
+    title: "Журнал решений",
+    text: "Каждый эпизод фиксируется целиком: вопрос, версия онтологии и данных, источники, цепочка вывода, вызванные инструменты и результат. По журналу решение можно воспроизвести через месяц, объяснить проверяющему и сверить с фактом. Это же основание для разбора ошибок: видно, где именно разошлось — в данных, в связях или в правилах.",
   },
 ];
 
-const scenarios = [
-  {
-    sector: "Логистика",
-    segment: "Средний бизнес",
-    pain: "Ответ на претензию собирают из рейса, накладной, акта и фото вручную. Пакет бывает неполным.",
-    mech: "Связываем рейс, транспорт, накладную, акт, фото и претензию. Собираем пакет, сверяем вес и даты, показываем расхождения.",
-    effect: "40 минут вместо 4 часов",
-    measure: "время сборки пакета, доля полных пакетов, число найденных расхождений",
-  },
-  {
-    sector: "Лизинг",
-    segment: "Средний бизнес",
-    pain: "Досье приходит неполным, комплект документов проверяют вручную.",
-    mech: "Связываем заявку, контрагента, документы и риск-факторы. Проверяем комплект по вашей политике, находим расхождения, готовим резюме со ссылками.",
-    effect: "1 день вместо 3",
-    measure: "время проверки комплекта, сколько неполных досье найдено до комитета",
-  },
-  {
-    sector: "Проектирование",
-    segment: "Средний бизнес",
-    pain: "Проект возвращают 3–4 раза: замечания в разных форматах, часть повторяет прошлые.",
-    mech: "Привязываем замечание к листу, версии и пункту нормы, помечаем повторные, собираем чек-лист.",
-    effect: "7 дней вместо 12",
-    measure: "число повторных замечаний, время сборки ответа эксперту",
-  },
-  {
-    sector: "Металлургия",
-    segment: "ДЗО / крупный",
-    pain: "Сводку по простоям собирают вручную из нескольких систем и журналов.",
-    mech: "Связываем агрегат, партию, наряд и заявку, склеиваем дубли, предлагаем причину со ссылкой на документ. Причину подтверждает человек.",
-    effect: "15 минут вместо 2 часов",
-    measure: "время подготовки сводки до и после, сколько причин найдено со ссылкой",
-  },
-  {
-    sector: "Энергетика",
-    segment: "ДЗО / крупный",
-    pain: "Техусловия готовят 10 дней, часть заявок возвращается на доработку.",
-    mech: "Связываем объект, точку подключения, договор и требования. Проверяем комплект, готовим проект ТУ.",
-    effect: "3 дня вместо 10",
-    measure: "срок подготовки, число возвратов на доработку",
-  },
-  {
-    sector: "Нефтегаз",
-    segment: "Крупный",
-    pain: "Наряд-допуск согласуют 3 дня, удостоверения проверяют вручную.",
-    mech: "Связываем объект, работу, наряд, подрядчика и удостоверения. Готовим проверку допуска и наложений. Решение за человеком.",
-    effect: "4 часа вместо 3 дней",
-    measure: "время согласования, число найденных наложений и просроченных допусков",
-  },
-];
 
-const rag = [
-  {
-    q: "Кто отвечает за пилот?",
-    search: "Ищет фрагменты, похожие на вопрос. Ответ зависит от того, попал ли в выдачу нужный абзац.",
-    cortex: "Идёт по связям от проекта к человеку и называет ответственного.",
-  },
-  {
-    q: "На чём держится вывод?",
-    search: "Показывает фрагменты, из которых собран ответ.",
-    cortex: "Журнал: вопрос, источники, цепочка, версия.",
-  },
-  {
-    q: "Что агент делал в прошлый раз?",
-    search: "Обычно не хранит действия агента.",
-    cortex: "Эпизодическая память хранит действия и то, как их повторить.",
-  },
-  {
-    q: "Один контрагент в разных файлах?",
-    search: "Два набора фрагментов, связь остаётся на читателе.",
-    cortex: "Дубли склеиваются в одну сущность с ключом.",
-  },
-  {
-    q: "Как считается ответ?",
-    search: "Ранжирует фрагменты по похожести и склеивает их в абзац.",
-    cortex: "Идёт по связям и записывает путь в журнал: что смотрел, на чём остановился.",
-  },
-];
 
 const layerGives: Record<string, string> = {
   "01": "единый справочник объектов вместо папок и таблиц",
@@ -127,9 +51,9 @@ export default function Home() {
           </h1>
 
           <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-[var(--color-paper)]/70">
-            Cortex Core — инфраструктура проверяемых решений. Ядро для ИИ-агентов: собирает
-            документы и данные в граф связей, хранит память агента и журнал — источники,
-            цепочка вывода, версия.
+            Онтология предметной области, память и журнал решений — то, чего не хватает
+            ИИ-агенту в корпоративных системах. Cortex Core собирает это из ваших данных:
+            связывает объекты, помнит прошлые действия агента и показывает, на чём основан вывод.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -175,21 +99,27 @@ export default function Home() {
       </section>
 
       {/* ПУТЬ ОТВЕТА */}
-      <section id="answer-path" className="wrap py-24">
-        <span className="eyebrow">как это работает</span>
-        <h2 className="h2 mt-4 max-w-[26ch]">Путь ответа: от вопроса до решения</h2>
-        <p className="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-[var(--color-mute)]">
-          Ответ собирается по связям, а не по похожести текста: объект, событие, показатель,
-          решение, автор и основание. Каждый шаг можно проверить.
-        </p>
+      <section id="answer-path" className="py-24">
+        <div className="wrap">
+          <span className="eyebrow">как это работает</span>
+          <h2 className="h2 mt-4 max-w-[26ch]">Путь ответа: от вопроса до решения</h2>
+          <p className="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-[var(--color-mute)]">
+            Ответ собирается по связям, а не по похожести текста: объект, событие, показатель,
+            решение, автор и основание. Каждый шаг можно проверить.
+          </p>
+        </div>
         <AnswerPath />
       </section>
 
       {/* СЛОИ */}
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
-          <span className="eyebrow">ядро</span>
-          <h2 className="h2 mt-4 max-w-[22ch]">Из чего состоит ядро</h2>
+          <span className="eyebrow">Cortex Core</span>
+          <h2 className="h2 mt-4 max-w-[22ch]">Состав решения</h2>
+          <p className="mt-4 max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-mute)]">
+            Онтология задаёт, что бывает и как связано; граф — что есть у вас фактически. Остальные три слоя
+            делают работу агента непрерывной, управляемой и объяснимой.
+          </p>
           <div className="mt-14 space-y-10">
             {layers.map((l) => (
               <div key={l.n} className="grid gap-6 border-t border-[var(--color-line)] pt-6 md:grid-cols-[0.28fr_0.72fr]">
@@ -210,141 +140,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RAG */}
+      {/* СВОЙСТВА */}
       <section className="wrap py-24">
-        <span className="eyebrow">сравнение</span>
-        <h2 className="h2 mt-4 max-w-[26ch]">Поиск отвечает фрагментами. Ядро отвечает связями</h2>
-
-        <div className="mt-12 overflow-x-auto">
-          <table className="w-full min-w-[720px] border-collapse text-left">
-            <thead>
-              <tr className="border-b border-[var(--color-ink)]">
-                <th className="py-4 pr-6 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">вопрос</th>
-                <th className="py-4 pr-6 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">поиск / rag</th>
-                <th className="py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">cortex</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rag.map((r) => (
-                <tr key={r.q} className="border-b border-[var(--color-line)] align-top">
-                  <td className="py-5 pr-6 text-[14.5px] font-medium">{r.q}</td>
-                  <td className="py-5 pr-6 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{r.search}</td>
-                  <td className="py-5 text-[13.5px] leading-relaxed text-[var(--color-ink)]/85">{r.cortex}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-6 text-[12.5px] text-[var(--color-mute)]">
-          Поиск по смыслу в Cortex тоже есть. Остальное — то, чего поиску не хватает.
+        <span className="eyebrow">свойства</span>
+        <h2 className="h2 mt-4 max-w-[24ch]">Проверяемость, непрерывность, права</h2>
+        <p className="mt-4 max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-mute)]">
+          Три свойства, которые отличают работу с ядром от поиска по документам. Не «лучше» — другой уровень
+          ответственности за ответ.
         </p>
-      </section>
-
-      {/* ПИЛОТ */}
-      <section id="pilot" className="border-y border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24">
-          <span className="eyebrow">пилот</span>
-          <h2 className="h2 mt-4 max-w-[24ch]">Десять вопросов, журнал решений</h2>
-
-          <div className="mt-14 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-2">
-            {[
-              {
-                t: "Граф на ваших данных",
-                d: "Сколько сущностей и связей найдено, сколько узлов осталось без связей. Видно, чего в данных не хватает.",
-              },
-              {
-                t: "Ответы на десять ваших вопросов",
-                d: "Список даёте вы до старта. Отметку «верно / неверно / не найдено» ставите вы. Не демо — проверка.",
-              },
-              {
-                t: "Замер",
-                d: "Время ответа на ваших запросах, доля вопросов с найденным ответом, места, где упёрлись в качество данных.",
-              },
-              {
-                t: "Письменный итог",
-                d: "Что работает, что доработать, что не получится. Даже если вывод — не идти.",
-              },
-            ].map((i) => (
-              <div key={i.t} className="bg-[var(--color-paper)] p-7">
-                <h3 className="text-[17px] font-semibold">{i.t}</h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--color-mute)]">{i.d}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-8 max-w-[62ch] text-[13.5px] leading-relaxed text-[var(--color-mute)]">
-            Состав, сроки и стоимость фиксируем письменно до старта. Это ранний продукт:
-            завершённых внедрений у нас нет. Поэтому пилот короткий, с фиксированной суммой, и итог пишем честно.
-          </p>
-
-          <Link href="/pilot" className="btn btn-primary mt-8">
-            Обсудить пилот →
-          </Link>
-        </div>
-      </section>
-
-      {/* ДАННЫЕ */}
-      <section className="wrap py-24">
-        <span className="eyebrow">данные</span>
-        <h2 className="h2 mt-4 max-w-[20ch]">Данные остаются у вас</h2>
 
         <div className="mt-12 grid gap-10 md:grid-cols-3">
           {[
             {
-              t: "Контур",
-              d: "В пилоте корпус можно держать в вашем контуре, модель работает внутри него. Режим развёртывания фиксируем до старта.",
+              t: "Проверяемость",
+              without: "Ответ приходит фрагментами: видно похожие абзацы, но не видно, как из них собран вывод.",
+              with: "Путь по связям и журнал: источники, цепочка, версия модели и данных. Вывод можно объяснить и повторить.",
             },
             {
-              t: "Доступ по роли",
-              d: "Директор, инженер, сотрудник на месте видят своё. ИБ проверяет это в пилоте: спрашивает от роли без доступа.",
+              t: "Непрерывность",
+              without: "Каждый запрос начинается с нуля: состояние задачи и прошлые действия агента не сохраняются.",
+              with: "Память трёх горизонтов и история решений по объекту: агент продолжает работу, а не переспрашивает.",
             },
             {
-              t: "Журнал",
-              d: "Видно, кто спросил, что получил и на каком основании.",
+              t: "Права",
+              without: "Доступ ограничивают на уровне документа или индекса — целиком.",
+              with: "Права на сущности и роли проверяются при обходе: агент видит только разрешённое и действует в мандате задачи.",
             },
           ].map((i) => (
             <div key={i.t} className="border-t border-[var(--color-ink)] pt-5">
               <h3 className="h3">{i.t}</h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-[var(--color-mute)]">{i.d}</p>
+              <p className="mt-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">без ядра</p>
+              <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--color-mute)]">{i.without}</p>
+              <p className="mt-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">с ядром</p>
+              <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--color-ink)]/85">{i.with}</p>
             </div>
           ))}
         </div>
-
-        <Link href="/security" className="btn btn-ghost mt-6 border border-[var(--color-line)]">
-          Что мы делаем и чего не утверждаем →
-        </Link>
       </section>
 
-      {/* СЦЕНАРИИ */}
-      <section className="border-t border-[var(--color-line)] bg-white/40">
-        <div className="wrap py-24">
-          <span className="eyebrow">сценарии</span>
-          <h2 className="h2 mt-4 max-w-[22ch]">Сценарии. Это не внедрения</h2>
+      {/* РЕЗУЛЬТАТЫ */}
+      <section className="border-t border-[var(--color-line)] bg-white/40 py-24">
+        <div className="wrap">
+          <span className="eyebrow">результаты</span>
+          <h2 className="h2 mt-4 max-w-[24ch]">Что меняется в работе</h2>
           <p className="mt-6 max-w-[66ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
-            Задача и механика. Результатов не публикуем: внедрений нет. Показываем, что измерим в пилоте.
-            Ориентиры эффекта — из похожих проектов, не наши результаты.
+            Десять отраслей: что было до и что остаётся после. Цифры — расчёт при указанном объёме,
+            в пилоте фиксируем ваш факт.
           </p>
+        </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {scenarios.map((s) => (
-              <article key={s.sector} className="card flex flex-col p-6">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="text-[12px] font-semibold uppercase tracking-[0.08em]">{s.sector}</span>
-                  <span className="rounded-full border border-[var(--color-line)] px-2.5 py-1 font-mono text-[12px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
-                    {s.segment}
-                  </span>
+        <div className="marquee mt-12">
+          <div className="marquee-track">
+            {[...SCENARIOS, ...SCENARIOS].map((s, i) => (
+              <article key={s.process + i} className="card flex w-[380px] shrink-0 flex-col p-6">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">{s.sector}</span>
+                  <span className="text-[12px] font-medium text-[var(--color-acid-ink)]">{s.pct}</span>
                 </div>
-                <p className="mt-4 text-[13px] leading-relaxed text-[var(--color-mute)]">{s.pain}</p>
-                <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-ink)]/80">{s.mech}</p>
-                <div className="mt-auto pt-5">
-                  <div className="text-[15px] font-semibold text-[var(--color-acid-ink)]">{s.effect}</div>
+                <h3 className="mt-2 text-[16.5px] font-semibold">{s.process}</h3>
+                <p className="mt-2 line-clamp-3 text-[12.5px] leading-relaxed text-[var(--color-mute)]">{s.pain}</p>
+                <div className="mt-4 flex flex-wrap items-baseline gap-2">
+                  <span className="text-[13px] text-[var(--color-mute)]">{s.from}</span>
+                  <span className="text-[12px] text-[var(--color-mute)]">→</span>
+                  <span className="text-[26px] font-semibold leading-none text-[var(--color-acid-ink)]">{s.to}</span>
+                </div>
+                <div className="mt-2 text-[13px] font-medium">{s.gain}</div>
+                <div className="mt-auto pt-4 text-[11.5px] leading-relaxed text-[var(--color-mute)]">
+                  <span className="font-mono uppercase tracking-[0.1em]">связи</span> · {s.entities}
                 </div>
               </article>
             ))}
           </div>
+        </div>
 
-          <Link href="/scenarios" className="btn btn-ghost mt-10 border border-[var(--color-line)]">
-            Все сценарии →
+        <div className="wrap mt-10">
+          <p className="max-w-[70ch] text-[12px] leading-relaxed text-[var(--color-mute)]">
+            Эффект — проектный ориентир, а не результат завершённого внедрения: в пилоте фиксируем исходные значения и итог. Ниже на Главной — только бриф, подробности по каждому домену на отдельной странице.
+          </p>
+          <Link href="/scenarios" className="mt-4 inline-block text-[13.5px] underline decoration-[var(--color-line)] underline-offset-4 hover:decoration-[var(--color-ink)]">
+            Подробно по сценариям →
           </Link>
         </div>
       </section>

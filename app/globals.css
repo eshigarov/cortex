@@ -114,3 +114,44 @@ body {
   .reveal, .marquee { animation: none; opacity: 1; transform: none; }
 }
 ::placeholder { color: #6b6b6b; opacity: 1; }
+
+
+@keyframes ap-pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.12; }
+  100% { opacity: 0.4; }
+}
+
+.ap-ring {
+  animation: ap-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ap-dash {
+  to { stroke-dashoffset: -210; }
+}
+
+.ap-flow {
+  animation: ap-dash 3.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ap-flow { animation: none; }
+  .ap-ring { animation: none; }
+}
+
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent); mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent); }
+.marquee-track { display: flex; gap: 24px; width: max-content; animation: marquee 70s linear infinite; padding-inline: 24px; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+@keyframes svdash { to { stroke-dashoffset: -24; } }
+.sv-flow { animation: svdash 1.4s linear infinite; }
+@keyframes svnode { 0%, 100% { opacity: 0.45; } 30%, 70% { opacity: 1; } }
+.sv-node { animation: svnode 3.2s ease-in-out infinite; }
+@keyframes svblink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.sv-caret { animation: svblink 1s step-end infinite; margin-left: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .sv-flow, .sv-node, .sv-caret { animation: none; }
+  .sv-node { opacity: 1; }
+}
