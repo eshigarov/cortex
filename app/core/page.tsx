@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import CoreAnimation from "@/components/core-animation";
+
 const modules = [
   {
     n: "01",
@@ -68,10 +70,27 @@ export default function CorePage() {
             <a href="#platform" className="btn btn-ghost">Как устроено</a>
           </div>
           <div className="mt-8 flex flex-wrap gap-5 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
+            <a href="#scheme" className="hover:text-[var(--color-ink)]">схема</a>
             <a href="#modules" className="hover:text-[var(--color-ink)]">модули</a>
             <a href="#platform" className="hover:text-[var(--color-ink)]">платформа</a>
             <a href="#ontology" className="hover:text-[var(--color-ink)]">онтология</a>
           </div>
+        </div>
+      </section>
+
+      <section id="scheme" className="border-b border-white/10 bg-[var(--color-ink)] text-[var(--color-paper)]">
+        <div className="wrap py-20 md:py-24">
+          <div className="grid gap-6 md:grid-cols-[0.42fr_0.58fr] md:items-end">
+            <div>
+              <span className="eyebrow text-[var(--color-acid)]">схема ядра</span>
+              <h2 className="h2 mt-4 max-w-[20ch]">Девять источников. Одна модель.</h2>
+            </div>
+            <p className="max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-paper)]/65 md:pb-2">
+              Документы, таблицы, письма и системы описывают одни и те же объекты по-разному.
+              Онтология сводит их в одну модель, по которой агент находит ответ и объясняет его.
+            </p>
+          </div>
+          <CoreAnimation className="mt-12" />
         </div>
       </section>
 
