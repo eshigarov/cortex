@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import CoreAnimation from "@/components/core-animation";
+import CoreFlow from "@/components/core-flow";
 
 const modules = [
   {
@@ -90,7 +90,7 @@ export default function CorePage() {
               Онтология сводит их в одну модель, по которой агент находит ответ и объясняет его.
             </p>
           </div>
-          <CoreAnimation className="mt-12" />
+          <CoreFlow className="mt-12" />
         </div>
       </section>
 
