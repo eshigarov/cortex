@@ -133,7 +133,7 @@ export default function ScenariosExplorer() {
       </div>
 
       {list.length === 0 && (
-        <p className="mt-10 text-[13.5px] text-[var(--color-mute)]">Под такие фильтры сценариев нет — снимите один из них.</p>
+        <p className="mt-10 text-[13.5px] text-[var(--color-mute)]">Под такие фильтры сценариев нет, снимите один из них.</p>
       )}
 
       {active && (
@@ -203,7 +203,7 @@ export default function ScenariosExplorer() {
             </div>
 
             <div className="mt-7 flex flex-wrap items-center gap-4">
-              <Link href="/pilot" className="btn btn-primary">Обсудить пилот →</Link>
+              <Link href="/pilot" className="btn btn-primary">Обсудить пилот</Link>
               <button type="button" onClick={() => setOpen(null)} className="text-[13px] underline decoration-[var(--color-line)] underline-offset-4">
                 вернуться к списку
               </button>

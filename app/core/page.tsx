@@ -7,7 +7,7 @@ const modules = [
     n: "01",
     name: "Онтология",
     value: "Компания описана как система, а не как папка с файлами",
-    text: "Документы и таблицы становятся сущностями: люди, проекты, оборудование, контрагенты. У каждой — тип, ключ и связи. Дубли склеиваются.",
+    text: "Документы и таблицы становятся сущностями: люди, проекты, оборудование, контрагенты. У каждой, тип, ключ и связи. Дубли склеиваются.",
   },
   {
     n: "02",
@@ -59,7 +59,6 @@ export default function CorePage() {
     <>
       <section className="border-b border-[var(--color-line)]">
         <div className="wrap pb-24 pt-24 md:pb-32 md:pt-32">
-          <span className="eyebrow">cortex core</span>
           <h1 className="display mt-5 max-w-[18ch]">Мозг компании в одном продукте</h1>
           <p className="mt-8 max-w-[56ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
             Cortex Core связывает знания компании, сохраняет опыт и объясняет решения.
@@ -69,7 +68,7 @@ export default function CorePage() {
             <Link href="/pilot" className="btn btn-primary">Обсудить пилот <span aria-hidden>→</span></Link>
             <a href="#platform" className="btn btn-ghost">Как устроено</a>
           </div>
-          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
+          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[13px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
             <a href="#scheme" className="hover:text-[var(--color-ink)]">схема</a>
             <a href="#modules" className="hover:text-[var(--color-ink)]">модули</a>
             <a href="#platform" className="hover:text-[var(--color-ink)]">платформа</a>
@@ -95,7 +94,6 @@ export default function CorePage() {
       </section>
 
       <section id="modules" className="wrap py-24">
-        <span className="eyebrow">модули</span>
         <h2 className="h2 mt-4 max-w-[22ch]">Пять частей одного ядра</h2>
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {modules.map((m) => (
@@ -110,7 +108,6 @@ export default function CorePage() {
 
       <section id="platform" className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
-          <span className="eyebrow">платформа</span>
           <h2 className="h2 mt-4 max-w-[22ch]">Пять слоёв, которые работают вместе</h2>
           <div className="mt-14 space-y-10">
             {layers.map((l) => (
@@ -140,10 +137,9 @@ export default function CorePage() {
       </section>
 
       <section id="ontology" className="wrap py-24">
-        <span className="eyebrow">онтология</span>
         <h2 className="h2 mt-4 max-w-[22ch]">Как компания описывает себя</h2>
         <p className="mt-6 max-w-[56ch] text-[15px] leading-relaxed text-[var(--color-ink)]/70">
-          Онтология — это система организации знаний. Рабочая модель: какие сущности есть в компании,
+          Онтология, это система организации знаний. Рабочая модель: какие сущности есть в компании,
           по какому ключу они склеиваются и как связаны между собой.
         </p>
 
@@ -151,7 +147,7 @@ export default function CorePage() {
           {entities.map((e) => (
             <article key={e.type} className="bg-[var(--color-paper)] p-5">
               <h3 className="text-[16px] font-semibold">{e.type}</h3>
-              <div className="mt-1 font-mono text-[12px] text-[var(--color-acid-ink)]">{e.key}</div>
+              <div className="mt-1 font-mono text-[13px] text-[var(--color-acid-ink)]">{e.key}</div>
               <p className="mt-2 text-[12px] leading-relaxed text-[var(--color-mute)]">{e.ex}</p>
             </article>
           ))}
@@ -167,7 +163,6 @@ export default function CorePage() {
       </section>
 
       <section className="wrap py-24">
-        <span className="eyebrow">сборка</span>
         <h2 className="h2 mt-4 max-w-[22ch]">Как собирается онтология</h2>
         <div className="mt-12 grid gap-8 md:grid-cols-4">
           {[
@@ -192,7 +187,7 @@ export default function CorePage() {
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {[
                 ["Не заменяет ERP и ECM", "Не пишет в ваши системы без интеграции и регламента."],
-                ["Не даёт юридической силы", "Ответ — основание для решения, а не сам документ."],
+                ["Не даёт юридической силы", "Ответ, основание для решения, а не сам документ."],
                 ["Не работает без доступа", "Если данных нет, ядро скажет, чего не хватает."],
               ].map(([t, d]) => (
                 <div key={t} className="border-t border-[var(--color-line)] pt-4">
@@ -208,13 +203,12 @@ export default function CorePage() {
       <section className="wrap py-24">
         <div className="grid gap-10 md:grid-cols-[0.34fr_0.66fr]">
           <div>
-            <span className="eyebrow">интеграции</span>
           </div>
           <div>
             <h2 className="h2 max-w-[24ch]">Работает с тем, что у вас уже есть</h2>
             <p className="mt-6 max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-ink)]/80">
               Практически с любым корпоративным ПО и базами данных: ERP, MES, ECM, 1С,
-              файловые хранилища, SQL. Подключение — через штатные интерфейсы или выгрузки.
+              файловые хранилища, SQL. Подключение, через штатные интерфейсы или выгрузки.
             </p>
           </div>
         </div>
@@ -226,7 +220,7 @@ export default function CorePage() {
             <h2 className="h3">Показать на вашем корпусе</h2>
             <p className="mt-2 text-[14px] text-[var(--color-mute)]">Десять вопросов, журнал решений.</p>
           </div>
-          <Link href="/pilot" className="btn btn-primary">Обсудить пилот →</Link>
+          <Link href="/pilot" className="btn btn-primary">Обсудить пилот</Link>
         </div>
       </section>
     </>

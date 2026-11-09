@@ -15,7 +15,7 @@ const STEPS = [
   { t: 2, caption: "Граф связывает объекты: накладная, акт и фото сходятся в один рейс, копия склеивается с оригиналом.", timer: "2 ч 10 мин" },
   { t: 3, caption: "Контур исполнения: агент проверяет по правилам и в пределах выданных прав.", timer: "1 ч 05 мин" },
   { t: 4, caption: "Журнал фиксирует источники, цепочку вывода и версию модели и данных.", timer: "40 мин" },
-  { t: 5, caption: "На выходе — один проект решения; сложное подтверждает человек.", timer: "25 мин" },
+  { t: 5, caption: "На выходе, один проект решения; сложное подтверждает человек.", timer: "25 мин" },
 ];
 
 export default function CoreFlow({ className = "" }: { className?: string }) {
@@ -73,7 +73,7 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
     <div ref={ref} className={"w-full bg-[#0c0e12] py-6 " + className}>
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/40">как это работает</p>
+          <p className="font-mono text-[11px] text-white/40">как это работает</p>
           <p className="font-mono text-[11px] tracking-[0.12em] text-white/40">
             <span className="text-white/70">{cur.timer}</span>
           </p>
@@ -145,8 +145,8 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
               </text>
             </g>
 
-            <text x="20" y="340" fontSize="10" fill="#5f646c">без ядра — ручной сбор</text>
-            <text x="800" y="352" fontSize="10" fill="#5f646c" opacity={step >= 5 ? 1 : 0.35}>с ядром — один ответ</text>
+            <text x="20" y="340" fontSize="10" fill="#5f646c">без ядра, ручной сбор</text>
+            <text x="800" y="352" fontSize="10" fill="#5f646c" opacity={step >= 5 ? 1 : 0.35}>с ядром, один ответ</text>
           </svg>
         </div>
 

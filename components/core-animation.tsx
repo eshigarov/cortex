@@ -367,7 +367,7 @@ function MobScene() {
   return (
     <svg viewBox="0 0 360 980" role="img" aria-labelledby="ca-t-m ca-d-m" className="ca-svg">
       <title id="ca-t-m">Разрозненные источники и связанная онтологией модель</title>
-      <desc id="ca-d-m">Сверху документы и системы с пунктирными связями, ниже — те же объекты как сущности онтологии со слоями и журналом.</desc>
+      <desc id="ca-d-m">Сверху документы и системы с пунктирными связями, ниже, те же объекты как сущности онтологии со слоями и журналом.</desc>
       <defs>
         <pattern id="ca-grid-m" width="30" height="30" patternUnits="userSpaceOnUse">
           <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(245,245,244,0.045)" strokeWidth="1" />

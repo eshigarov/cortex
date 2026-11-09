@@ -3,7 +3,7 @@ import Link from "next/link";
 const limits = [
   ["Не заменяем средства защиты", "Ядро не является СЗИ, DLP или SIEM. Оно встраивается в ваш периметр, а не вместо него."],
   ["Не работаем с закрытыми данными", "Если у ядра нет прав на источник, оно скажет, чего не хватает, вместо догадки."],
-  ["Не даём юридической силы", "Ответ — основание для решения, а не сам документ. Подпись и ответственность остаются за человеком."],
+  ["Не даём юридической силы", "Ответ, основание для решения, а не сам документ. Подпись и ответственность остаются за человеком."],
 ];
 
 export default function SecurityPage() {
@@ -11,7 +11,6 @@ export default function SecurityPage() {
     <>
       <section className="border-b border-[var(--color-line)]">
         <div className="wrap pb-24 pt-24 md:pb-36 md:pt-36">
-          <span className="eyebrow">безопасность</span>
           <h1 className="display mt-5 max-w-[18ch]">Что мы делаем и чего не делаем</h1>
           <p className="mt-8 max-w-[56ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
             Раздел для службы безопасности и внутреннего аудита. Здесь только механика:
@@ -41,7 +40,6 @@ export default function SecurityPage() {
 
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
-          <span className="eyebrow">что делаем</span>
           <h2 className="h2 mt-4 max-w-[26ch]">Данные остаются у вас</h2>
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-4">
             {[
@@ -65,7 +63,6 @@ export default function SecurityPage() {
       <section className="wrap py-24">
         <div className="grid gap-16 md:grid-cols-[0.4fr_0.6fr]">
           <div>
-            <span className="eyebrow">доступы и журнал</span>
             <h2 className="h2 mt-4">Кто что видит</h2>
           </div>
           <div className="space-y-6">
@@ -88,7 +85,6 @@ export default function SecurityPage() {
         <div className="wrap py-24">
           <div className="grid gap-16 md:grid-cols-[0.4fr_0.6fr]">
             <div>
-              <span className="eyebrow">проверка</span>
               <h2 className="h2 mt-4">Как пройти пилот с ИБ</h2>
             </div>
             <ol className="space-y-5">
@@ -115,7 +111,7 @@ export default function SecurityPage() {
             <h2 className="h3">Нужен опросник или схема для ИБ?</h2>
             <p className="mt-2 text-[14px] text-[var(--color-mute)]">Пришлём до пилота: архитектуру, потоки данных, границы.</p>
           </div>
-          <Link href="/pilot" className="btn btn-primary">Запросить →</Link>
+          <Link href="/pilot" className="btn btn-primary">Запросить</Link>
         </div>
       </section>
     </>

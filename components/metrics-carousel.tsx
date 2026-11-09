@@ -24,7 +24,7 @@ export function MetricsCarousel() {
   return (
     <div className="border border-white/15">
       <div className="flex items-center justify-between border-b border-white/15 px-5 py-3">
-        <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-paper)]/65">
+        <span className="font-mono text-[13px] uppercase tracking-[0.14em] text-[var(--color-paper)]/65">
           оценка масштаба
         </span>
         <div className="flex gap-1.5">

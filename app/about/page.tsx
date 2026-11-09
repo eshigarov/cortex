@@ -5,7 +5,6 @@ export default function AboutPage() {
     <>
       <section className="border-b border-[var(--color-line)]">
         <div className="wrap pb-24 pt-24 md:pb-36 md:pt-36">
-          <span className="eyebrow">компания</span>
           <h1 className="display mt-5 max-w-[17ch]">Мы строим основание доверять</h1>
           <p className="mt-8 max-w-[56ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
             Cortex вырос из практики: работа с данными промышленных предприятий, разбор legacy-систем,
@@ -18,7 +17,6 @@ export default function AboutPage() {
       <section className="wrap py-24">
         <div className="grid gap-16 md:grid-cols-[0.34fr_0.66fr]">
           <div>
-            <span className="eyebrow">принципы</span>
           </div>
           <div className="space-y-10">
             {[
@@ -39,7 +37,6 @@ export default function AboutPage() {
         <div className="wrap py-24">
           <div className="grid gap-16 md:grid-cols-[0.4fr_0.6fr]">
             <div>
-              <span className="eyebrow">как мы работаем</span>
               <h2 className="h2 mt-4">Без презентаций вместо результата</h2>
             </div>
             <div className="space-y-5">
@@ -65,7 +62,7 @@ export default function AboutPage() {
             <h2 className="h3">Познакомиться ближе</h2>
             <p className="mt-2 text-[14px] text-[var(--color-mute)]">Покажем ядро на вашем примере, без слайдов.</p>
           </div>
-          <Link href="/pilot" className="btn btn-primary">Связаться →</Link>
+          <Link href="/pilot" className="btn btn-primary">Связаться</Link>
         </div>
       </section>
     </>

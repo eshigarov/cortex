@@ -14,9 +14,9 @@ const directions = [
     n: "02",
     title: "Реинжиниринг ПО",
     lead: "Старая система перестаёт быть чёрным ящиком",
-    problem: "Процесс держится на legacy-системе. Логика нигде не описана, документация устарела, а человек, который её понимал, ушёл. Любое изменение — риск.",
+    problem: "Процесс держится на legacy-системе. Логика нигде не описана, документация устарела, а человек, который её понимал, ушёл. Любое изменение, риск.",
     what: "Разбираем данные и фактическое поведение системы, собираем карту сущностей и правил, сверяем с историческими данными и фиксируем расхождения.",
-    result: "На выходе — описанная модель, список расхождений и план переноса. Правила видны до начала замены, перенос идёт по фактам, а не по презентации вендора.",
+    result: "На выходе, описанная модель, список расхождений и план переноса. Правила видны до начала замены, перенос идёт по фактам, а не по презентации вендора.",
     term: "от 6 недель, зависит от контура",
   },
   {
@@ -35,7 +35,6 @@ export default function SolutionsPage() {
     <>
       <section className="border-b border-[var(--color-line)]">
         <div className="wrap pb-24 pt-24 md:pb-36 md:pt-36">
-          <span className="eyebrow">решения</span>
           <h1 className="display mt-5 max-w-[19ch]">Три способа навести порядок в знаниях</h1>
           <p className="mt-8 max-w-[56ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
             Можно построить систему, можно заменить старую, можно сначала найти потери.
@@ -50,11 +49,11 @@ export default function SolutionsPage() {
             <article key={d.n} className="grid gap-10 border border-[var(--color-line)] p-8 md:p-10 lg:grid-cols-[0.46fr_0.54fr]">
               <div>
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[12px] text-[var(--color-mute)]">{d.n}</span>
+                  <span className="font-mono text-[13px] text-[var(--color-mute)]">{d.n}</span>
                 </div>
                 <h2 className="h3 mt-5 text-[28px]">{d.title}</h2>
                 <p className="mt-2 text-[14.5px] font-medium text-[var(--color-ink)]/75">{d.lead}</p>
-                <div className="mt-6 font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{d.term}</div>
+                <div className="mt-6 font-mono text-[13px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{d.term}</div>
               </div>
               <div className="grid gap-6 border-t border-[var(--color-line)] pt-6 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                 <div>
@@ -77,7 +76,6 @@ export default function SolutionsPage() {
 
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-24">
-          <span className="eyebrow">как идёт работа</span>
           <h2 className="h2 mt-4 max-w-[24ch]">Одинаково для любого направления</h2>
           <div className="mt-16 grid gap-8 md:grid-cols-4">
             {[
@@ -124,7 +122,7 @@ export default function SolutionsPage() {
               Если данных много, а порядка нет, с автоматизации.
             </p>
           </div>
-          <Link href="/pilot" className="btn btn-primary">Обсудить →</Link>
+          <Link href="/pilot" className="btn btn-primary">Обсудить</Link>
         </div>
       </section>
     </>

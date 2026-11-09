@@ -20,7 +20,7 @@ export function SiteNav() {
         <Link href="/" className="flex items-center gap-2.5">
           <CortexMark size={26} className="text-[var(--color-ink)]" />
           <span className="text-[19px] font-semibold tracking-[-0.04em]">Cortex</span>
-          <span className="hidden font-mono text-[12px] uppercase tracking-[0.16em] text-[var(--color-mute)] sm:inline">
+          <span className="hidden font-mono text-[13px] text-[var(--color-mute)] sm:inline">
             cognitive core
           </span>
         </Link>

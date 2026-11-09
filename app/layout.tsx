@@ -8,9 +8,9 @@ const sans = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope
 const mono = JetBrains_Mono({ subsets: ["latin", "cyrillic"], variable: "--font-jetbrains", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Cortex — инфраструктура проверяемых решений для ИИ-агентов",
+  title: "Cortex, инфраструктура проверяемых решений для ИИ-агентов",
   description:
-    "Cortex Core — ядро для ИИ-агентов: онтология, память, граф знаний, журнал решений. Проверяемые решения вместо уверенных ответов.",
+    "Cortex Core, ядро для ИИ-агентов: онтология, память, граф знаний, журнал решений. Проверяемые решения вместо уверенных ответов.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

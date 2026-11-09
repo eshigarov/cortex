@@ -25,8 +25,8 @@ const EXAMPLES: Example[] = [
       { node: "stop", caption: "Событие 04.10: простой 6 часов", relation: "простой" },
       { node: "metric", caption: "Показатель: простои 42,5 ч/мес, рост с августа", relation: "измеряет" },
       { node: "decision", caption: "Решение: заменить броню конуса", relation: "основание" },
-      { node: "person", caption: "Автор решения — главный механик", relation: "принято" },
-      { node: "reg", caption: "Основание — регламент ТО дробилок", relation: "регламентирует" },
+      { node: "person", caption: "Автор решения, главный механик", relation: "принято" },
+      { node: "reg", caption: "Основание, регламент ТО дробилок", relation: "регламентирует" },
     ],
     tree: {
       id: "root", label: "Дробилка КМД-2200", type: "Asset",
@@ -70,12 +70,12 @@ const EXAMPLES: Example[] = [
     path: ["root", "claim", "gap", "act", "decision", "deal"],
     rel: { claim: "заявлена", gap: "причина", act: "фиксирует", decision: "решение", deal: "основание" },
     steps: [
-      { node: "root", caption: "Рейс TR-4821, Москва — Казань, партия 18 т" },
+      { node: "root", caption: "Рейс TR-4821, Москва, Казань, партия 18 т" },
       { node: "claim", caption: "Претензия клиента на 118 тыс. ₽", relation: "заявлена" },
-      { node: "gap", caption: "Расхождение веса — 6% к накладной", relation: "причина" },
+      { node: "gap", caption: "Расхождение веса, 6% к накладной", relation: "причина" },
       { node: "act", caption: "Акт приёмки на складе получателя", relation: "фиксирует" },
       { node: "decision", caption: "Решение: доплата по тарифу", relation: "решение" },
-      { node: "deal", caption: "Основание — договор перевозки", relation: "основание" },
+      { node: "deal", caption: "Основание, договор перевозки", relation: "основание" },
     ],
     tree: {
       id: "root", label: "Рейс TR-4821", type: "Asset",
@@ -83,7 +83,7 @@ const EXAMPLES: Example[] = [
         { id: "truck", label: "Тягач Volvo FH", type: "Asset", children: [{ id: "sensor", label: "Датчик t° груза", type: "Document" }] },
         { id: "driver", label: "Водитель Кузнецов", type: "Person" },
         { id: "invoice", label: "Накладная №7781", type: "Document" },
-        { id: "route", label: "Москва — Казань", type: "Unit" },
+        { id: "route", label: "Москва, Казань", type: "Unit" },
         {
           id: "claim", label: "Претензия 118 тыс.", type: "Event",
           children: [
@@ -138,7 +138,7 @@ const EXAMPLES: Example[] = [
       { node: "missing", caption: "Нет справки о доходах за 6 месяцев", relation: "не хватает" },
       { node: "decision", caption: "Решение: вернуть на доработку", relation: "решение" },
       { node: "underwriter", caption: "Андеррайтер Соколов, 11:20", relation: "проверил" },
-      { node: "policy", caption: "Основание — политика проверки, п. 4.2", relation: "по политике" },
+      { node: "policy", caption: "Основание, политика проверки, п. 4.2", relation: "по политике" },
     ],
     tree: {
       id: "root", label: "Заявка ЛЗ-2048", type: "Work",
@@ -196,7 +196,7 @@ const EXAMPLES: Example[] = [
     steps: [
       { node: "root", caption: "Проект Р-118, раздел КМ, версия 2" },
       { node: "issue", caption: "Замечание №14 от экспертизы", relation: "замечание" },
-      { node: "sheet", caption: "Лист 3 — узел крепления", relation: "на листе" },
+      { node: "sheet", caption: "Лист 3, узел крепления", relation: "на листе" },
       { node: "norm", caption: "Пункт СП 20.13330, снеговая нагрузка", relation: "пункт нормы" },
       { node: "decision", caption: "Решение: пересчитать узел", relation: "решение" },
       { node: "gip", caption: "Согласовал ГИП Петрова", relation: "согласовал" },
@@ -252,11 +252,11 @@ const EXAMPLES: Example[] = [
     rel: { zero: "остаток", late: "причина", po: "заказ", supplier: "поставщик", contract: "условия" },
     steps: [
       { node: "root", caption: "Товар 4471 «Кофе 1 кг», продажи 320/нед" },
-      { node: "zero", caption: "Остаток на складе «Юг» — 0", relation: "остаток" },
+      { node: "zero", caption: "Остаток на складе «Юг», 0", relation: "остаток" },
       { node: "late", caption: "Поставка просрочена на 9 дней", relation: "причина" },
       { node: "po", caption: "Заказ PO-778 оформлен 21.10", relation: "заказ" },
       { node: "supplier", caption: "Поставщик «Альфа»", relation: "поставщик" },
-      { node: "contract", caption: "Условия — договор поставки, п. 3.1", relation: "условия" },
+      { node: "contract", caption: "Условия, договор поставки, п. 3.1", relation: "условия" },
     ],
     tree: {
       id: "root", label: "Товар 4471 «Кофе 1 кг»", type: "Asset",
@@ -491,7 +491,7 @@ export default function AnswerPath() {
             >
               ‹
             </button>
-            <span className="font-mono text-[12px] tracking-[0.12em]" style={{ color: T.dim }}>
+            <span className="font-mono text-[13px] tracking-[0.12em]" style={{ color: T.dim }}>
               {index + 1} / {EXAMPLES.length}
             </span>
             <button
@@ -625,7 +625,7 @@ export default function AnswerPath() {
         </div>
 
         <p className="mt-1.5 text-[10.5px]" style={{ color: T.faint }}>
-          Данные — из <span className="font-mono">ontology/demo.ttl</span>, подписи связей — <span className="font-mono">core.ttl</span>.
+          Данные, из <span className="font-mono">ontology/demo.ttl</span>, подписи связей, <span className="font-mono">core.ttl</span>.
         </p>
       </div>
     </div>

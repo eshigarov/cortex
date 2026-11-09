@@ -13,7 +13,7 @@ const included = [
   },
   {
     t: "Ответы на десять ваших вопросов",
-    d: "Список вы даёте до старта. Отметку «верно / неверно / не найдено» ставите вы. Не демо — проверка.",
+    d: "Список вы даёте до старта. Отметку «верно / неверно / не найдено» ставите вы. Не демо, проверка.",
   },
   {
     t: "Замер",
@@ -21,7 +21,7 @@ const included = [
   },
   {
     t: "Письменный итог",
-    d: "Что работает, что доработать, что не получится. Даже если вывод — не идти.",
+    d: "Что работает, что доработать, что не получится. Даже если вывод, не идти.",
   },
 ];
 
@@ -45,15 +45,14 @@ export default function PilotPage() {
       <section className="border-b border-[var(--color-line)]">
         <div className="wrap grid gap-14 pb-20 pt-20 md:grid-cols-[1.05fr_0.95fr] md:pb-28 md:pt-28">
           <div>
-            <span className="eyebrow">пилот</span>
             <h1 className="display mt-5 max-w-[15ch]">Пилот на ваших данных</h1>
             <p className="mt-8 max-w-[52ch] text-[16px] leading-relaxed text-[var(--color-ink)]/70">
               Две недели. Загружаем корпус, собираем граф, отвечаем на десять ваших вопросов.
-              В конце — замеры, журнал решений и письменный итог.
+              В конце, замеры, журнал решений и письменный итог.
             </p>
             <p className="mt-4 max-w-[52ch] text-[14px] leading-relaxed text-[var(--color-mute)]">
               Это ранний продукт: завершённых внедрений у нас нет. Поэтому пилот короткий,
-              с фиксированной суммой, и итог пишем честно — включая то, что не получилось.
+              с фиксированной суммой, и итог пишем честно, включая то, что не получилось.
             </p>
 
             <div className="mt-10 space-y-5 border-t border-[var(--color-line)] pt-6 text-[14px]">
@@ -85,21 +84,18 @@ export default function PilotPage() {
           <form className="border border-[var(--color-line)] bg-white/40 p-7 md:p-9">
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block">
-                <span className="eyebrow">имя</span>
                 <input
                   className="mt-2 w-full border-b border-[var(--color-line)] bg-transparent py-2 text-[15px] outline-none focus:border-[var(--color-ink)]"
                   placeholder="Как к вам обращаться"
                 />
               </label>
               <label className="block">
-                <span className="eyebrow">компания</span>
                 <input
                   className="mt-2 w-full border-b border-[var(--color-line)] bg-transparent py-2 text-[15px] outline-none focus:border-[var(--color-ink)]"
                   placeholder="Название"
                 />
               </label>
               <label className="block">
-                <span className="eyebrow">почта</span>
                 <input
                   type="email"
                   className="mt-2 w-full border-b border-[var(--color-line)] bg-transparent py-2 text-[15px] outline-none focus:border-[var(--color-ink)]"
@@ -107,7 +103,6 @@ export default function PilotPage() {
                 />
               </label>
               <label className="block">
-                <span className="eyebrow">отрасль</span>
                 <input
                   className="mt-2 w-full border-b border-[var(--color-line)] bg-transparent py-2 text-[15px] outline-none focus:border-[var(--color-ink)]"
                   placeholder="ГМК, энергетика, логистика"
@@ -116,7 +111,6 @@ export default function PilotPage() {
             </div>
 
             <label className="mt-6 block">
-              <span className="eyebrow">задача</span>
               <textarea
                 rows={4}
                 className="mt-2 w-full resize-none border-b border-[var(--color-line)] bg-transparent py-2 text-[15px] outline-none focus:border-[var(--color-ink)]"
@@ -136,7 +130,6 @@ export default function PilotPage() {
       </section>
 
       <section id="what" className="wrap py-20 md:py-24">
-        <span className="eyebrow">что входит</span>
         <h2 className="h2 mt-4 max-w-[24ch]">Что вы получите</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {included.map((i) => (
@@ -151,7 +144,6 @@ export default function PilotPage() {
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap grid gap-14 py-20 md:grid-cols-2 md:py-24">
           <div>
-            <span className="eyebrow">от вас</span>
             <h2 className="h2 mt-4">Что нужно с вашей стороны</h2>
             <ul className="mt-8 space-y-4">
               {need.map((n) => (
@@ -163,12 +155,11 @@ export default function PilotPage() {
             </ul>
           </div>
           <div>
-            <span className="eyebrow">как идёт</span>
             <h2 className="h2 mt-4">Как идёт работа</h2>
             <div className="mt-8 space-y-4">
               {timeline.map((s) => (
                 <div key={s.d} className="grid gap-2 border-t border-[var(--color-line)] pt-4 md:grid-cols-[0.3fr_0.7fr]">
-                  <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{s.d}</div>
+                  <div className="font-mono text-[13px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{s.d}</div>
                   <div className="text-[14px] leading-relaxed text-[var(--color-ink)]/85">{s.t}</div>
                 </div>
               ))}
@@ -179,12 +170,11 @@ export default function PilotPage() {
 
       <section className="border-y border-[var(--color-line)] bg-white/40">
         <div className="wrap py-20">
-          <span className="eyebrow">границы</span>
           <h2 className="h2 mt-4 max-w-[22ch]">Что в пилот не входит</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              ["Дообучение моделей", "Пилот работает на готовой модели. Дообучение на ваших данных — отдельный проект."],
-              ["Запись в ваши системы", "Ядро читает источники. Запись и изменения в ERP, MES или ECM — отдельная интеграция."],
+              ["Дообучение моделей", "Пилот работает на готовой модели. Дообучение на ваших данных, отдельный проект."],
+              ["Запись в ваши системы", "Ядро читает источники. Запись и изменения в ERP, MES или ECM, отдельная интеграция."],
               ["Промышленная нагрузка", "Пилот не рассчитан на круглосуточную нагрузку и гарантии по срокам реакции. Это следующий этап."],
             ].map(([t, d]) => (
               <div key={t} className="border-t border-[var(--color-line)] pt-5">
@@ -201,7 +191,7 @@ export default function PilotPage() {
           <h2 className="h2">Стоимость и условия</h2>
           <p className="mt-4 max-w-[60ch] text-[14.5px] leading-relaxed text-[var(--color-mute)]">
             Сумма фиксированная и зависит от объёма корпуса и режима развёртывания.
-            Состав работ, сроки и стоимость фиксируем письменно до старта — без «уточним по ходу».
+            Состав работ, сроки и стоимость фиксируем письменно до старта, без «уточним по ходу».
           </p>
           <a href="mailto:hello@cortex.ai" className="btn btn-primary mt-8">
             Написать нам →
