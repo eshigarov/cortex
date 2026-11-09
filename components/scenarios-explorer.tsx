@@ -42,7 +42,7 @@ export default function ScenariosExplorer() {
     <div>
       <div className="mt-12 space-y-5 border-y border-[var(--color-line)] py-6">
         <div className="flex flex-wrap items-baseline gap-2">
-          <span className="mr-2 font-mono text-[10.5px] text-[var(--color-mute)]">отрасль</span>
+          <span className="mr-2 font-mono text-[12px] text-[var(--color-mute)]">отрасль</span>
           {SECTORS.map((s) => {
             const on = sectors.includes(s);
             return (
@@ -65,7 +65,7 @@ export default function ScenariosExplorer() {
         </div>
 
         <div className="flex flex-wrap items-baseline gap-2">
-          <span className="mr-2 font-mono text-[10.5px] text-[var(--color-mute)]">направление</span>
+          <span className="mr-2 font-mono text-[12px] text-[var(--color-mute)]">направление</span>
           {DIRECTIONS.map((d) => {
             const on = dirs.includes(d);
             return (
@@ -147,7 +147,7 @@ export default function ScenariosExplorer() {
           <div className="w-full max-w-[900px] rounded-2xl bg-[var(--color-paper)] p-6 sm:p-8" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-start justify-between gap-4">
               <div>
-                <span className="font-mono text-[10.5px] text-[var(--color-mute)]">
+                <span className="font-mono text-[12px] text-[var(--color-mute)]">
                   {active.sector} · {active.direction}
                 </span>
                 <h2 className="mt-2 text-[26px] font-semibold leading-tight">{active.process}</h2>
@@ -175,12 +175,12 @@ export default function ScenariosExplorer() {
 
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               <div>
-                <h3 className="font-mono text-[10.5px] text-[var(--color-mute)]">что делает агент</h3>
+                <h3 className="font-mono text-[12px] text-[var(--color-mute)]">что делает агент</h3>
                 <p className="mt-2 text-[13.5px] leading-relaxed">{active.mech}</p>
                 <ol className="mt-3 space-y-1.5">
                   {active.steps.map((st, k) => (
                     <li key={st} className="flex gap-3 text-[13px] leading-relaxed text-[var(--color-mute)]">
-                      <span className="font-mono text-[10.5px] text-[var(--color-acid-ink)]">0{k + 1}</span>
+                      <span className="font-mono text-[12px] text-[var(--color-acid-ink)]">0{k + 1}</span>
                       <span>{st}</span>
                     </li>
                   ))}
@@ -188,15 +188,15 @@ export default function ScenariosExplorer() {
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-mono text-[10.5px] text-[var(--color-mute)]">человек</h3>
+                  <h3 className="font-mono text-[12px] text-[var(--color-mute)]">человек</h3>
                   <p className="mt-2 text-[13.5px] leading-relaxed">{active.human}</p>
                 </div>
                 <div>
-                  <h3 className="font-mono text-[10.5px] text-[var(--color-mute)]">связи</h3>
+                  <h3 className="font-mono text-[12px] text-[var(--color-mute)]">связи</h3>
                   <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{active.entities}</p>
                 </div>
                 <div>
-                  <h3 className="font-mono text-[10.5px] text-[var(--color-mute)]">мерим в пилоте</h3>
+                  <h3 className="font-mono text-[12px] text-[var(--color-mute)]">мерим в пилоте</h3>
                   <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-mute)]">{active.measure}</p>
                 </div>
               </div>

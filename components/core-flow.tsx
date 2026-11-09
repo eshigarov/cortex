@@ -151,7 +151,7 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
         </div>
 
         <div className="mt-4 flex min-h-[60px] items-baseline gap-3">
-          <span className="font-mono text-[10.5px] text-[#ff9a6d]">шаг {step + 1} / {STEPS.length}</span>
+          <span className="font-mono text-[12px] text-[#ff9a6d]">шаг {step + 1} / {STEPS.length}</span>
           <span className="max-w-[92ch] text-[17px] leading-relaxed text-white/75">{cur.caption}</span>
         </div>
 

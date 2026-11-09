@@ -30,7 +30,7 @@ export function SiteNav() {
             <Link
               key={i.href}
               href={i.href}
-              className="text-[13.5px] text-[var(--color-ink)]/80 transition-colors hover:text-[var(--color-ink)]"
+              className="whitespace-nowrap text-[13.5px] text-[var(--color-ink)]/80 transition-colors hover:text-[var(--color-ink)]"
             >
               {i.label}
             </Link>
@@ -45,7 +45,7 @@ export function SiteNav() {
             aria-label="Меню"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] md:hidden"
           >
             <span className="font-mono text-lg leading-none">{open ? "×" : "≡"}</span>
           </button>

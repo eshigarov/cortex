@@ -165,9 +165,9 @@ export default function Home() {
           ].map((i) => (
             <div key={i.t} className="border-t border-[var(--color-ink)] pt-5">
               <h3 className="h3">{i.t}</h3>
-              <p className="mt-4 font-mono text-[10.5px] text-[var(--color-mute)]">без ядра</p>
+              <p className="mt-4 font-mono text-[12px] text-[var(--color-mute)]">без ядра</p>
               <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--color-mute)]">{i.without}</p>
-              <p className="mt-4 font-mono text-[10.5px] text-[var(--color-acid-ink)]">с ядром</p>
+              <p className="mt-4 font-mono text-[12px] text-[var(--color-acid-ink)]">с ядром</p>
               <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--color-ink)]/85">{i.with}</p>
             </div>
           ))}
@@ -184,10 +184,10 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="marquee mt-12">
+        <div className="marquee mt-12 px-4 sm:px-0">
           <div className="marquee-track">
             {[...SCENARIOS, ...SCENARIOS].map((s, i) => (
-              <article key={s.process + i} className="card flex w-[380px] shrink-0 flex-col p-6">
+              <article key={s.process + i} className="card flex w-[min(380px,calc(100vw-32px))] shrink-0 flex-col p-6">
                 <div className="flex items-baseline justify-between gap-3">
                   <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">{s.sector}</span>
                   <span className="text-[12px] font-medium text-[var(--color-acid-ink)]">{s.pct}</span>

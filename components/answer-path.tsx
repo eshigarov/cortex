@@ -307,7 +307,7 @@ const DARK = {
   bg: "#0c0e12",
   fg: "#f4f2ef",
   dim: "#b6b9bf",
-  faint: "#5f646c",
+  faint: "#9aa0a6",
   edge: "#ffffff",
   edgeOp: 0.12,
   dot: "#ffffff",
@@ -330,7 +330,7 @@ const LIGHT = {
   bg: "#f5f5f4",
   fg: "#0b0b0c",
   dim: "#3d3a35",
-  faint: "#8a8680",
+  faint: "#5f646c",
   edge: "#0b0b0c",
   edgeOp: 0.14,
   dot: "#0b0b0c",
@@ -486,7 +486,7 @@ export default function AnswerPath() {
               type="button"
               onClick={() => goto(index - 1)}
               aria-label="Предыдущий пример"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-[18px] font-medium transition-transform hover:scale-105"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-[18px] font-medium transition-transform hover:scale-105"
               style={{ backgroundColor: T.accent, color: index % 2 === 0 ? "#120c08" : "#fff" }}
             >
               ‹
@@ -498,7 +498,7 @@ export default function AnswerPath() {
               type="button"
               onClick={() => goto(index + 1)}
               aria-label="Следующий пример"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-[18px] font-medium transition-transform hover:scale-105"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-[18px] font-medium transition-transform hover:scale-105"
               style={{ backgroundColor: T.accent, color: index % 2 === 0 ? "#120c08" : "#fff" }}
             >
               ›
@@ -506,7 +506,7 @@ export default function AnswerPath() {
           </div>
         </div>
 
-        <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[9.5px] uppercase tracking-[0.1em]" style={{ color: T.faint }}>
+        <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] uppercase tracking-[0.1em]" style={{ color: T.faint }}>
           <li className="flex items-center gap-1.5"><i className="h-1.5 w-1.5 rounded-full" style={{ background: T.types.Asset }} />объект</li>
           <li className="flex items-center gap-1.5"><i className="h-1.5 w-1.5 rounded-full" style={{ background: T.types.Event }} />событие</li>
           <li className="flex items-center gap-1.5"><i className="h-1.5 w-1.5 rounded-full" style={{ background: T.types.Metric }} />показатель</li>
@@ -596,7 +596,7 @@ export default function AnswerPath() {
 
         <div className="mt-2 flex min-h-[30px] flex-wrap items-baseline gap-x-3 gap-y-1" aria-live={reduced ? "off" : "polite"}>
           {current.relation && (
-            <span className="font-mono text-[10.5px] " style={{ color: T.accent }}>{current.relation}</span>
+            <span className="font-mono text-[12px] " style={{ color: T.accent }}>{current.relation}</span>
           )}
           <span className="text-[13.5px]" style={{ color: T.dim }}>{current.caption}</span>
         </div>
@@ -611,7 +611,7 @@ export default function AnswerPath() {
                 onClick={() => goto(i)}
                 aria-label={"Пример: " + e.domain}
                 aria-current={active}
-                className="rounded-full px-3.5 py-1.5 font-mono text-[10.5px] transition-colors"
+                className="rounded-full px-3.5 py-1.5 font-mono text-[12px] transition-colors"
                 style={
                   active
                     ? { backgroundColor: T.accent, color: index % 2 === 0 ? "#120c08" : "#fff", border: "1px solid " + T.accent }
@@ -624,7 +624,7 @@ export default function AnswerPath() {
           })}
         </div>
 
-        <p className="mt-1.5 text-[10.5px]" style={{ color: T.faint }}>
+        <p className="mt-1.5 text-[12px]" style={{ color: T.faint }}>
           Данные, из <span className="font-mono">ontology/demo.ttl</span>, подписи связей, <span className="font-mono">core.ttl</span>.
         </p>
       </div>

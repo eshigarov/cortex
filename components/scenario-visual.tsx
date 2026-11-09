@@ -11,7 +11,7 @@ export default function ScenarioVisual({ entities, steps }: Props) {
 
   return (
     <div className="mt-5">
-      <div className="flex items-center justify-between font-mono text-[9.5px] text-[var(--color-mute)]">
+      <div className="flex items-center justify-between font-mono text-[11px] text-[var(--color-mute)]">
         <span>как есть</span>
         <span className="text-[var(--color-acid-ink)]">как стало</span>
       </div>
@@ -50,7 +50,7 @@ export default function ScenarioVisual({ entities, steps }: Props) {
         })}
       </svg>
 
-      <div className="mt-3 rounded-md border border-[var(--color-line)] bg-white/60 px-3 py-2 font-mono text-[10.5px] leading-[1.7] text-[var(--color-mute)]">
+      <div className="mt-3 rounded-md border border-[var(--color-line)] bg-white/60 px-3 py-2 font-mono text-[12px] leading-[1.7] text-[var(--color-mute)]">
         {steps.map((s, i) => (
           <div key={s} className="flex gap-2">
             <span className="text-[var(--color-acid-ink)]">{">"}</span>
