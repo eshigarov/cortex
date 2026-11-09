@@ -11,7 +11,7 @@ export default function ScenarioVisual({ entities, steps }: Props) {
 
   return (
     <div className="mt-5">
-      <div className="flex items-center justify-between font-mono text-[9.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
+      <div className="flex items-center justify-between font-mono text-[9.5px] text-[var(--color-mute)]">
         <span>как есть</span>
         <span className="text-[var(--color-acid-ink)]">как стало</span>
       </div>

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
  * собранная онтологией.
  *
  * - запуск при попадании в экран, пауза вне экрана (IntersectionObserver);
- * - prefers-reduced-motion → финальный кадр (CSS media query);
+ * - prefers-reduced-motion, финальный кадр (CSS media query);
  * - SVG + CSS, без библиотек; отдельные раскладки для 1024+ и мобильных.
  */
 
@@ -354,7 +354,7 @@ function DeskScene() {
         <text x="978" y="612" className="ca-mono" fontSize="8.5" fill="rgba(245,245,244,0.4)">источники · 3</text>
         <text x="978" y="626" className="ca-mono" fontSize="9" fill="rgba(245,245,244,0.7)">акт 214 · отчёт 10 · регламент</text>
         <text x="978" y="648" className="ca-mono" fontSize="8.5" fill="rgba(245,245,244,0.4)">цепочка</text>
-        <text x="978" y="662" className="ca-mono" fontSize="9" fill="rgba(245,245,244,0.7)">оборудование → событие → документ</text>
+        <text x="978" y="662" className="ca-mono" fontSize="9" fill="rgba(245,245,244,0.7)">оборудование, событие, документ</text>
         <text x="978" y="682" className="ca-mono" fontSize="8" fill="rgba(245,245,244,0.28)">04.10 · 14:22 · версия 7</text>
       </g>
 
@@ -462,7 +462,7 @@ function MobScene() {
         <text x="28" y="897" fontSize="10" fill="rgba(245,245,244,0.9)">почему выросли простои?</text>
         <text x="28" y="914" className="ca-mono" fontSize="8" fill="rgba(245,245,244,0.4)">источники · 3</text>
         <text x="28" y="927" className="ca-mono" fontSize="8.5" fill="rgba(245,245,244,0.7)">акт 214 · отчёт 10 · регламент</text>
-        <text x="28" y="944" className="ca-mono" fontSize="8.5" fill="rgba(245,245,244,0.7)">оборудование → событие → документ</text>
+        <text x="28" y="944" className="ca-mono" fontSize="8.5" fill="rgba(245,245,244,0.7)">оборудование, событие, документ</text>
         <text x="28" y="958" className="ca-mono" fontSize="7.5" fill="rgba(245,245,244,0.28)">04.10 · 14:22 · версия 7</text>
       </g>
     </svg>

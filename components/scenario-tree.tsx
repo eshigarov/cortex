@@ -87,7 +87,7 @@ export default function ScenarioTree({ anim, theme, index }: { anim: Anim; theme
 
       <svg viewBox="0 0 560 250" style={{ width: "100%", display: "block" }} role="img" aria-label={"Дерево онтологии: " + anim.merged}>
         <text x="14" y="26" fontSize="9.5" fill={c.faint} fontFamily="ui-monospace,Menlo,monospace" letterSpacing="0.1em">
-          {anim.docs.length} ДОКУМЕНТА → ОДИН ОБЪЕКТ
+          {anim.docs.length} ДОКУМЕНТА, ОДИН ОБЪЕКТ
         </text>
 
         {edges.map((e, k) => (

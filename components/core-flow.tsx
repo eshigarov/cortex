@@ -7,7 +7,7 @@ const GATE_HINT = ["тип · ключ", "эпизод", "связи", "прав
 
 const DOCS = ["накладная", "акт", "фото", "письмо", "копия", "паспорт"];
 
-const CHAIN = ["рейс → претензия", "расхождение 6%", "проект ответа", "человек подтверждает"];
+const CHAIN = ["рейс, претензия", "расхождение 6%", "проект ответа", "человек подтверждает"];
 
 const STEPS = [
   { t: 0, caption: "Шесть источников: накладная, акт, фото, переписка, копия, паспорт. Связей между ними нет.", timer: "4 ч 00 мин" },
@@ -141,7 +141,7 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
             <g opacity={journalOn ? 1 : 0.2} style={{ transition: "opacity .5s ease" }}>
               <rect x="800" y="316" width="300" height="34" rx="7" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" />
               <text x="814" y="338" fontSize="10" fill="#9aa0a6" fontFamily="ui-monospace,Menlo,monospace">
-                журнал: источники → цепочка → версия
+                журнал: источники, цепочка, версия
               </text>
             </g>
 
@@ -151,7 +151,7 @@ export default function CoreFlow({ className = "" }: { className?: string }) {
         </div>
 
         <div className="mt-4 flex min-h-[60px] items-baseline gap-3">
-          <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[#ff9a6d]">шаг {step + 1} / {STEPS.length}</span>
+          <span className="font-mono text-[10.5px] text-[#ff9a6d]">шаг {step + 1} / {STEPS.length}</span>
           <span className="max-w-[92ch] text-[17px] leading-relaxed text-white/75">{cur.caption}</span>
         </div>
 

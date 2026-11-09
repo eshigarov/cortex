@@ -476,7 +476,7 @@ export default function AnswerPath() {
       <div className="mx-auto max-w-[1560px] px-5 sm:px-8">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: T.faint }}>
+            <p className="font-mono text-[11px] " style={{ color: T.faint }}>
               вопрос · {ex.domain}
             </p>
             <p className="mt-2 max-w-[52ch] text-[18px] font-medium">{ex.question}</p>
@@ -596,7 +596,7 @@ export default function AnswerPath() {
 
         <div className="mt-2 flex min-h-[30px] flex-wrap items-baseline gap-x-3 gap-y-1" aria-live={reduced ? "off" : "polite"}>
           {current.relation && (
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.12em]" style={{ color: T.accent }}>{current.relation}</span>
+            <span className="font-mono text-[10.5px] " style={{ color: T.accent }}>{current.relation}</span>
           )}
           <span className="text-[13.5px]" style={{ color: T.dim }}>{current.caption}</span>
         </div>
@@ -611,7 +611,7 @@ export default function AnswerPath() {
                 onClick={() => goto(i)}
                 aria-label={"Пример: " + e.domain}
                 aria-current={active}
-                className="rounded-full px-3.5 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] transition-all"
+                className="rounded-full px-3.5 py-1.5 font-mono text-[10.5px] transition-colors"
                 style={
                   active
                     ? { backgroundColor: T.accent, color: index % 2 === 0 ? "#120c08" : "#fff", border: "1px solid " + T.accent }

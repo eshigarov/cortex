@@ -68,7 +68,7 @@ export default function CorePage() {
             <Link href="/pilot" className="btn btn-primary">Обсудить пилот <span aria-hidden>→</span></Link>
             <a href="#platform" className="btn btn-ghost">Как устроено</a>
           </div>
-          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[13px] uppercase tracking-[0.12em] text-[var(--color-mute)]">
+          <div className="mt-8 flex flex-wrap gap-5 font-mono text-[13px] text-[var(--color-mute)]">
             <a href="#scheme" className="hover:text-[var(--color-ink)]">схема</a>
             <a href="#modules" className="hover:text-[var(--color-ink)]">модули</a>
             <a href="#platform" className="hover:text-[var(--color-ink)]">платформа</a>
@@ -81,7 +81,6 @@ export default function CorePage() {
         <div className="wrap py-20 md:py-24">
           <div className="grid gap-6 md:grid-cols-[0.42fr_0.58fr] md:items-end">
             <div>
-              <span className="eyebrow text-[var(--color-acid)]">схема ядра</span>
               <h2 className="h2 mt-4 max-w-[20ch]">Девять источников. Одна модель.</h2>
             </div>
             <p className="max-w-[62ch] text-[15px] leading-relaxed text-[var(--color-paper)]/65 md:pb-2">
@@ -156,7 +155,7 @@ export default function CorePage() {
         <div className="mt-10 grid gap-6 md:grid-cols-[0.4fr_0.6fr]">
           <div className="eyebrow">как собирается</div>
           <p className="text-[14px] leading-relaxed text-[var(--color-ink)]/80">
-            Данные → сущности → ключи → связи. Спорные типы подтверждает человек, ошибки видны
+            Данные, сущности, ключи, связи. Спорные типы подтверждает человек, ошибки видны
             как сироты и разрывы.
           </p>
         </div>

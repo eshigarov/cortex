@@ -165,9 +165,9 @@ export default function Home() {
           ].map((i) => (
             <div key={i.t} className="border-t border-[var(--color-ink)] pt-5">
               <h3 className="h3">{i.t}</h3>
-              <p className="mt-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-mute)]">без ядра</p>
+              <p className="mt-4 font-mono text-[10.5px] text-[var(--color-mute)]">без ядра</p>
               <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--color-mute)]">{i.without}</p>
-              <p className="mt-4 font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--color-acid-ink)]">с ядром</p>
+              <p className="mt-4 font-mono text-[10.5px] text-[var(--color-acid-ink)]">с ядром</p>
               <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--color-ink)]/85">{i.with}</p>
             </div>
           ))}

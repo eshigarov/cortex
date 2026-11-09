@@ -159,7 +159,7 @@ export default function PilotPage() {
             <div className="mt-8 space-y-4">
               {timeline.map((s) => (
                 <div key={s.d} className="grid gap-2 border-t border-[var(--color-line)] pt-4 md:grid-cols-[0.3fr_0.7fr]">
-                  <div className="font-mono text-[13px] uppercase tracking-[0.12em] text-[var(--color-mute)]">{s.d}</div>
+                  <div className="font-mono text-[13px] text-[var(--color-mute)]">{s.d}</div>
                   <div className="text-[14px] leading-relaxed text-[var(--color-ink)]/85">{s.t}</div>
                 </div>
               ))}

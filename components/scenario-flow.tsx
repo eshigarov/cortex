@@ -61,7 +61,7 @@ export default function ScenarioFlow({ entities, process }: Props) {
         })}
 
         <text x="6" y="216" fontSize="9.5" fill="var(--color-mute)">≈ 4 ч вручную</text>
-        <text x="368" y="216" fontSize="9.5" fill="var(--color-acid-ink)">журнал: источники → цепочка → версия</text>
+        <text x="368" y="216" fontSize="9.5" fill="var(--color-acid-ink)">журнал: источники, цепочка, версия</text>
       </svg>
     </div>
   );
