@@ -105,11 +105,18 @@ export default function ScenariosExplorer() {
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         {list.map(({ s, i }) => (
-          <button
+          <div
             key={s.process}
-            type="button"
+            role="button"
+            tabIndex={0}
             onClick={() => setOpen(i)}
-            className="card flex flex-col p-6 text-left transition-colors hover:border-[var(--color-ink)]/35"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setOpen(i);
+              }
+            }}
+            className="card flex cursor-pointer flex-col p-6 text-left transition-colors hover:border-[var(--color-ink)]/35"
           >
             <div className="flex items-baseline justify-between gap-3">
               <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-mute)]">
@@ -125,10 +132,21 @@ export default function ScenariosExplorer() {
               <span className="text-[26px] font-semibold leading-none text-[var(--color-acid-ink)]">{s.to}</span>
             </div>
             <div className="mt-2 text-[13px] font-medium">{s.gain}</div>
-            <span className="mt-4 text-[12px] text-[var(--color-mute)] underline decoration-[var(--color-line)] underline-offset-4">
-              подробно →
-            </span>
-          </button>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="text-[12px] text-[var(--color-mute)] underline decoration-[var(--color-line)] underline-offset-4">
+                подробно →
+              </span>
+              {s.demo && (
+                <a
+                  href={s.demo.url}
+                  onClick={(e) => e.stopPropagation()}
+                  className="rounded-full border border-[var(--color-acid-ink)] px-3 py-1 text-[12px] font-medium text-[var(--color-acid-ink)] transition-colors hover:bg-[var(--color-acid-ink)] hover:text-white"
+                >
+                  открыть прототип ↗
+                </a>
+              )}
+            </div>
+          </div>
         ))}
       </div>
 
@@ -201,6 +219,22 @@ export default function ScenariosExplorer() {
                 </div>
               </div>
             </div>
+
+            {active.demo && (
+              <div className="mt-6 rounded-xl border border-[var(--color-line)] p-4">
+                <h3 className="font-mono text-[12px] text-[var(--color-mute)]">живой прототип</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed">{active.demo.what}</p>
+                <a
+                  href={active.demo.url}
+                  className="mt-3 inline-flex items-center rounded-full bg-[var(--color-acid-ink)] px-4 py-2 text-[13px] font-medium text-white"
+                >
+                  открыть прототип ↗
+                </a>
+                <p className="mt-2 text-[11.5px] text-[var(--color-mute)]">
+                  Демо-контур с синтетическими данными. Не внедрение, а показ логики работы.
+                </p>
+              </div>
+            )}
 
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <Link href="/pilot" className="btn btn-primary">Обсудить пилот</Link>
