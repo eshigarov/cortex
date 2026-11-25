@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CortexMark } from "./cortex-mark";
+import { ThemeToggle } from "./theme-toggle";
 
 const items = [
   { href: "/core", label: "Cortex Core" },
@@ -38,6 +39,7 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link href="/pilot" className="btn btn-primary hidden sm:inline-flex">
             Обсудить пилот <span aria-hidden>→</span>
           </Link>

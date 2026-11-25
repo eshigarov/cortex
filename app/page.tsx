@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[var(--color-ink)] text-[var(--color-paper)]">
+      <section className="relative overflow-hidden bg-[var(--color-hero)] text-[var(--color-hero-fg)]">
         <div className="wrap relative pb-20 pt-16 md:pb-28 md:pt-24">
           <h1 className="display max-w-[18ch]">
             Решения, которые можно проверить
