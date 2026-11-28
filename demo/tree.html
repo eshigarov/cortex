@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cortex — дерево сценария</title>
+<style>
+  :root{--fg:#f2f0ee;--dim:#b6b9bf;--faint:#5f646c;--accent:#ff7a45;--asset:#e8e5e0;--event:#ff7a45;--metric:#6f8cff;--doc:#8c8f96;--person:#ffb26b}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#07080a;color:var(--fg);font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .panel{width:1060px;max-width:96vw;margin:24px auto;background:radial-gradient(circle at 45% 45%,#1b2029 0%,#0c0e12 78%);border:1px solid rgba(245,245,244,.08);border-radius:14px;overflow:hidden}
+  .head{padding:16px 20px 0}
+  .eyebrow{font:600 10px ui-monospace,Menlo,monospace;letter-spacing:.14em;color:var(--faint)}
+  .q{font-size:15px;margin-top:8px}
+  svg{display:block;width:100%;height:auto}
+  .edge{stroke:#fff;stroke-opacity:.13;stroke-width:1;fill:none;transition:stroke .45s,stroke-opacity .45s}
+  .edge.on{stroke:var(--accent);stroke-opacity:.95;stroke-width:2;filter:drop-shadow(0 0 6px rgba(255,122,69,.5))}
+  .node{opacity:.4;transition:opacity .45s}
+  .node.on{opacity:1}
+  .lbl{font-size:12.5px;fill:var(--dim);text-anchor:middle;transition:fill .45s}
+  .node.on .lbl{fill:#f4f2ef}
+  .cap{display:flex;gap:12px;align-items:baseline;padding:6px 20px 6px;min-height:54px}
+  .cap .rel{font:600 10px ui-monospace,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);min-width:96px}
+  .cap .txt{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.45}
+  .bar{display:flex;gap:6px;padding:0 20px 16px}
+  .bar i{height:3px;flex:1;border-radius:2px;background:rgba(255,255,255,.12);transition:background .45s}
+  .bar i.on{background:var(--accent)}
+  .nums{opacity:0;transition:opacity .45s}
+  .nums.on{opacity:1}
+</style>
+</head>
+<body>
+<div class="panel">
+  <div class="head">
+    <div class="eyebrow">ЛОГИСТИКА · ОНТОЛОГИЯ</div>
+    <div class="q">Почему претензия по рейсу не закрыта?</div>
+  </div>
+
+  <svg viewBox="0 0 1060 360" aria-label="Дерево онтологии: путь ответа по претензии">
+    <g id="edges">
+      <path class="edge" data-k="d1" d="M160 200 C230 200 268 110 330 110"/>
+      <path class="edge" data-k="d2" d="M160 200 C240 200 270 200 330 200"/>
+      <path class="edge" data-k="d3" d="M160 200 C230 200 268 290 330 290"/>
+      <path class="edge" data-k="c1" d="M162 200 L486 200"/>
+      <path class="edge" data-k="c2" d="M514 200 L642 200"/>
+      <path class="edge" data-k="c3" d="M670 200 C740 200 760 130 806 130"/>
+      <path class="edge" data-k="c4" d="M670 200 C740 200 760 270 806 270"/>
+    </g>
+
+    <g class="node" id="n0">
+      <circle cx="160" cy="200" r="7" fill="var(--asset)"/>
+      <text class="lbl" x="160" y="176" font-weight="600">Рейс TR-4821</text>
+    </g>
+    <g class="node" id="n1">
+      <circle cx="342" cy="110" r="5" fill="var(--doc)"/>
+      <text class="lbl" x="342" y="92">Накладная №7781</text>
+    </g>
+    <g class="node" id="n2">
+      <circle cx="342" cy="200" r="5" fill="var(--doc)"/>
+      <text class="lbl" x="342" y="182">Акт приёмки</text>
+    </g>
+    <g class="node" id="n3">
+      <circle cx="342" cy="290" r="5" fill="var(--doc)"/>
+      <text class="lbl" x="342" y="272">Фото партии</text>
+    </g>
+    <g class="node" id="n4">
+      <circle cx="500" cy="200" r="7" fill="var(--event)"/>
+      <text class="lbl" x="500" y="182">Претензия 118 тыс.</text>
+    </g>
+    <g class="node" id="n5">
+      <circle cx="656" cy="200" r="7" fill="var(--metric)"/>
+      <text class="lbl" x="656" y="182">Расхождение 6%</text>
+      <g class="nums" id="nums">
+        <text x="656" y="246" text-anchor="middle" font-size="12.5" font-family="ui-monospace,Menlo,monospace" fill="#9aa0a6">
+          18 240 кг <tspan fill="#ff7a45" font-weight="700" font-size="16">−6%</tspan> 17 150 кг
+        </text>
+      </g>
+    </g>
+    <g class="node" id="n6">
+      <circle cx="816" cy="130" r="7" fill="var(--event)"/>
+      <text class="lbl" x="816" y="112">Проект ответа</text>
+    </g>
+    <g class="node" id="n7">
+      <circle cx="816" cy="270" r="6" fill="var(--person)"/>
+      <text class="lbl" x="816" y="252">Юрист Орлова</text>
+      <text x="816" y="290" text-anchor="middle" font-size="9.5" fill="#5f646c" font-family="ui-monospace,Menlo,monospace" letter-spacing=".1em">ПОДТВЕРЖДАЕТ</text>
+    </g>
+  </svg>
+
+  <div class="cap">
+    <span class="rel" id="rel">·</span>
+    <span class="txt" id="txt">Рейс, накладная, акт и фото существуют отдельно. Связей нет.</span>
+  </div>
+  <div class="bar" id="bar"></div>
+</div>
+
+<script>
+(function(){
+  var steps = [
+    { n:0, e:[], rel:"нет связей", txt:"Рейс, накладная, акт и фото существуют отдельно. Связей нет." },
+    { n:0, e:["d1","d2","d3"], rel:"связи", txt:"Документы привязаны к рейсу: накладная, акт приёмки, фото партии." },
+    { n:4, e:["c1"], rel:"заявлена", txt:"Претензия на 118 тыс. — событие по этому рейсу." },
+    { n:5, e:["c2"], rel:"причина", txt:"Сверка веса: 18 240 кг против 17 150 кг, расхождение 6%." },
+    { n:6, e:["c3"], rel:"решение", txt:"Собран проект ответа с основанием: договор перевозки, п. 3.1." },
+    { n:7, e:["c4"], rel:"подтверждает", txt:"Сложное решение подтверждает юрист. Всё записано в журнал." }
+  ];
+  var nodes=[].slice.call(document.querySelectorAll('.node'));
+  var edges=[].slice.call(document.querySelectorAll('.edge'));
+  var bar=document.getElementById('bar');
+  steps.forEach(function(){ bar.appendChild(document.createElement('i')); });
+  var bars=[].slice.call(bar.children);
+  var i=0;
+
+  function render(){
+    var s=steps[i];
+    nodes.forEach(function(n){ n.classList.toggle('on', Number(n.id.slice(1))<=s.n); });
+    edges.forEach(function(e){ e.classList.toggle('on', s.e.indexOf(e.dataset.k)>-1); });
+    document.getElementById('nums').classList.toggle('on', i>=3);
+    document.getElementById('rel').textContent=s.rel;
+    document.getElementById('txt').textContent=s.txt;
+    bars.forEach(function(b,k){ b.classList.toggle('on', k<=i); });
+  }
+  render();
+  setInterval(function(){ i=(i+1)%steps.length; render(); }, 2000);
+})();
+</script>
+</body>
+</html>

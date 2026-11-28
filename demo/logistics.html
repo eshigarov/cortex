@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Прототип: претензия по рейсу</title>
+<style>
+  :root{--bg:#0c0e12;--fg:#f2f0ee;--dim:#9aa0a6;--faint:#5f646c;--accent:#ff7a45}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#07080a;color:var(--fg);font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .stage{position:relative;width:520px;height:430px;margin:24px auto;background:radial-gradient(circle at 50% 45%,#1b2029 0%,#0c0e12 78%);border:1px solid rgba(245,245,244,.08);border-radius:14px;overflow:hidden}
+  .grid{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:26px 26px;opacity:.05}
+  .hdr{position:absolute;left:20px;top:16px;font:600 10px ui-monospace,Menlo,monospace;letter-spacing:.14em;color:var(--faint)}
+  .claim{position:absolute;left:20px;top:34px;display:flex;align-items:center;gap:8px;font-size:14px}
+  .dot{width:7px;height:7px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 10px #ff4d4d}
+  .doc{position:absolute;width:118px;height:46px;border:1px dashed rgba(255,255,255,.22);border-radius:8px;display:flex;align-items:center;padding:0 12px;font-size:12px;color:#cfd2d6;background:rgba(255,255,255,.02);animation-duration:9s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+  .d1{left:22px;top:78px;animation-name:merge;--dx:180px;--dy:60px;animation-delay:.0s}
+  .d2{left:190px;top:64px;animation-name:merge;--dx:12px;--dy:74px;animation-delay:.25s}
+  .d3{left:44px;top:170px;animation-name:merge;--dx:158px;--dy:-28px;animation-delay:.5s}
+  .d4{left:206px;top:158px;animation-name:merge;--dx:-4px;--dy:-16px;animation-delay:.75s}
+  @keyframes merge{
+    0%{opacity:0;transform:translate(0,0) scale(1)}
+    6%{opacity:1;transform:translate(0,0) scale(1)}
+    20%{opacity:1;transform:translate(0,0) scale(1)}
+    30%{opacity:.0;transform:translate(var(--dx),var(--dy)) scale(.55)}
+    100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.55)}
+  }
+  .merged{position:absolute;left:150px;top:118px;width:220px;height:52px;border:1px solid rgba(255,122,69,.6);background:rgba(255,122,69,.10);border-radius:10px;display:flex;align-items:center;gap:10px;padding:0 14px;font-size:14px;opacity:0;animation:merged 9s cubic-bezier(.2,.7,.2,1) infinite}
+  .merged i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  @keyframes merged{
+    0%,26%{opacity:0;transform:scale(.9)}
+    31%{opacity:1;transform:scale(1.03)}
+    36%,86%{opacity:1;transform:scale(1)}
+    94%,100%{opacity:0;transform:scale(1)}
+  }
+  .w{position:absolute;font:500 15px ui-monospace,Menlo,monospace;color:#e9e7e4;opacity:0;animation-duration:9s;animation-iteration-count:infinite}
+  .w1{left:64px;top:206px;animation-name:fade;animation-delay:.0s}
+  .w2{left:300px;top:206px;animation-name:fade;animation-delay:.1s}
+  @keyframes fade{0%,33%{opacity:0;transform:translateY(6px)}40%,86%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .gap{position:absolute;left:214px;top:192px;font:700 30px ui-monospace,Menlo,monospace;color:var(--accent);opacity:0;animation:pop 9s cubic-bezier(.2,.7,.2,1) infinite}
+  @keyframes pop{0%,40%{opacity:0;transform:scale(.6)}46%{opacity:1;transform:scale(1.12)}50%,86%{opacity:1;transform:scale(1)}94%,100%{opacity:0}}
+  .card2{position:absolute;left:40px;top:262px;width:440px;height:96px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(255,255,255,.03);padding:12px 14px;opacity:0;animation:panel 9s ease infinite}
+  @keyframes panel{0%,46%{opacity:0;transform:translateY(8px)}52%,86%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .ln{font-size:12px;color:#cfd2d6;opacity:0;animation:line 9s ease infinite}
+  .ln span{color:var(--accent);font-family:ui-monospace,Menlo,monospace;margin-right:6px}
+  .l1{animation-delay:.0s}.l2{animation-delay:.35s}.l3{animation-delay:.7s}
+  @keyframes line{0%,50%{opacity:0;transform:translateX(-6px)}55%,86%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .ln+.ln{margin-top:7px}
+  .stamp{position:absolute;right:14px;bottom:10px;font:600 10px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#ffb08a;border:1px solid rgba(255,122,69,.6);border-radius:4px;padding:3px 7px;opacity:0;animation:stamp 9s ease infinite}
+  @keyframes stamp{0%,60%{opacity:0;transform:scale(1.4) rotate(-6deg)}66%,86%{opacity:1;transform:scale(1) rotate(-6deg)}94%,100%{opacity:0}}
+  .human{position:absolute;left:40px;top:372px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:#e9e7e4;opacity:0;animation:human 9s ease infinite}
+  .check{width:16px;height:16px;border-radius:4px;background:rgba(255,122,69,.15);border:1px solid rgba(255,122,69,.7);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:11px}
+  @keyframes human{0%,66%{opacity:0;transform:translateY(6px)}72%,86%{opacity:1;transform:none}94%,100%{opacity:0}}
+  .time{position:absolute;right:40px;top:374px;font:600 12px ui-monospace,Menlo,monospace;color:var(--faint);opacity:0;animation:human 9s ease infinite}
+  .time b{color:var(--accent);font-size:15px}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid"></div>
+    <div class="hdr">ЛОГИСТИКА · ПРЕТЕНЗИЯ</div>
+    <div class="claim"><span class="dot"></span>претензия 118 тыс. — не закрыта</div>
+
+    <div class="doc d1">накладная</div>
+    <div class="doc d2">акт приёмки</div>
+    <div class="doc d3">фото партии</div>
+    <div class="doc d4">письмо клиента</div>
+
+    <div class="merged"><i></i>Рейс TR-4821</div>
+
+    <div class="w w1">18 240 кг</div>
+    <div class="w w2">17 150 кг</div>
+    <div class="gap">−6%</div>
+
+    <div class="card2">
+      <div class="ln l1"><span>01</span>факт: вес по накладной не сошёлся</div>
+      <div class="ln l2"><span>02</span>расчёт: 6% · акт приёмки 04.10</div>
+      <div class="ln l3"><span>03</span>основание: договор перевозки, п. 3.1</div>
+      <div class="stamp">ПРОЕКТ ОТВЕТА</div>
+    </div>
+
+    <div class="human"><span class="check">✓</span>юрист подтверждает</div>
+    <div class="time"><b>25 мин</b> вместо 4 ч</div>
+  </div>
+</body>
+</html>
